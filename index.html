@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas de la pensée occidentale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #c8c4bc;
+      --surface: #ffffff;
+      --border: rgba(0,0,0,0.1);
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --header-h: 72px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      z-index: 100;
+      background: rgba(200,196,188,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .header-title { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: #111111; }
+    .header-sub { font-size: 12px; color: #444444; font-weight: 500; margin-top: 2px; }
+
+    .header-right { display: flex; align-items: center; gap: 14px; }
+
+    #search {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 13px;
+      color: var(--text);
+      width: 260px;
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.15s;
+    }
+    #search:focus { border-color: rgba(0,0,0,0.25); }
+    #search::placeholder { color: var(--muted); }
+
+    .mode-badge {
+      font-size: 11px;
+      color: var(--muted);
+      background: rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 12px;
+      white-space: nowrap;
+    }
+
+    /* VIEWPORT */
+    #viewport {
+      position: fixed;
+      top: var(--header-h);
+      left: 0; right: 0; bottom: 0;
+      overflow: hidden;
+      cursor: crosshair;
+      user-select: none;
+    }
+    #viewport.detail { cursor: grab; }
+    #viewport.detail.dragging { cursor: grabbing; }
+
+    /* CANVAS */
+    #canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 10200px;
+      height: 3000px;
+      transform-origin: 0 0;
+    }
+    #canvas.animated { transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+    /* NODES */
+    .node {
+      position: absolute;
+      width: 240px;
+      border-radius: 14px;
+      padding: 13px 15px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: #ffffff;
+      pointer-events: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 1px 3px rgba(0,0,0,0.12);
+    }
+    #viewport.detail .node {
+      pointer-events: auto;
+      cursor: pointer;
+    }
+    #viewport.detail .node:hover {
+      border-color: rgba(0,0,0,0.28);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+    .node.concept {
+      border-style: dashed;
+      background: #fafaf8;
+    }
+    .node.dimmed { opacity: 0.1; }
+
+    .node-domain {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+    .node-name {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #111111;
+    }
+    .node.concept .node-name { font-style: italic; }
+    .node-era { font-size: 11px; color: #555555; font-weight: 500; margin-top: 2px; }
+    .node-tags { margin-top: 9px; display: flex; flex-direction: column; gap: 3px; }
+    .node-tag {
+      font-size: 11px;
+      color: #222222;
+      font-weight: 500;
+      background: rgba(0,0,0,0.06);
+      border-radius: 5px;
+      padding: 3px 7px;
+    }
+
+    /* SVG */
+    #links-svg {
+      position: absolute;
+      top: 0; left: 0;
+      pointer-events: none;
+    }
+
+    /* HOVER RECT */
+    #hover-rect {
+      position: absolute;
+      border: 2px solid rgba(0,0,0,0.5);
+      border-radius: 6px;
+      pointer-events: none;
+      display: none;
+      background: rgba(0,0,0,0.02);
+      box-shadow: 0 0 0 9999px rgba(255,255,255,0.35);
+    }
+
+    /* PANEL */
+    #panel {
+      position: fixed;
+      top: calc(var(--header-h) + 14px);
+      right: 14px;
+      width: 340px;
+      max-height: calc(100vh - var(--header-h) - 28px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      z-index: 200;
+      overflow-y: auto;
+      display: none;
+      scrollbar-width: thin;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    }
+    #panel.open { display: block; }
+
+    .panel-header { padding-right: 28px; }
+    .panel-name { font-size: 22px; font-weight: 700; line-height: 1.2; color: #111111; }
+    .panel-meta { font-size: 13px; color: #444444; font-weight: 500; margin-top: 5px; }
+
+    #panel-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      background: rgba(0,0,0,0.06);
+      border: none;
+      color: var(--muted);
+      font-size: 14px;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #panel-close:hover { background: rgba(0,0,0,0.12); color: var(--text); }
+
+    .panel-section {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #444444;
+      margin: 16px 0 7px;
+    }
+    .panel-concepts { display: flex; flex-direction: column; gap: 5px; }
+    .panel-concept {
+      font-size: 13px;
+      font-weight: 500;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: #111111;
+    }
+    .panel-nodes { display: flex; flex-wrap: wrap; gap: 5px; }
+    .panel-node-btn {
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid rgba(0,0,0,0.2);
+      background: rgba(0,0,0,0.04);
+      border-radius: 999px;
+      padding: 5px 12px;
+      color: #111111;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .panel-node-btn:hover { background: rgba(0,0,0,0.1); }
+
+    .panel-description {
+      font-size: 13px;
+      line-height: 1.65;
+      color: #222222;
+    }
+    .panel-quote {
+      margin: 8px 0;
+      padding: 10px 14px;
+      border-left: 3px solid #aaaaaa;
+      background: rgba(0,0,0,0.03);
+      border-radius: 0 8px 8px 0;
+    }
+    .panel-quote p {
+      font-size: 13px;
+      font-style: italic;
+      line-height: 1.6;
+      color: #222222;
+    }
+    .panel-quote cite {
+      display: block;
+      margin-top: 5px;
+      font-size: 11px;
+      color: #666666;
+      font-style: normal;
+      font-weight: 500;
+    }
+    .panel-biblio {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .panel-biblio li {
+      font-size: 12px;
+      padding: 6px 10px;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+    }
+    .bib-title { color: #111111; font-weight: 600; }
+    .bib-year  { color: #666666; font-weight: 400; }
+
+    /* LEGEND */
+    #legend {
+      position: fixed;
+      bottom: 14px;
+      left: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      max-width: 580px;
+      z-index: 50;
+      pointer-events: none;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 10px;
+      color: #374151;
+    }
+    .legend-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="header-title">Atlas de la pensée occidentale</div>
+    <div class="header-sub" id="header-sub">Cliquer pour zoomer</div>
+  </div>
+  <div class="header-right">
+    <input id="search" type="text" placeholder="Rechercher un penseur ou concept…" autocomplete="off">
+    <div class="mode-badge" id="mode-badge">Vue d'ensemble</div>
+  </div>
+</header>
+
+<div id="viewport">
+  <div id="canvas">
+    <svg id="links-svg" width="10200" height="3000"></svg>
+  </div>
+  <div id="hover-rect"></div>
+</div>
+
+<div id="panel">
+  <button id="panel-close">✕</button>
+  <div id="panel-content"></div>
+</div>
+
+<div id="legend"></div>
+
+<script>
+const DATA = {
+  "nodes": [
+    { "id": "socrate",        "name": "Socrate",               "type": "author",  "era": "Antiquité",        "domain": "Antique",          "concepts": ["Maïeutique", "Éthique du dialogue"],                                          "x": 50,   "y": 490  },
+    { "id": "platon",         "name": "Platon",                "type": "author",  "era": "Antiquité",        "domain": "Antique",          "concepts": ["Monde des idées", "Idéalisme"],                                               "x": 350,  "y": 270  },
+    { "id": "aristote",       "name": "Aristote",              "type": "author",  "era": "Antiquité",        "domain": "Antique",          "concepts": ["Logique", "Métaphysique empirique"],                                          "x": 650,  "y": 270  },
+    { "id": "stoiciens",      "name": "Stoïciens",             "type": "concept", "era": "Antiquité",        "domain": "Antique",          "concepts": ["Vertu", "Maîtrise de soi"],                                                   "x": 950,  "y": 50   },
+    { "id": "epicure",        "name": "Épicure",               "type": "author",  "era": "Antiquité",        "domain": "Antique",          "concepts": ["Ataraxie", "Hédonisme modéré"],                                               "x": 950,  "y": 490  },
+    { "id": "neoplatonisme",  "name": "Plotin / Néoplatonisme","type": "concept", "era": "Antiquité",        "domain": "Antique",          "concepts": ["Émanation", "Hiérarchie spirituelle"],                                        "x": 950,  "y": 930  },
+    { "id": "aquin",          "name": "Thomas d'Aquin",        "type": "author",  "era": "Moyen Âge",        "domain": "Médiéval",         "concepts": ["Synthèse foi/raison", "Aristotélisme chrétien"],                              "x": 1250, "y": 270  },
+    { "id": "augustin",       "name": "Augustin",              "type": "author",  "era": "Antiquité tardive","domain": "Médiéval",         "concepts": ["Foi intérieure", "Temps et âme"],                                             "x": 1250, "y": 710  },
+    { "id": "scolastique",    "name": "Scolastique",           "type": "concept", "era": "Moyen Âge",        "domain": "Médiéval",         "concepts": ["Logique théologique", "Foi et raison"],                                       "x": 1550, "y": 490  },
+    { "id": "nominalisme",    "name": "Nominalisme",           "type": "concept", "era": "Moyen Âge",        "domain": "Médiéval",         "concepts": ["Universaux contestés", "Primat des individus"],                               "x": 1850, "y": 490  },
+    { "id": "humanisme",      "name": "Humanisme",             "type": "concept", "era": "Renaissance",      "domain": "Médiéval",         "concepts": ["Retour aux textes", "Centralité de l'homme"],                                 "x": 2150, "y": 490  },
+    { "id": "machiavel",      "name": "Machiavel",             "type": "author",  "era": "Renaissance",      "domain": "Renaissance",      "concepts": ["Raison d'État", "Réalisme politique"],                                        "x": 2450, "y": 50   },
+    { "id": "grotius",        "name": "Grotius",               "type": "author",  "era": "Renaissance",      "domain": "Renaissance",      "concepts": ["Droit naturel", "Droit international"],                                       "x": 2450, "y": 490  },
+    { "id": "bacon",          "name": "Bacon",                 "type": "author",  "era": "Renaissance",      "domain": "Renaissance",      "concepts": ["Méthode expérimentale", "Induction"],                                         "x": 2450, "y": 930  },
+    { "id": "galilee",        "name": "Galilée",               "type": "author",  "era": "Renaissance",      "domain": "Renaissance",      "concepts": ["Mathématisation", "Science moderne"],                                         "x": 2750, "y": 930  },
+    { "id": "newton",         "name": "Newton",                "type": "author",  "era": "XVIIe-XVIIIe",    "domain": "Renaissance",      "concepts": ["Mécanique classique", "Lois universelles"],                                   "x": 3050, "y": 930  },
+    { "id": "lumieres",       "name": "Lumières",              "type": "concept", "era": "XVIIIe",           "domain": "Moderne",          "concepts": ["Raison critique", "Progrès et émancipation"],                                 "x": 3350, "y": 930  },
+    { "id": "descartes",      "name": "Descartes",             "type": "author",  "era": "XVIIe",            "domain": "Moderne",          "concepts": ["Cogito", "Dualisme", "Méthode scientifique"],                                 "x": 2450, "y": 1370 },
+    { "id": "spinoza",        "name": "Spinoza",               "type": "author",  "era": "XVIIe",            "domain": "Moderne",          "concepts": ["Monisme", "Déterminisme"],                                                    "x": 2750, "y": 1370 },
+    { "id": "leibniz",        "name": "Leibniz",               "type": "author",  "era": "XVIIe",            "domain": "Moderne",          "concepts": ["Monadologie", "Harmonie préétablie"],                                         "x": 2750, "y": 1590 },
+    { "id": "empirisme",      "name": "Empirisme",             "type": "concept", "era": "XVIIe-XVIIIe",    "domain": "Moderne",          "concepts": ["Connaissance par l'expérience", "Observation"],                               "x": 3050, "y": 1370 },
+    { "id": "hobbes",         "name": "Hobbes",                "type": "author",  "era": "XVIIe",            "domain": "Moderne",          "concepts": ["État souverain", "Contrat social"],                                           "x": 3050, "y": 1810 },
+    { "id": "locke",          "name": "Locke",                 "type": "author",  "era": "XVIIe",            "domain": "Moderne",          "concepts": ["Tabula rasa", "Libéralisme"],                                                 "x": 3350, "y": 1370 },
+    { "id": "hume",           "name": "Hume",                  "type": "author",  "era": "XVIIIe",           "domain": "Moderne",          "concepts": ["Scepticisme", "Critique de la causalité"],                                    "x": 3350, "y": 1810 },
+    { "id": "voltaire",       "name": "Voltaire",              "type": "author",  "era": "XVIIIe",           "domain": "Moderne",          "concepts": ["Tolérance", "Critique religieuse"],                                           "x": 3650, "y": 930  },
+    { "id": "montesquieu",    "name": "Montesquieu",           "type": "author",  "era": "XVIIIe",           "domain": "Moderne",          "concepts": ["Séparation des pouvoirs", "Libéralisme politique"],                           "x": 3650, "y": 1150 },
+    { "id": "rousseau",       "name": "Rousseau",              "type": "author",  "era": "XVIIIe",           "domain": "Moderne",          "concepts": ["Volonté générale", "Contrat social"],                                         "x": 3650, "y": 1590 },
+    { "id": "diderot",        "name": "Diderot",               "type": "author",  "era": "XVIIIe",           "domain": "Moderne",          "concepts": ["Encyclopédie", "Diffusion du savoir"],                                        "x": 3950, "y": 930  },
+    { "id": "kant",           "name": "Kant",                  "type": "author",  "era": "XVIIIe",           "domain": "Critique",         "concepts": ["Critique de la raison pure", "Impératif catégorique", "Synthèse empirisme/rationalisme"], "x": 3950, "y": 1370 },
+    { "id": "hegel",          "name": "Hegel",                 "type": "author",  "era": "XIXe",             "domain": "Idéalisme",        "concepts": ["Dialectique", "Histoire de l'esprit", "Esprit absolu"],                       "x": 4250, "y": 1150 },
+    { "id": "schopenhauer",   "name": "Schopenhauer",          "type": "author",  "era": "XIXe",             "domain": "XIXe",             "concepts": ["Volonté primale", "Pessimisme"],                                              "x": 4250, "y": 1590 },
+    { "id": "marx",           "name": "Marx",                  "type": "author",  "era": "XIXe",             "domain": "Critique sociale",  "concepts": ["Matérialisme historique", "Lutte des classes", "Aliénation"],               "x": 4550, "y": 930  },
+    { "id": "kierkegaard",    "name": "Kierkegaard",           "type": "author",  "era": "XIXe",             "domain": "XIXe",             "concepts": ["Angoisse", "Existence subjective"],                                           "x": 4550, "y": 1590 },
+    { "id": "nietzsche",      "name": "Nietzsche",             "type": "author",  "era": "XIXe",             "domain": "Continental",      "concepts": ["Volonté de puissance", "Critique morale", "Éternel retour"],                  "x": 4850, "y": 1370 },
+    { "id": "freud",          "name": "Freud",                 "type": "author",  "era": "XIXe-XXe",         "domain": "Continental",      "concepts": ["Inconscient", "Psychanalyse", "Ça/Moi/Surmoi"],                              "x": 4850, "y": 1810 },
+    { "id": "bentham",        "name": "Bentham",               "type": "author",  "era": "XIXe",             "domain": "XIXe",             "concepts": ["Utilitarisme", "Calcul du bonheur"],                                          "x": 4250, "y": 2030 },
+    { "id": "mill",           "name": "J.S. Mill",             "type": "author",  "era": "XIXe",             "domain": "XIXe",             "concepts": ["Liberté individuelle", "Utilitarisme libéral"],                               "x": 4550, "y": 2030 },
+    { "id": "tocqueville",    "name": "Tocqueville",           "type": "author",  "era": "XIXe",             "domain": "XIXe",             "concepts": ["Démocratie en Amérique", "Égalité et liberté"],                               "x": 4850, "y": 2030 },
+    { "id": "adam_smith",     "name": "Adam Smith",            "type": "author",  "era": "XVIIIe-XIXe",     "domain": "Économie",         "concepts": ["Main invisible", "Division du travail"],                                      "x": 4250, "y": 2470 },
+    { "id": "ricardo",        "name": "Ricardo",               "type": "author",  "era": "XIXe",             "domain": "Économie",         "concepts": ["Valeur travail", "Commerce international"],                                   "x": 4550, "y": 2470 },
+    { "id": "darwin",         "name": "Darwin",                "type": "author",  "era": "XIXe",             "domain": "XIXe",             "concepts": ["Évolution", "Sélection naturelle"],                                           "x": 4550, "y": 2690 },
+    { "id": "spencer",        "name": "Spencer",               "type": "author",  "era": "XIXe",             "domain": "XIXe",             "concepts": ["Darwinisme social", "Évolutionnisme"],                                        "x": 4850, "y": 2690 },
+    { "id": "comte",          "name": "Comte",                 "type": "author",  "era": "XIXe",             "domain": "Sciences sociales","concepts": ["Positivisme", "Sociologie"],                                                  "x": 5450, "y": 50   },
+    { "id": "durkheim",       "name": "Durkheim",              "type": "author",  "era": "XIXe-XXe",         "domain": "Sciences sociales","concepts": ["Faits sociaux", "Cohésion sociale", "Anomie"],                                "x": 5750, "y": 50   },
+    { "id": "mauss",          "name": "Mauss",                 "type": "author",  "era": "XXe",              "domain": "Sciences sociales","concepts": ["Essai sur le don", "Fait social total"],                                      "x": 6050, "y": 50   },
+    { "id": "levi_strauss",   "name": "Lévi-Strauss",          "type": "author",  "era": "XXe",              "domain": "Sciences sociales","concepts": ["Structures élémentaires", "Anthropologie structurale"],                       "x": 6350, "y": 50   },
+    { "id": "weber",          "name": "Weber",                 "type": "author",  "era": "XIXe-XXe",         "domain": "Sciences sociales","concepts": ["Rationalisation", "Sociologie compréhensive", "Éthique protestante"],        "x": 5750, "y": 490  },
+    { "id": "parsons",        "name": "Parsons",               "type": "author",  "era": "XXe",              "domain": "Sciences sociales","concepts": ["Fonctionnalisme", "Système social"],                                          "x": 6050, "y": 490  },
+    { "id": "elias",          "name": "Elias",                 "type": "author",  "era": "XXe",              "domain": "Sciences sociales","concepts": ["Processus de civilisation", "Figurations sociales"],                         "x": 6050, "y": 710  },
+    { "id": "bourdieu",       "name": "Bourdieu",              "type": "author",  "era": "XXe",              "domain": "Sciences sociales","concepts": ["Habitus", "Capital culturel", "Reproduction sociale"],                       "x": 6350, "y": 490  },
+    { "id": "mead",           "name": "Mead",                  "type": "author",  "era": "XXe",              "domain": "Sciences sociales","concepts": ["Interactionnisme symbolique", "Soi social"],                                 "x": 5450, "y": 710  },
+    { "id": "blumer",         "name": "Blumer",                "type": "author",  "era": "XXe",              "domain": "Sciences sociales","concepts": ["Interaction symbolique", "Sens social"],                                     "x": 5750, "y": 930  },
+    { "id": "goffman",        "name": "Goffman",               "type": "author",  "era": "XXe",              "domain": "Sciences sociales","concepts": ["Mise en scène sociale", "Stigmate"],                                         "x": 6050, "y": 930  },
+    { "id": "latour",         "name": "Latour",                "type": "author",  "era": "XXe-XXIe",         "domain": "Sciences sociales","concepts": ["Acteur-réseau", "Sociologie des sciences"],                                  "x": 6650, "y": 490  },
+    { "id": "eco_classique",  "name": "Économie classique",    "type": "concept", "era": "XVIIIe-XIXe",     "domain": "Économie",         "concepts": ["Marché", "Valeur travail"],                                                   "x": 5450, "y": 1370 },
+    { "id": "walras",         "name": "Walras",                "type": "author",  "era": "XIXe",             "domain": "Économie",         "concepts": ["Équilibre général", "Mathématisation"],                                      "x": 5450, "y": 1810 },
+    { "id": "neoclassique",   "name": "École néoclassique",    "type": "concept", "era": "XIXe-XXe",         "domain": "Économie",         "concepts": ["Utilité marginale", "Équilibre de marché"],                                  "x": 5750, "y": 1810 },
+    { "id": "menger",         "name": "Menger",                "type": "author",  "era": "XIXe",             "domain": "Économie",         "concepts": ["Valeur subjective", "École autrichienne"],                                   "x": 5450, "y": 2250 },
+    { "id": "autrichienne",   "name": "École autrichienne",    "type": "concept", "era": "XIXe-XXe",         "domain": "Économie",         "concepts": ["Ordre spontané", "Anti-planisme"],                                           "x": 5750, "y": 2250 },
+    { "id": "hayek",          "name": "Hayek",                 "type": "author",  "era": "XXe",              "domain": "Économie",         "concepts": ["Ordre spontané", "Marché libre", "Critique du planisme"],                    "x": 6050, "y": 2250 },
+    { "id": "marshall",       "name": "Marshall",              "type": "author",  "era": "XIXe-XXe",         "domain": "Économie",         "concepts": ["Offre et demande", "Microéconomie"],                                         "x": 5750, "y": 1370 },
+    { "id": "keynes",         "name": "Keynes",                "type": "author",  "era": "XXe",              "domain": "Économie",         "concepts": ["Demande globale", "Intervention de l'État"],                                 "x": 6050, "y": 1370 },
+    { "id": "minsky",         "name": "Minsky",                "type": "author",  "era": "XXe",              "domain": "Économie",         "concepts": ["Instabilité financière", "Cycles du crédit"],                                "x": 6350, "y": 1370 },
+    { "id": "chicago",        "name": "Chicago / Friedman",    "type": "concept", "era": "XXe",              "domain": "Économie",         "concepts": ["Monétarisme", "Libre marché"],                                               "x": 6350, "y": 1810 },
+    { "id": "neoliberalisme", "name": "Néolibéralisme",        "type": "concept", "era": "XXe-XXIe",         "domain": "Économie",         "concepts": ["Dérégulation", "Primat du marché"],                                          "x": 6650, "y": 1810 },
+    { "id": "sen",            "name": "Amartya Sen",           "type": "author",  "era": "XXe-XXIe",         "domain": "Économie",         "concepts": ["Capabilités", "Justice et développement"],                                   "x": 6650, "y": 1370 },
+    { "id": "husserl",        "name": "Husserl",               "type": "author",  "era": "XIXe-XXe",         "domain": "Continental",      "concepts": ["Phénoménologie", "Conscience intentionnelle", "Épochè"],                     "x": 6950, "y": 50   },
+    { "id": "heidegger",      "name": "Heidegger",             "type": "author",  "era": "XXe",              "domain": "Continental",      "concepts": ["Être-au-monde", "Ontologie", "Dasein"],                                      "x": 7250, "y": 50   },
+    { "id": "sartre",         "name": "Sartre",                "type": "author",  "era": "XXe",              "domain": "Continental",      "concepts": ["Existentialisme", "Liberté radicale", "Mauvaise foi"],                       "x": 7550, "y": 50   },
+    { "id": "arendt",         "name": "Arendt",                "type": "author",  "era": "XXe",              "domain": "Continental",      "concepts": ["Totalitarisme", "Action politique", "Banalité du mal"],                      "x": 7550, "y": 270  },
+    { "id": "merleau_ponty",  "name": "Merleau-Ponty",         "type": "author",  "era": "XXe",              "domain": "Continental",      "concepts": ["Phénoménologie du corps", "Perception"],                                     "x": 7550, "y": 490  },
+    { "id": "francfort",      "name": "École de Francfort",    "type": "concept", "era": "XXe",              "domain": "Continental",      "concepts": ["Théorie critique", "Culture et domination"],                                 "x": 7250, "y": 710  },
+    { "id": "habermas",       "name": "Habermas",              "type": "author",  "era": "XXe-XXIe",         "domain": "Continental",      "concepts": ["Agir communicationnel", "Démocratie délibérative"],                          "x": 7550, "y": 710  },
+    { "id": "beauvoir",       "name": "Beauvoir",              "type": "author",  "era": "XXe",              "domain": "Continental",      "concepts": ["Féminisme existentialiste", "Le Deuxième Sexe"],                             "x": 7850, "y": 50   },
+    { "id": "saussure",       "name": "Saussure",              "type": "author",  "era": "XIXe-XXe",         "domain": "Continental",      "concepts": ["Linguistique structurale", "Signifiant/signifié"],                           "x": 6950, "y": 930  },
+    { "id": "structuralisme", "name": "Structuralisme",        "type": "concept", "era": "XXe",              "domain": "Continental",      "concepts": ["Structures profondes", "Systèmes de signes"],                                "x": 7250, "y": 930  },
+    { "id": "lacan",          "name": "Lacan",                 "type": "author",  "era": "XXe",              "domain": "Continental",      "concepts": ["Inconscient structuré comme un langage", "Ordre symbolique"],               "x": 7550, "y": 930  },
+    { "id": "barthes",        "name": "Barthes",               "type": "author",  "era": "XXe",              "domain": "Continental",      "concepts": ["Mythologies", "Sémiologie", "Mort de l'auteur"],                             "x": 7550, "y": 1150 },
+    { "id": "foucault",       "name": "Foucault",              "type": "author",  "era": "XXe",              "domain": "Continental",      "concepts": ["Pouvoir/savoir", "Biopolitique", "Institutions et discours"],               "x": 7850, "y": 490  },
+    { "id": "derrida",        "name": "Derrida",               "type": "author",  "era": "XXe",              "domain": "Continental",      "concepts": ["Déconstruction", "Différance", "Critique du logocentrisme"],                "x": 8150, "y": 270  },
+    { "id": "deleuze",        "name": "Deleuze",               "type": "author",  "era": "XXe",              "domain": "Continental",      "concepts": ["Multiplicités", "Rhizome", "Immanence"],                                    "x": 8150, "y": 710  },
+    { "id": "guattari",       "name": "Guattari",              "type": "author",  "era": "XXe",              "domain": "Continental",      "concepts": ["Anti-Œdipe", "Cartographies schizoanalytiques"],                            "x": 8450, "y": 710  },
+    { "id": "butler",         "name": "Judith Butler",         "type": "author",  "era": "XXe-XXIe",         "domain": "Continental",      "concepts": ["Performativité du genre", "Théorie queer"],                                  "x": 8150, "y": 930  },
+    { "id": "frege",          "name": "Frege",                 "type": "author",  "era": "XIXe-XXe",         "domain": "Analytique",       "concepts": ["Logique formelle", "Fondements des mathématiques"],                         "x": 6950, "y": 1370 },
+    { "id": "russell",        "name": "Russell",               "type": "author",  "era": "XIXe-XXe",         "domain": "Analytique",       "concepts": ["Logicisme", "Théorie des types"],                                           "x": 7250, "y": 1370 },
+    { "id": "wittgenstein",   "name": "Wittgenstein",          "type": "author",  "era": "XXe",              "domain": "Analytique",       "concepts": ["Jeux de langage", "Limites du langage", "Tractatus"],                       "x": 7550, "y": 1370 },
+    { "id": "positivisme",    "name": "Positivisme logique",   "type": "concept", "era": "XXe",              "domain": "Analytique",       "concepts": ["Vérification", "Cercle de Vienne"],                                         "x": 7850, "y": 1370 },
+    { "id": "quine",          "name": "Quine",                 "type": "author",  "era": "XXe",              "domain": "Analytique",       "concepts": ["Holisme", "Critique analytique/synthétique"],                               "x": 8150, "y": 1370 },
+    { "id": "putnam",         "name": "Putnam",                "type": "author",  "era": "XXe",              "domain": "Analytique",       "concepts": ["Réalisme interne", "Esprit et langage"],                                    "x": 8450, "y": 1370 },
+    { "id": "kripke",         "name": "Kripke",                "type": "author",  "era": "XXe",              "domain": "Analytique",       "concepts": ["Désignateur rigide", "Logique modale"],                                     "x": 8450, "y": 1590 },
+    { "id": "austin",         "name": "Austin",                "type": "author",  "era": "XXe",              "domain": "Analytique",       "concepts": ["Actes de langage", "Philosophie ordinaire"],                                "x": 7850, "y": 1590 },
+    { "id": "searle",         "name": "Searle",                "type": "author",  "era": "XXe",              "domain": "Analytique",       "concepts": ["Intentionnalité", "Actes de langage"],                                      "x": 8150, "y": 1590 },
+    { "id": "popper",         "name": "Popper",                "type": "author",  "era": "XXe",              "domain": "Épistémologie",    "concepts": ["Falsifiabilité", "Société ouverte", "Science critique"],                    "x": 7850, "y": 1810 },
+    { "id": "kuhn",           "name": "Kuhn",                  "type": "author",  "era": "XXe",              "domain": "Épistémologie",    "concepts": ["Paradigmes", "Révolutions scientifiques"],                                  "x": 8150, "y": 1810 },
+    { "id": "lakatos",        "name": "Lakatos",               "type": "author",  "era": "XXe",              "domain": "Épistémologie",    "concepts": ["Programmes de recherche", "Épistémologie historique"],                      "x": 8450, "y": 1810 },
+    { "id": "peirce",         "name": "Peirce",                "type": "author",  "era": "XIXe",             "domain": "Pragmatisme",      "concepts": ["Pragmatisme", "Sémiotique"],                                                "x": 9050, "y": 50   },
+    { "id": "james",          "name": "William James",         "type": "author",  "era": "XIXe-XXe",         "domain": "Pragmatisme",      "concepts": ["Pragmatisme psychologique", "Pluralisme"],                                  "x": 9350, "y": 50   },
+    { "id": "dewey",          "name": "Dewey",                 "type": "author",  "era": "XIXe-XXe",         "domain": "Pragmatisme",      "concepts": ["Démocratie expérimentale", "Éducation"],                                    "x": 9650, "y": 50   },
+    { "id": "rorty",          "name": "Rorty",                 "type": "author",  "era": "XXe",              "domain": "Pragmatisme",      "concepts": ["Antifondationnalisme", "Pragmatisme libéral"],                              "x": 9950, "y": 50   },
+    { "id": "lib_tradition",  "name": "Tradition libérale",    "type": "concept", "era": "XVIIIe-XIXe",     "domain": "Politique",        "concepts": ["Droits individuels", "Libertés civiles"],                                   "x": 9050, "y": 490  },
+    { "id": "rawls",          "name": "Rawls",                 "type": "author",  "era": "XXe",              "domain": "Politique",        "concepts": ["Justice comme équité", "Voile d'ignorance", "Théorie de la justice"],       "x": 9350, "y": 490  },
+    { "id": "nozick",         "name": "Nozick",                "type": "author",  "era": "XXe",              "domain": "Politique",        "concepts": ["État minimal", "Libertarianisme"],                                          "x": 9650, "y": 490  },
+    { "id": "deliberatif",    "name": "Théories délibératives","type": "concept", "era": "XXe-XXIe",         "domain": "Politique",        "concepts": ["Discussion publique", "Consensus démocratique"],                            "x": 9650, "y": 710  },
+    { "id": "fanon",          "name": "Fanon",                 "type": "author",  "era": "XXe",              "domain": "Postcolonial",     "concepts": ["Colonialisme", "Aliénation et violence", "Décolonisation"],                 "x": 9050, "y": 1150 },
+    { "id": "said",           "name": "Said",                  "type": "author",  "era": "XXe",              "domain": "Postcolonial",     "concepts": ["Orientalisme", "Discours colonial"],                                        "x": 9350, "y": 1150 },
+    { "id": "spivak",         "name": "Spivak",                "type": "author",  "era": "XXe-XXIe",         "domain": "Postcolonial",     "concepts": ["Subaltern studies", "Voix dominées"],                                       "x": 9650, "y": 1150 },
+    { "id": "mbembe",         "name": "Mbembe",                "type": "author",  "era": "XXe-XXIe",         "domain": "Postcolonial",     "concepts": ["Nécropolitique", "Postcolonie"],                                            "x": 9350, "y": 1370 },
+    { "id": "decolonial",     "name": "Courants décoloniaux",  "type": "concept", "era": "XXe-XXIe",         "domain": "Postcolonial",     "concepts": ["Critique de l'eurocentrisme", "Colonialité du pouvoir"],                    "x": 9650, "y": 1370 }
+  ],
+  "links": [
+    ["socrate","platon"],["platon","aristote"],["aristote","stoiciens"],["platon","epicure"],["platon","neoplatonisme"],
+    ["neoplatonisme","augustin"],["aristote","aquin"],["augustin","scolastique"],["aquin","scolastique"],
+    ["scolastique","nominalisme"],["nominalisme","humanisme"],
+    ["humanisme","machiavel"],["humanisme","grotius"],["humanisme","bacon"],["humanisme","galilee"],
+    ["galilee","descartes"],["descartes","newton"],["newton","lumieres"],
+    ["descartes","spinoza"],["descartes","leibniz"],["bacon","empirisme"],["empirisme","locke"],["empirisme","hume"],
+    ["grotius","hobbes"],["hobbes","locke"],["locke","montesquieu"],["locke","rousseau"],
+    ["hume","kant"],["leibniz","kant"],["rousseau","kant"],["lumieres","voltaire"],["lumieres","diderot"],
+    ["kant","hegel"],["kant","schopenhauer"],["hegel","marx"],["hegel","kierkegaard"],
+    ["kierkegaard","nietzsche"],["schopenhauer","nietzsche"],["schopenhauer","freud"],["nietzsche","freud"],
+    ["hume","bentham"],["bentham","mill"],["mill","tocqueville"],
+    ["adam_smith","ricardo"],["ricardo","marx"],["darwin","spencer"],
+    ["comte","durkheim"],["durkheim","mauss"],["mauss","levi_strauss"],
+    ["hegel","weber"],["durkheim","weber"],["marx","weber"],["weber","parsons"],["weber","elias"],
+    ["durkheim","bourdieu"],["weber","bourdieu"],["marx","bourdieu"],
+    ["mead","blumer"],["blumer","goffman"],["bourdieu","latour"],
+    ["adam_smith","eco_classique"],["eco_classique","marx"],["walras","neoclassique"],
+    ["menger","autrichienne"],["autrichienne","hayek"],
+    ["eco_classique","marshall"],["marshall","keynes"],["keynes","minsky"],
+    ["neoclassique","chicago"],["chicago","neoliberalisme"],["keynes","sen"],["rawls","sen"],
+    ["kant","husserl"],["husserl","heidegger"],["heidegger","sartre"],["heidegger","arendt"],
+    ["husserl","merleau_ponty"],["nietzsche","heidegger"],
+    ["marx","francfort"],["kant","francfort"],["francfort","habermas"],
+    ["sartre","beauvoir"],
+    ["saussure","structuralisme"],["levi_strauss","structuralisme"],
+    ["structuralisme","lacan"],["structuralisme","barthes"],["freud","lacan"],
+    ["nietzsche","foucault"],["heidegger","foucault"],["marx","foucault"],["structuralisme","foucault"],["freud","foucault"],
+    ["foucault","derrida"],["foucault","deleuze"],["deleuze","guattari"],["foucault","butler"],
+    ["frege","russell"],["russell","wittgenstein"],["wittgenstein","positivisme"],["positivisme","quine"],
+    ["quine","putnam"],["putnam","kripke"],["wittgenstein","austin"],["austin","searle"],
+    ["hume","popper"],["kant","popper"],["popper","kuhn"],["kuhn","lakatos"],["wittgenstein","habermas"],
+    ["peirce","james"],["james","dewey"],["dewey","rorty"],
+    ["locke","lib_tradition"],["lib_tradition","rawls"],["rawls","nozick"],["habermas","deliberatif"],
+    ["marx","fanon"],["foucault","said"],["derrida","spivak"],["fanon","mbembe"],["said","mbembe"],["foucault","decolonial"]
+  ],
+  "domains": {
+    "Antique":          "#7c3aed",
+    "Médiéval":         "#2563eb",
+    "Renaissance":      "#0891b2",
+    "Moderne":          "#d97706",
+    "Critique":         "#f59e0b",
+    "Idéalisme":        "#ef4444",
+    "Critique sociale": "#ec4899",
+    "XIXe":             "#dc2626",
+    "Sciences sociales":"#14b8a6",
+    "Économie":         "#16a34a",
+    "Continental":      "#9333ea",
+    "Analytique":       "#6366f1",
+    "Épistémologie":    "#0ea5e9",
+    "Pragmatisme":      "#f97316",
+    "Politique":        "#ea580c",
+    "Postcolonial":     "#be123c"
+  }
+};
+
+// ─── Fetch helpers ───────────────────────────────────────────────────────────
+async function fetchText(url) {
+  try { const r = await fetch(url); return r.ok ? await r.text() : null; }
+  catch { return null; }
+}
+async function fetchJSON(url) {
+  try { const r = await fetch(url); return r.ok ? await r.json() : null; }
+  catch { return null; }
+}
+function renderMd(text) {
+  return text.trim()
+    .split(/\n\n+/)
+    .map(p => '<p>' + p
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      + '</p>')
+    .join('');
+}
+
+// ─── (données enrichies migrées dans data/{id}/description.md, quotes.json, bibliography.json) ───
+const _REMOVED = {
+  socrate: {
+    description: "Socrate n'a rien écrit. Sa méthode, la maïeutique, consiste à faire accoucher les esprits de la vérité par un questionnement rigoureux. Il pose que la vertu est connaissance et que nul ne fait le mal volontairement. Condamné à mort par Athènes pour impiété et corruption de la jeunesse, il accepte sa peine sans fuir, fidèle à ses convictions jusqu'au bout.",
+    quotes: [
+      { text: "Je sais que je ne sais rien.", source: "Apologie de Socrate (via Platon)" },
+      { text: "Une vie sans examen ne vaut pas la peine d'être vécue.", source: "Apologie de Socrate" }
+    ],
+    bibliography: [
+      { title: "Apologie de Socrate (Platon)", year: "~399 av. J.-C." },
+      { title: "Le Banquet (Platon)", year: "~385 av. J.-C." },
+      { title: "Phédon (Platon)", year: "~380 av. J.-C." }
+    ]
+  },
+  platon: {
+    description: "Platon élabore la théorie des Idées : les objets sensibles ne sont que des copies imparfaites de formes idéales éternelles, accessibles à la seule raison. Sa philosophie politique, exposée dans La République, imagine un État gouverné par des philosophes-rois. La caverne est sa métaphore fondatrice : les hommes vivent dans l'illusion, la philosophie est le chemin vers la lumière.",
+    quotes: [
+      { text: "Le philosophe est celui qui aime contempler la vérité.", source: "La République, V" },
+      { text: "Ce que nous voyons n'est que l'ombre de la réalité.", source: "La République, VII (allégorie de la caverne)" }
+    ],
+    bibliography: [
+      { title: "La République", year: "~380 av. J.-C." },
+      { title: "Le Banquet", year: "~385 av. J.-C." },
+      { title: "Phédon", year: "~380 av. J.-C." },
+      { title: "Timée", year: "~360 av. J.-C." }
+    ]
+  },
+  aristote: {
+    description: "Aristote rompt avec Platon : les formes n'existent pas séparément des choses. Sa logique (le syllogisme) fonde la pensée rationnelle occidentale. Il distingue matière et forme, puissance et acte. Son éthique des vertus vise l'eudaimonia (bonheur ou épanouissement) par la pratique de la juste mesure. Encyclopédiste universel, il couvre la physique, la biologie, la politique, la poétique.",
+    quotes: [
+      { text: "L'homme est par nature un animal politique.", source: "Politique, I, 2" },
+      { text: "La vertu est une disposition à agir d'une manière délibérée, consistant en un juste milieu.", source: "Éthique à Nicomaque, II" }
+    ],
+    bibliography: [
+      { title: "Éthique à Nicomaque", year: "~340 av. J.-C." },
+      { title: "Politique", year: "~335 av. J.-C." },
+      { title: "Métaphysique", year: "~350 av. J.-C." },
+      { title: "Organon", year: "~350 av. J.-C." }
+    ]
+  },
+  descartes: {
+    description: "Descartes inaugure la philosophie moderne en faisant du doute méthodique le point de départ de toute certitude. Le cogito — « je pense, donc je suis » — est la première vérité indubitable. Son dualisme radical sépare la res cogitans (âme pensante) de la res extensa (corps étendu), posant les bases d'un mécanisme universel et d'une science mathématisée de la nature.",
+    quotes: [
+      { text: "Je pense, donc je suis.", source: "Discours de la méthode, IV" },
+      { text: "Le bon sens est la chose du monde la mieux partagée.", source: "Discours de la méthode, I" }
+    ],
+    bibliography: [
+      { title: "Discours de la méthode", year: "1637" },
+      { title: "Méditations métaphysiques", year: "1641" },
+      { title: "Les Principes de la philosophie", year: "1644" }
+    ]
+  },
+  kant: {
+    description: "Kant opère une « révolution copernicienne » en philosophie : ce n'est pas notre connaissance qui se règle sur les objets, mais les objets qui se règlent sur nos facultés de connaître. Il distingue phénomènes (ce que nous percevons) et noumènes (la chose en soi, inaccessible). Son éthique repose sur l'impératif catégorique : agis selon la maxime que tu pourrais vouloir ériger en loi universelle.",
+    quotes: [
+      { text: "Agis seulement d'après la maxime grâce à laquelle tu peux vouloir en même temps qu'elle devienne une loi universelle.", source: "Fondements de la métaphysique des mœurs" },
+      { text: "Le ciel étoilé au-dessus de moi, la loi morale en moi.", source: "Critique de la raison pratique, Conclusion" }
+    ],
+    bibliography: [
+      { title: "Critique de la raison pure", year: "1781" },
+      { title: "Fondements de la métaphysique des mœurs", year: "1785" },
+      { title: "Critique de la raison pratique", year: "1788" },
+      { title: "Critique de la faculté de juger", year: "1790" }
+    ]
+  },
+  hegel: {
+    description: "Hegel conçoit la réalité comme un processus dialectique : thèse, antithèse, synthèse. L'Esprit absolu se réalise à travers l'histoire humaine. La phénoménologie de l'esprit retrace le chemin de la conscience vers le savoir absolu. Sa dialectique du maître et de l'esclave a profondément influencé Marx, Sartre et la pensée critique du XXe siècle.",
+    quotes: [
+      { text: "Ce qui est rationnel est réel ; et ce qui est réel est rationnel.", source: "Principes de la philosophie du droit, Préface" },
+      { text: "L'Esprit est cette puissance qui ne regarde pas le négatif en face et s'y attarde.", source: "Phénoménologie de l'Esprit" }
+    ],
+    bibliography: [
+      { title: "Phénoménologie de l'Esprit", year: "1807" },
+      { title: "Science de la Logique", year: "1812-1816" },
+      { title: "Principes de la philosophie du droit", year: "1820" },
+      { title: "Leçons sur la philosophie de l'histoire", year: "1837 (posth.)" }
+    ]
+  },
+  marx: {
+    description: "Marx renverse Hegel : ce n'est pas l'Esprit mais les conditions matérielles qui déterminent la conscience. Le moteur de l'histoire est la lutte des classes, née des rapports de production capitalistes. L'aliénation désigne la dépossession du travailleur de son travail et de son humanité. Son projet est une société sans classes où l'État s'efface.",
+    quotes: [
+      { text: "Les philosophes n'ont fait qu'interpréter le monde de différentes manières ; ce qui importe, c'est de le transformer.", source: "Thèses sur Feuerbach, XI" },
+      { text: "Un spectre hante l'Europe — le spectre du communisme.", source: "Manifeste du Parti communiste" }
+    ],
+    bibliography: [
+      { title: "Manuscrits économico-philosophiques", year: "1844" },
+      { title: "Manifeste du Parti communiste (avec Engels)", year: "1848" },
+      { title: "Le Capital, tome I", year: "1867" },
+      { title: "Critique du programme de Gotha", year: "1875" }
+    ]
+  },
+  nietzsche: {
+    description: "Nietzsche diagnostique la mort de Dieu comme crise des valeurs occidentales. Il oppose la morale des esclaves (ressentiment, pitié) à la morale des maîtres (affirmation, volonté de puissance). Le Surhomme est celui qui crée ses propres valeurs. L'éternel retour est l'épreuve existentielle suprême : vouloir revivre infiniment sa vie telle qu'elle est.",
+    quotes: [
+      { text: "Ce qui ne me tue pas me rend plus fort.", source: "Le Crépuscule des idoles" },
+      { text: "Dieu est mort ! Dieu reste mort ! Et c'est nous qui l'avons tué.", source: "Le Gai Savoir, § 125" }
+    ],
+    bibliography: [
+      { title: "La Naissance de la tragédie", year: "1872" },
+      { title: "Ainsi parlait Zarathoustra", year: "1883-1885" },
+      { title: "Par-delà bien et mal", year: "1886" },
+      { title: "La Généalogie de la morale", year: "1887" }
+    ]
+  },
+  hume: {
+    description: "Hume radicalise l'empirisme : toute idée dérive d'une impression sensible. Il réfute la causalité nécessaire (on observe une succession, non un lien nécessaire) et le moi substantiel (le « je » n'est qu'un faisceau de perceptions). Son scepticisme a réveillé Kant de son « sommeil dogmatique ». Il est aussi l'un des fondateurs de l'économie politique moderne.",
+    quotes: [
+      { text: "La raison est, et ne doit qu'être, l'esclave des passions.", source: "Traité de la nature humaine, II" },
+      { text: "La coutume est la grande guide de la vie humaine.", source: "Enquête sur l'entendement humain" }
+    ],
+    bibliography: [
+      { title: "Traité de la nature humaine", year: "1739-1740" },
+      { title: "Enquête sur l'entendement humain", year: "1748" },
+      { title: "Dialogues sur la religion naturelle", year: "1779 (posth.)" }
+    ]
+  },
+  locke: {
+    description: "Locke fonde l'empirisme moderne et le libéralisme politique. L'esprit est une tabula rasa : toute connaissance vient de l'expérience. Politiquement, il défend la séparation des pouvoirs, le gouvernement par consentement et le droit de résistance à la tyrannie. Sa théorie de la propriété naturelle influencera profondément les révolutions américaine et française.",
+    quotes: [
+      { text: "Nulle loi n'existe avant qu'une société ne se soit constituée.", source: "Deuxième Traité du gouvernement civil" },
+      { text: "L'esprit est, comme on dit, une page blanche, vide de tous caractères.", source: "Essai sur l'entendement humain, II" }
+    ],
+    bibliography: [
+      { title: "Essai sur l'entendement humain", year: "1689" },
+      { title: "Deux traités du gouvernement civil", year: "1689" },
+      { title: "Lettre sur la tolérance", year: "1689" }
+    ]
+  },
+  rousseau: {
+    description: "Rousseau pose que l'homme est naturellement bon, c'est la société qui le corrompt. Le Contrat social fonde la légitimité politique sur la volonté générale — non la somme des intérêts particuliers, mais l'intérêt commun. Son Émile révolutionne la pédagogie en défendant une éducation naturelle respectant le développement de l'enfant.",
+    quotes: [
+      { text: "L'homme est né libre, et partout il est dans les fers.", source: "Du Contrat social, I, 1" },
+      { text: "Tout est bien sortant des mains de l'Auteur des choses, tout dégénère entre les mains de l'homme.", source: "Émile, I" }
+    ],
+    bibliography: [
+      { title: "Discours sur l'origine de l'inégalité", year: "1755" },
+      { title: "Du Contrat social", year: "1762" },
+      { title: "Émile ou De l'éducation", year: "1762" },
+      { title: "Les Confessions", year: "1782 (posth.)" }
+    ]
+  },
+  spinoza: {
+    description: "Spinoza développe un monisme radical : il n'existe qu'une seule substance — Dieu ou la Nature (Deus sive Natura). Tout ce qui existe est une expression de cette substance unique. Son déterminisme strict nie le libre arbitre tel qu'on le conçoit ordinairement. La liberté véritable consiste à comprendre la nécessité qui nous gouverne. Son œuvre a été condamnée comme athée à son époque.",
+    quotes: [
+      { text: "Dieu est cause immanente de toutes choses, et non cause transitive.", source: "Éthique, I, proposition 18" },
+      { text: "La liberté est une nécessité comprise.", source: "Éthique (paraphrase courante)" }
+    ],
+    bibliography: [
+      { title: "Traité théologico-politique", year: "1670" },
+      { title: "Éthique", year: "1677 (posth.)" },
+      { title: "Traité politique", year: "1677 (posth.)" }
+    ]
+  },
+  husserl: {
+    description: "Husserl fonde la phénoménologie comme méthode rigoureuse d'analyse de la conscience. L'épochè (mise entre parenthèses du monde naturel) permet de décrire les structures pures de l'expérience vécue. L'intentionnalité — toute conscience est conscience de quelque chose — est son concept central. Son projet est de refonder la philosophie comme science rigoureuse.",
+    quotes: [
+      { text: "Retournons aux choses mêmes !", source: "Recherches logiques, Prologue" }
+    ],
+    bibliography: [
+      { title: "Recherches logiques", year: "1900-1901" },
+      { title: "Idées directrices pour une phénoménologie", year: "1913" },
+      { title: "Méditations cartésiennes", year: "1931" },
+      { title: "La Crise des sciences européennes", year: "1936" }
+    ]
+  },
+  heidegger: {
+    description: "Heidegger pose la question de l'Être comme question fondamentale oubliée par la métaphysique. Le Dasein (l'être-là, l'être humain) existe toujours en situation, jeté dans un monde, orienté vers la mort. L'authenticité consiste à assumer son être-pour-la-mort. Avec Être et Temps, il révolutionne l'ontologie et influence profondément l'existentialisme, la herméneutique et la déconstruction.",
+    quotes: [
+      { text: "Le Dasein est un être pour qui, en son être, il y va de cet être même.", source: "Être et Temps, § 4" },
+      { text: "Le langage est la maison de l'Être.", source: "Lettre sur l'humanisme" }
+    ],
+    bibliography: [
+      { title: "Être et Temps", year: "1927" },
+      { title: "Qu'est-ce que la métaphysique ?", year: "1929" },
+      { title: "Lettre sur l'humanisme", year: "1947" },
+      { title: "Chemins qui ne mènent nulle part", year: "1950" }
+    ]
+  },
+  sartre: {
+    description: "Sartre affirme que l'existence précède l'essence : l'homme n'a pas de nature prédéfinie, il se crée par ses choix. Cette liberté radicale est aussi une condamnation. La mauvaise foi est la fuite de cette liberté. L'enfer, c'est les autres — mais la relation à autrui est aussi constitutive du moi. Son engagement politique fait de lui l'intellectuel total du XXe siècle.",
+    quotes: [
+      { text: "L'existence précède l'essence.", source: "L'Existentialisme est un humanisme" },
+      { text: "L'homme est condamné à être libre.", source: "L'Être et le Néant" },
+      { text: "L'enfer, c'est les autres.", source: "Huis clos" }
+    ],
+    bibliography: [
+      { title: "L'Être et le Néant", year: "1943" },
+      { title: "L'Existentialisme est un humanisme", year: "1946" },
+      { title: "Critique de la raison dialectique", year: "1960" },
+      { title: "Les Mots", year: "1963" }
+    ]
+  },
+  foucault: {
+    description: "Foucault analyse comment le pouvoir et le savoir se co-produisent dans les institutions (asile, prison, hôpital). Ses généalogies déconstruisent ce qui paraît naturel ou universel pour en révéler l'historicité. La biopolitique désigne le gouvernement des populations par la gestion de la vie elle-même. Son œuvre irrigue les études de genre, les études postcoloniales et la théorie critique contemporaine.",
+    quotes: [
+      { text: "Le pouvoir est partout ; ce n'est pas qu'il englobe tout, c'est qu'il vient de partout.", source: "La Volonté de savoir" },
+      { text: "Il faut défendre la société.", source: "Cours au Collège de France, 1975-1976" }
+    ],
+    bibliography: [
+      { title: "Histoire de la folie à l'âge classique", year: "1961" },
+      { title: "Les Mots et les Choses", year: "1966" },
+      { title: "Surveiller et Punir", year: "1975" },
+      { title: "La Volonté de savoir (Histoire de la sexualité I)", year: "1976" }
+    ]
+  },
+  wittgenstein: {
+    description: "Wittgenstein traverse deux philosophies opposées. Dans le Tractatus, le langage figure le monde, et ce qu'on ne peut dire, il faut le taire. Dans les Recherches philosophiques, il abandonne cette image : le sens naît de l'usage dans des formes de vie (jeux de langage). Les problèmes philosophiques sont des maladies du langage qu'il faut soigner, non résoudre.",
+    quotes: [
+      { text: "Ce dont on ne peut parler, il faut le taire.", source: "Tractatus logico-philosophicus, 7" },
+      { text: "La signification d'un mot, c'est son usage dans le langage.", source: "Recherches philosophiques, § 43" }
+    ],
+    bibliography: [
+      { title: "Tractatus logico-philosophicus", year: "1921" },
+      { title: "Recherches philosophiques", year: "1953 (posth.)" },
+      { title: "Le Cahier bleu et le Cahier brun", year: "1958 (posth.)" }
+    ]
+  },
+  rawls: {
+    description: "Rawls renouvelle la philosophie politique libérale avec sa théorie de la justice comme équité. Derrière un « voile d'ignorance » — ignorant leur place dans la société — des individus rationnels choisiraient deux principes : égale liberté pour tous, et inégalités tolérées seulement si elles profitent aux plus défavorisés (principe de différence). Ce néocontractualisme influence profondément la pensée politique anglo-saxonne.",
+    quotes: [
+      { text: "Les inégalités sociales et économiques doivent être au plus grand bénéfice des membres les plus désavantagés de la société.", source: "Théorie de la justice, § 46" }
+    ],
+    bibliography: [
+      { title: "Théorie de la justice", year: "1971" },
+      { title: "Libéralisme politique", year: "1993" },
+      { title: "La Justice comme équité", year: "2001" }
+    ]
+  },
+  popper: {
+    description: "Popper propose la falsifiabilité comme critère de démarcation entre science et non-science : une théorie est scientifique si elle peut être réfutée par l'expérience. Il s'oppose au vérificationisme du Cercle de Vienne. Politiquement, il défend la société ouverte contre les totalitarismes (qu'il nomme « sociétés tribales closes ») et critique l'historicisme de Hegel et Marx.",
+    quotes: [
+      { text: "Notre science n'est pas connaissance : elle ne peut jamais prétendre avoir atteint la vérité, ni même un substitut de la vérité.", source: "La Logique de la découverte scientifique" },
+      { text: "La tolérance illimitée doit mener à la disparition de la tolérance.", source: "La Société ouverte et ses ennemis" }
+    ],
+    bibliography: [
+      { title: "La Logique de la découverte scientifique", year: "1934" },
+      { title: "La Société ouverte et ses ennemis", year: "1945" },
+      { title: "Misère de l'historicisme", year: "1944-1945" },
+      { title: "Conjectures et réfutations", year: "1963" }
+    ]
+  },
+  bourdieu: {
+    description: "Bourdieu analyse la reproduction des inégalités sociales à travers les concepts d'habitus (système de dispositions incorporées), de champ (espace de positions sociales) et de capital (économique, culturel, social, symbolique). La violence symbolique désigne la domination exercée avec le consentement des dominés. Son œuvre articule rigueur sociologique et engagement critique.",
+    quotes: [
+      { text: "L'habitus, c'est ce que l'on a acquis, mais qui s'est incarné de façon durable dans le corps sous forme de dispositions permanentes.", source: "Questions de sociologie" },
+      { text: "La sociologie est un sport de combat.", source: "Titre du documentaire de P. Carles, 2001" }
+    ],
+    bibliography: [
+      { title: "La Reproduction (avec Passeron)", year: "1970" },
+      { title: "La Distinction", year: "1979" },
+      { title: "Le Sens pratique", year: "1980" },
+      { title: "La Misère du monde", year: "1993" }
+    ]
+  },
+  weber: {
+    description: "Weber fonde la sociologie compréhensive : comprendre le sens que les acteurs donnent à leur action. Sa thèse sur l'éthique protestante montre comment la religion a pu favoriser le capitalisme. Il analyse la rationalisation comme processus central de la modernité, menant au « désenchantement du monde » et à la domination bureaucratique.",
+    quotes: [
+      { text: "La politique est le lent forage de planches dures.", source: "Le Savant et le Politique" },
+      { text: "L'État est cette communauté humaine qui, dans les limites d'un territoire déterminé, revendique pour elle-même et avec succès le monopole de la violence physique légitime.", source: "Le Savant et le Politique" }
+    ],
+    bibliography: [
+      { title: "L'Éthique protestante et l'esprit du capitalisme", year: "1905" },
+      { title: "Économie et Société", year: "1922 (posth.)" },
+      { title: "Le Savant et le Politique", year: "1919" }
+    ]
+  },
+  durkheim: {
+    description: "Durkheim fonde la sociologie comme discipline scientifique autonome. Les faits sociaux — manières d'agir extérieures et contraignantes — doivent être traités comme des choses. Son étude du suicide montre que même les actes les plus individuels ont des causes sociales. L'anomie désigne l'état de dérèglement normatif des sociétés modernes.",
+    quotes: [
+      { text: "Traitez les faits sociaux comme des choses.", source: "Les Règles de la méthode sociologique" }
+    ],
+    bibliography: [
+      { title: "De la division du travail social", year: "1893" },
+      { title: "Les Règles de la méthode sociologique", year: "1895" },
+      { title: "Le Suicide", year: "1897" },
+      { title: "Les Formes élémentaires de la vie religieuse", year: "1912" }
+    ]
+  },
+  freud: {
+    description: "Freud révolutionne la conception de l'homme en postulant l'inconscient comme déterminant principal du comportement. Le psychisme est divisé en Ça (pulsions), Moi (instance régulatrice) et Surmoi (instance morale). La sexualité infantile, le complexe d'Œdipe et le mécanisme du refoulement sont ses découvertes fondamentales. La cure analytique vise à rendre conscient l'inconscient.",
+    quotes: [
+      { text: "Le moi n'est pas maître dans sa propre maison.", source: "Introduction à la psychanalyse" },
+      { text: "Là où était le Ça, le Moi doit advenir.", source: "Nouvelles conférences d'introduction à la psychanalyse" }
+    ],
+    bibliography: [
+      { title: "L'Interprétation des rêves", year: "1900" },
+      { title: "Trois essais sur la théorie sexuelle", year: "1905" },
+      { title: "Totem et Tabou", year: "1913" },
+      { title: "Au-delà du principe de plaisir", year: "1920" },
+      { title: "Malaise dans la civilisation", year: "1930" }
+    ]
+  },
+  habermas: {
+    description: "Habermas distingue l'agir stratégique (orienté vers le succès) de l'agir communicationnel (orienté vers la compréhension mutuelle). La rationalité communicationnelle est le fondement normatif de la démocratie délibérative. Son éthique de la discussion pose que les normes valides sont celles que pourraient accepter, dans une discussion idéale, toutes les personnes concernées.",
+    quotes: [
+      { text: "La modernité est un projet inachevé.", source: "Discours philosophique de la modernité" }
+    ],
+    bibliography: [
+      { title: "Connaissance et Intérêt", year: "1968" },
+      { title: "Théorie de l'agir communicationnel", year: "1981" },
+      { title: "De l'éthique de la discussion", year: "1991" },
+      { title: "Droit et Démocratie", year: "1992" }
+    ]
+  },
+  arendt: {
+    description: "Arendt analyse les origines du totalitarisme comme phénomène radicalement nouveau. Sa notion de « banalité du mal » — à partir du procès Eichmann — désigne comment des crimes extrêmes peuvent être commis sans haine, par simple absence de pensée. Elle distingue travail, œuvre et action comme trois modalités de la vita activa. L'espace public est le lieu de la naissance politique.",
+    quotes: [
+      { text: "Le mal radical naît de la superfluité des hommes.", source: "Les Origines du totalitarisme" },
+      { text: "La banalité du mal.", source: "Eichmann à Jérusalem, sous-titre" }
+    ],
+    bibliography: [
+      { title: "Les Origines du totalitarisme", year: "1951" },
+      { title: "La Condition de l'homme moderne", year: "1958" },
+      { title: "Eichmann à Jérusalem", year: "1963" },
+      { title: "La Crise de la culture", year: "1968" }
+    ]
+  },
+  derrida: {
+    description: "Derrida déconstruit les oppositions binaires de la métaphysique occidentale (présence/absence, parole/écriture, sens/non-sens). La différance — jeu de report et de différence — fait que le sens n'est jamais pleinement présent. Sa critique du logocentrisme montre que l'écriture n'est pas secondaire à la parole mais révèle la structure de tout signe. La déconstruction n'est pas une méthode mais une pratique de lecture.",
+    quotes: [
+      { text: "Il n'y a pas de hors-texte.", source: "De la grammatologie" },
+      { text: "Déconstruire, c'est affronter les contradictions d'une tradition, travailler à partir de l'intérieur.", source: "Positions" }
+    ],
+    bibliography: [
+      { title: "De la grammatologie", year: "1967" },
+      { title: "L'Écriture et la Différence", year: "1967" },
+      { title: "La Voix et le Phénomène", year: "1967" },
+      { title: "Marges de la philosophie", year: "1972" }
+    ]
+  },
+  keynes: {
+    description: "Keynes révolutionne la macroéconomie en réfutant l'idée que les marchés s'équilibrent naturellement au plein emploi. La demande globale est le moteur de l'économie ; en période de récession, l'État doit stimuler l'activité par la dépense publique. Sa Théorie générale répond à la Grande Dépression et fonde l'économie keynésienne qui dominera les Trente Glorieuses.",
+    quotes: [
+      { text: "À long terme, nous serons tous morts.", source: "A Tract on Monetary Reform, 1923" },
+      { text: "Les idées des économistes et des philosophes politiques, qu'elles soient justes ou fausses, ont plus d'importance qu'on ne le croit généralement.", source: "Théorie générale, Conclusion" }
+    ],
+    bibliography: [
+      { title: "Théorie générale de l'emploi, de l'intérêt et de la monnaie", year: "1936" },
+      { title: "Les Conséquences économiques de la paix", year: "1919" },
+      { title: "Traité sur la monnaie", year: "1930" }
+    ]
+  },
+  hayek: {
+    description: "Hayek défend l'ordre spontané du marché contre toute planification centrale. Le système des prix est un mécanisme d'information décentralisé irremplaçable : aucun planificateur ne peut détenir le savoir dispersé dans la société. Son essai La Route de la servitude argumente que toute planification économique mène au totalitarisme politique. Il est l'une des figures fondatrices du néolibéralisme.",
+    quotes: [
+      { text: "La vérité ne peut jamais être connue de tous simultanément et d'un seul.", source: "L'Utilisation de la connaissance dans la société" },
+      { text: "La route de l'enfer est pavée de bonnes intentions.", source: "La Route de la servitude (paraphrase)" }
+    ],
+    bibliography: [
+      { title: "La Route de la servitude", year: "1944" },
+      { title: "L'Utilisation de la connaissance dans la société", year: "1945" },
+      { title: "La Constitution de la liberté", year: "1960" },
+      { title: "Droit, législation et liberté", year: "1973-1979" }
+    ]
+  },
+  fanon: {
+    description: "Fanon analyse la violence coloniale comme violence constitutive de l'identité du colonisé. La colonisation n'est pas seulement économique mais psychique : elle produit une aliénation du colonisé vis-à-vis de lui-même. La décolonisation exige une violence libératrice qui restitue l'humanité au colonisé. Ses Damnés de la terre ont été la bible des mouvements de libération nationale.",
+    quotes: [
+      { text: "Le colonialisme n'est pas une machine à penser, n'est pas un corps doué de raison. Il est la violence à l'état de nature.", source: "Les Damnés de la terre" },
+      { text: "Chaque génération doit, dans une relative opacité, découvrir sa mission, la remplir ou la trahir.", source: "Les Damnés de la terre, Conclusion" }
+    ],
+    bibliography: [
+      { title: "Peau noire, masques blancs", year: "1952" },
+      { title: "Les Damnés de la terre", year: "1961" },
+      { title: "L'An V de la révolution algérienne", year: "1959" }
+    ]
+  },
+  kuhn: {
+    description: "Kuhn révolutionne l'épistémologie avec son concept de paradigme : une science normale fonctionne dans le cadre d'un paradigme accepté, jusqu'à ce que des anomalies s'accumulent et provoquent une révolution scientifique. La science ne progresse pas de façon linéaire mais par ruptures. L'incommensurabilité des paradigmes signifie que deux paradigmes rivaux ne partagent pas de terrain neutre de comparaison.",
+    quotes: [
+      { text: "La structure des révolutions scientifiques.", source: "Titre de l'ouvrage, 1962" },
+      { text: "Les paradigmes sont des réalisations scientifiques universellement reconnues qui, pour un temps, fournissent à une communauté de chercheurs des problèmes types et des solutions.", source: "La Structure des révolutions scientifiques, Introduction" }
+    ],
+    bibliography: [
+      { title: "La Structure des révolutions scientifiques", year: "1962" },
+      { title: "La Tension essentielle", year: "1977" }
+    ]
+  },
+  rawls: {
+    description: "Rawls renouvelle la philosophie politique libérale avec sa théorie de la justice comme équité. Derrière un « voile d'ignorance » — sans connaître leur place dans la société — des individus rationnels choisiraient : l'égale liberté pour tous, et que les inégalités ne soient tolérées que si elles profitent aux plus défavorisés (principe de différence).",
+    quotes: [
+      { text: "Les inégalités sociales et économiques doivent être au plus grand bénéfice des membres les plus désavantagés.", source: "Théorie de la justice, § 46" }
+    ],
+    bibliography: [
+      { title: "Théorie de la justice", year: "1971" },
+      { title: "Libéralisme politique", year: "1993" },
+      { title: "La Justice comme équité", year: "2001" }
+    ]
+  },
+  beauvoir: {
+    description: "Beauvoir applique l'existentialisme à la condition féminine : « On ne naît pas femme, on le devient. » La féminité est une construction sociale et historique, non une essence naturelle. Elle analyse la femme comme l'Autre absolu dans une civilisation masculine. Son œuvre fonde le féminisme de la deuxième vague et interroge la liberté dans le rapport à l'autre.",
+    quotes: [
+      { text: "On ne naît pas femme : on le devient.", source: "Le Deuxième Sexe, II" },
+      { text: "Représenter la femme, c'est l'Autre : c'est poser le monde masculin comme le monde tout court.", source: "Le Deuxième Sexe, Introduction" }
+    ],
+    bibliography: [
+      { title: "Le Deuxième Sexe", year: "1949" },
+      { title: "Les Mandarins", year: "1954" },
+      { title: "Mémoires d'une jeune fille rangée", year: "1958" },
+      { title: "La Vieillesse", year: "1970" }
+    ]
+  },
+  deleuze: {
+    description: "Deleuze construit une philosophie de la différence et de l'immanence contre toute transcendance. Le rhizome (avec Guattari) s'oppose à l'arbre : une pensée non hiérarchique, multiple, sans centre. Il lit l'histoire de la philosophie à contresens pour libérer des forces de résistance. Sa philosophie du désir (désir productif, non manquant) renouvelle la pensée critique.",
+    quotes: [
+      { text: "Un rhizome ne commence pas et n'aboutit pas, il est toujours au milieu, entre les choses.", source: "Mille Plateaux (avec Guattari)" },
+      { text: "La philosophie est l'art de former, d'inventer, de fabriquer des concepts.", source: "Qu'est-ce que la philosophie ? (avec Guattari)" }
+    ],
+    bibliography: [
+      { title: "Différence et Répétition", year: "1968" },
+      { title: "L'Anti-Œdipe (avec Guattari)", year: "1972" },
+      { title: "Mille Plateaux (avec Guattari)", year: "1980" },
+      { title: "Qu'est-ce que la philosophie ? (avec Guattari)", year: "1991" }
+    ]
+  }
+};
+
+// ─── Constants ───────────────────────────────────────────────────────────────
+const CANVAS_W     = 10200;
+const CANVAS_H     = 3000;
+const HEADER_H     = 72;
+const SCALE_MIN    = 0.3;
+const SCALE_MAX    = 2.0;
+const SCALE_ENTRY  = 0.65;
+
+// ─── State ────────────────────────────────────────────────────────────────────
+let mode         = 'overview';
+let detailScale  = SCALE_ENTRY;
+let detailOffset = { x: 0, y: 0 };
+let isDragging   = false;
+let dragStart    = { x: 0, y: 0 };
+let dragOrigin   = { x: 0, y: 0 };
+let searchQuery  = '';
+
+const nodeMap = Object.fromEntries(DATA.nodes.map(n => [n.id, n]));
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+function vp() { return { w: window.innerWidth, h: window.innerHeight - HEADER_H }; }
+function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+function overviewScale() {
+  const v = vp();
+  return Math.min(v.w / CANVAS_W, v.h / CANVAS_H) * 0.96;
+}
+function overviewOffset(s) {
+  const v = vp(); s = s ?? overviewScale();
+  return { x: (v.w - CANVAS_W * s) / 2, y: (v.h - CANVAS_H * s) / 2 };
+}
+
+// ─── Transform ───────────────────────────────────────────────────────────────
+function applyTransform(animated) {
+  const canvas  = document.getElementById('canvas');
+  const vport   = document.getElementById('viewport');
+  const badge   = document.getElementById('mode-badge');
+  const sub     = document.getElementById('header-sub');
+  const hRect   = document.getElementById('hover-rect');
+
+  canvas.classList.toggle('animated', !!animated);
+
+  if (mode === 'overview') {
+    const s = overviewScale();
+    const o = overviewOffset(s);
+    canvas.style.transform = `translate(${o.x}px,${o.y}px) scale(${s})`;
+    vport.className = '';
+    badge.textContent = 'Vue d\'ensemble';
+    sub.textContent   = 'Cliquer pour zoomer · Echap pour recherche';
+    hRect.style.display = 'none';
+  } else {
+    canvas.style.transform = `translate(${detailOffset.x}px,${detailOffset.y}px) scale(${detailScale})`;
+    vport.className = 'detail';
+    badge.textContent = `Zoom ${Math.round(detailScale * 100)}%`;
+    sub.textContent   = 'Glisser · Double-clic ou Echap pour revenir';
+    hRect.style.display = 'none';
+  }
+}
+
+// ─── Zoom ─────────────────────────────────────────────────────────────────────
+function zoomTo(canvasX, canvasY) {
+  detailScale = SCALE_ENTRY;
+  const v = vp();
+  canvasX = clamp(canvasX, v.w / detailScale / 2, CANVAS_W - v.w / detailScale / 2);
+  canvasY = clamp(canvasY, v.h / detailScale / 2, CANVAS_H - v.h / detailScale / 2);
+  detailOffset = {
+    x: v.w / 2 - canvasX * detailScale,
+    y: v.h / 2 - canvasY * detailScale
+  };
+  mode = 'detail';
+  applyTransform(true);
+}
+
+function zoomOut() {
+  mode = 'overview';
+  closePanel();
+  applyTransform(true);
+}
+
+// ─── Hover rect ───────────────────────────────────────────────────────────────
+function updateHoverRect(screenX, screenY) {
+  const v = vp();
+  const s = overviewScale();
+  const rw = (v.w / detailScale) * s;
+  const rh = (v.h / detailScale) * s;
+  const r  = document.getElementById('hover-rect');
+  r.style.cssText = `display:block;width:${rw}px;height:${rh}px;left:${screenX - rw/2}px;top:${screenY - rh/2}px;`;
+}
+
+// ─── Search ───────────────────────────────────────────────────────────────────
+function applySearch(q) {
+  searchQuery = q;
+  const lq = q.toLowerCase();
+  const matchIds = new Set(
+    DATA.nodes
+      .filter(n => n.name.toLowerCase().includes(lq) || n.concepts.some(c => c.toLowerCase().includes(lq)))
+      .map(n => n.id)
+  );
+  document.querySelectorAll('.node').forEach(el => {
+    el.classList.toggle('dimmed', q !== '' && !matchIds.has(el.dataset.id));
+  });
+  document.querySelectorAll('#links-svg path').forEach(p => {
+    const active = q === '' || (matchIds.has(p.dataset.s) && matchIds.has(p.dataset.t));
+    p.setAttribute('stroke', active ? 'rgba(0,0,0,0.45)' : 'rgba(0,0,0,0.05)');
+  });
+}
+
+// ─── Panel ────────────────────────────────────────────────────────────────────
+function renderPanel(node, color, outs, ins, rich) {
+  const btns = (arr) => arr.map(n =>
+    `<button class="panel-node-btn" data-id="${n.id}">${n.name}</button>`
+  ).join('');
+
+  const descHTML = rich.description
+    ? `<div class="panel-section">Pensée</div><div class="panel-description">${renderMd(rich.description)}</div>`
+    : '';
+
+  const quotesHTML = rich.quotes && rich.quotes.length
+    ? `<div class="panel-section">Extraits</div>`
+      + rich.quotes.map(q => `
+        <blockquote class="panel-quote">
+          <p>"${q.text}"</p>
+          <cite>${q.source}</cite>
+        </blockquote>`).join('')
+    : '';
+
+  const bibHTML = rich.bibliography && rich.bibliography.length
+    ? `<div class="panel-section">Bibliographie</div><ul class="panel-biblio">`
+      + rich.bibliography.map(b => `<li><span class="bib-title">${b.title}</span> <span class="bib-year">(${b.year})</span></li>`).join('')
+      + `</ul>`
+    : '';
+
+  document.getElementById('panel-content').innerHTML = `
+    <div class="panel-header">
+      <div class="panel-name">${node.name}</div>
+      <div class="panel-meta">${node.era} · <span style="color:${color}">${node.domain}</span></div>
+    </div>
+    <div class="panel-section">Concepts majeurs</div>
+    <div class="panel-concepts">${node.concepts.map(c => `<div class="panel-concept">${c}</div>`).join('')}</div>
+    ${descHTML}
+    ${quotesHTML}
+    ${bibHTML}
+    ${outs.length ? `<div class="panel-section">Influence sur</div><div class="panel-nodes">${btns(outs)}</div>` : ''}
+    ${ins.length  ? `<div class="panel-section">Influencé par</div><div class="panel-nodes">${btns(ins)}</div>`  : ''}
+  `;
+
+  document.querySelectorAll('.panel-node-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const n = nodeMap[btn.dataset.id];
+      if (!n) return;
+      openPanel(n);
+      zoomTo(n.x + 120, n.y + 90);
+    });
+  });
+}
+
+async function openPanel(node) {
+  const color = DATA.domains[node.domain] || '#64748b';
+  const outs  = DATA.links.filter(([s])  => s === node.id).map(([,t]) => nodeMap[t]).filter(Boolean);
+  const ins   = DATA.links.filter(([,t]) => t === node.id).map(([s])  => nodeMap[s]).filter(Boolean);
+
+  // Affichage immédiat sans données enrichies
+  renderPanel(node, color, outs, ins, {});
+  document.getElementById('panel').classList.add('open');
+
+  // Chargement asynchrone des fichiers data/{id}/
+  const base = `data/${node.id}`;
+  const [description, quotes, bibliography] = await Promise.all([
+    fetchText(`${base}/description.md`),
+    fetchJSON(`${base}/quotes.json`),
+    fetchJSON(`${base}/bibliography.json`)
+  ]);
+
+  if (description || quotes || bibliography) {
+    renderPanel(node, color, outs, ins, { description, quotes, bibliography });
+  }
+}
+
+function closePanel() { document.getElementById('panel').classList.remove('open'); }
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+function init() {
+  // SVG links
+  const svg = document.getElementById('links-svg');
+  DATA.links.forEach(([sid, tid]) => {
+    const s = nodeMap[sid], t = nodeMap[tid];
+    if (!s || !t) return;
+    const sx = s.x + 120, sy = s.y + 90;
+    const tx = t.x + 120, ty = t.y + 90;
+    const mx = (sx + tx) / 2;
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', `M ${sx} ${sy} C ${mx} ${sy}, ${mx} ${ty}, ${tx} ${ty}`);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', 'rgba(0,0,0,0.45)');
+    path.setAttribute('stroke-width', '3');
+    path.dataset.s = sid;
+    path.dataset.t = tid;
+    svg.appendChild(path);
+  });
+
+  // Nodes
+  const canvas = document.getElementById('canvas');
+  DATA.nodes.forEach(node => {
+    const color = DATA.domains[node.domain] || '#64748b';
+    const el    = document.createElement('div');
+    el.className   = 'node' + (node.type === 'concept' ? ' concept' : '');
+    el.dataset.id  = node.id;
+    el.style.left  = node.x + 'px';
+    el.style.top   = node.y + 'px';
+    el.style.borderColor = node.type === 'concept' ? color + '55' : '';
+    if (node.type === 'author') el.style.boxShadow = `0 2px 20px ${color}1a`;
+
+    el.innerHTML = `
+      <div class="node-domain" style="background:${color}22;color:${color}">${node.domain}</div>
+      <div class="node-name">${node.name}</div>
+      <div class="node-era">${node.era}</div>
+      <div class="node-tags">${node.concepts.map(c => `<div class="node-tag">${c}</div>`).join('')}</div>
+    `;
+
+    el.addEventListener('click', e => {
+      e.stopPropagation();
+      if (mode !== 'detail') return;
+      openPanel(node);
+    });
+
+    canvas.appendChild(el);
+  });
+
+  // Legend
+  const legend = document.getElementById('legend');
+  Object.entries(DATA.domains).forEach(([domain, color]) => {
+    const item = document.createElement('div');
+    item.className = 'legend-item';
+    item.innerHTML = `<div class="legend-dot" style="background:${color}"></div>${domain}`;
+    legend.appendChild(item);
+  });
+
+  applyTransform(false);
+}
+
+// ─── Events ───────────────────────────────────────────────────────────────────
+const viewport = document.getElementById('viewport');
+
+// Click: zoom in (overview) or close panel (detail)
+viewport.addEventListener('click', e => {
+  if (isDragging) return;
+  if (mode === 'overview') {
+    const s = overviewScale();
+    const o = overviewOffset(s);
+    zoomTo((e.clientX - o.x) / s, ((e.clientY - HEADER_H) - o.y) / s);
+  } else {
+    closePanel();
+  }
+});
+
+// Double-click: zoom out (detail)
+viewport.addEventListener('dblclick', e => {
+  if (mode === 'detail') zoomOut();
+});
+
+// Drag (detail only)
+viewport.addEventListener('mousedown', e => {
+  if (mode !== 'detail') return;
+  isDragging = false;
+  dragStart  = { x: e.clientX, y: e.clientY };
+  dragOrigin = { ...detailOffset };
+});
+
+document.addEventListener('mousemove', e => {
+  if (mode === 'overview') {
+    updateHoverRect(e.clientX, e.clientY - HEADER_H);
+    return;
+  }
+  if (e.buttons !== 1) return;
+  const dx = e.clientX - dragStart.x;
+  const dy = e.clientY - dragStart.y;
+  if (!isDragging && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) {
+    isDragging = true;
+    document.getElementById('viewport').classList.add('dragging');
+  }
+  if (isDragging) {
+    detailOffset = { x: dragOrigin.x + dx, y: dragOrigin.y + dy };
+    applyTransform(false);
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  setTimeout(() => { isDragging = false; }, 0);
+  document.getElementById('viewport').classList.remove('dragging');
+});
+
+viewport.addEventListener('mouseleave', () => {
+  document.getElementById('hover-rect').style.display = 'none';
+});
+
+// Search
+document.getElementById('search').addEventListener('input', e => applySearch(e.target.value));
+
+// Panel close
+document.getElementById('panel-close').addEventListener('click', closePanel);
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (mode === 'detail') { zoomOut(); return; }
+    if (searchQuery) {
+      const s = document.getElementById('search');
+      s.value = '';
+      applySearch('');
+    }
+  }
+});
+
+// Ctrl+molette : zoom fin en mode détail
+viewport.addEventListener('wheel', e => {
+  if (!e.ctrlKey || mode !== 'detail') return;
+  e.preventDefault();
+  const factor = e.deltaY < 0 ? 1.1 : 0.9;
+  const newScale = clamp(detailScale * factor, SCALE_MIN, SCALE_MAX);
+  // Zoom centré sur la position de la souris
+  const mouseX = e.clientX;
+  const mouseY = e.clientY - HEADER_H;
+  const canvasX = (mouseX - detailOffset.x) / detailScale;
+  const canvasY = (mouseY - detailOffset.y) / detailScale;
+  detailOffset = {
+    x: mouseX - canvasX * newScale,
+    y: mouseY - canvasY * newScale
+  };
+  detailScale = newScale;
+  applyTransform(false);
+}, { passive: false });
+
+// Resize
+window.addEventListener('resize', () => applyTransform(false));
+
+// Start
+init();
+</script>
+</body>
+</html>
