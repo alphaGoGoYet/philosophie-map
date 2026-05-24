@@ -1,3 +1,5 @@
-Socrate n'a rien écrit. Sa méthode, la maïeutique, consiste à faire accoucher les esprits de la vérité par un questionnement rigoureux. Il pose que la vertu est connaissance et que nul ne fait le mal volontairement.
+Socrate n'a rien écrit. Sa méthode, la **maïeutique**, consiste à faire accoucher les esprits de la vérité par un questionnement rigoureux : en poussant l'interlocuteur à examiner ses propres croyances, il révèle les contradictions cachées et ouvre la voie vers une connaissance authentique. Le dialogue n'est pas un simple échange d'opinions, c'est une épreuve de la pensée.
 
-Condamné à mort par Athènes pour impiété et corruption de la jeunesse, il accepte sa peine sans fuir, fidèle à ses convictions jusqu'au bout.
+Au cœur de son éthique se trouve la thèse que **la vertu est connaissance** : nul ne fait le mal volontairement, car celui qui connaît réellement le bien ne peut que le choisir. L'ignorance est ainsi la source de tous les vices. Cette identification du savoir et de la vertu fait de la philosophie une pratique de vie, non une discipline abstraite.
+
+Condamné à mort par Athènes pour impiété et corruption de la jeunesse, Socrate refuse de fuir malgré les possibilités qui s'offrent à lui. Cette **acceptation sereine de la mort**, relatée dans le *Phédon* et l'*Apologie* de Platon, incarne le projet socratique : philosopher, c'est apprendre à mourir, c'est-à-dire se détacher du sensible pour s'ouvrir à l'essentiel.

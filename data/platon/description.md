@@ -1,3 +1,5 @@
-Platon élabore la théorie des Idées : les objets sensibles ne sont que des copies imparfaites de formes idéales éternelles, accessibles à la seule raison. Sa philosophie politique, exposée dans La République, imagine un État gouverné par des philosophes-rois.
+Platon élabore la **théorie des Idées** : les objets sensibles ne sont que des copies imparfaites de formes idéales éternelles, intelligibles et immuables. Seule la raison peut s'élever jusqu'à ces réalités supérieures ; les sens nous livrent un monde d'apparences et de changements. L'Idée du **Bien** trône au sommet de cette hiérarchie, comme le soleil qui rend visible tout le reste.
 
-La caverne est sa métaphore fondatrice : les hommes vivent dans l'illusion, la philosophie est le chemin vers la lumière.
+L'**allégorie de la caverne**, exposée dans *La République*, illustre cette métaphysique : des prisonniers enchaînés prennent des ombres pour la réalité. Le philosophe, qui parvient à sortir et à contempler la lumière, a le devoir de redescendre pour guider ses semblables. Cette image fonde à la fois l'épistémologie platonicienne et son idéal politique.
+
+Sa **philosophie politique** imagine un État juste dont les trois classes — producteurs, gardiens, philosophes-rois — correspondent aux trois parties de l'âme : désir, ardeur et raison. Seul celui qui connaît le Bien peut gouverner. Cette vision aristocratique et idéaliste du pouvoir influencera durablement la pensée politique occidentale, de saint Augustin aux utopies modernes.

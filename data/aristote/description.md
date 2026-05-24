@@ -1,3 +1,5 @@
-Aristote rompt avec Platon : les formes n'existent pas séparément des choses. Sa logique (le syllogisme) fonde la pensée rationnelle occidentale. Il distingue matière et forme, puissance et acte.
+Aristote rompt avec Platon : les **formes n'existent pas séparément des choses**, elles leur sont intrinsèques. Sa **logique**, fondée sur le syllogisme, devient l'outil universel de la démonstration rationnelle. Sa **métaphysique** distingue matière et forme, puissance et acte, substance et accident — un vocabulaire conceptuel qui structurera la philosophie pendant deux millénaires.
 
-Son éthique des vertus vise l'eudaimonia (bonheur ou épanouissement) par la pratique de la juste mesure. Encyclopédiste universel, il couvre la physique, la biologie, la politique, la poétique.
+Son **éthique des vertus**, exposée dans l'*Éthique à Nicomaque*, vise l'**eudaimonia** — le bonheur comme épanouissement de l'être — par la pratique habituelle de la juste mesure entre deux extrêmes. La vertu n'est pas un savoir théorique mais une disposition acquise par l'exercice répété. L'homme vertueux est celui dont les désirs et la raison sont en accord.
+
+Penseur encyclopédique, Aristote couvre la physique, la biologie, la politique, la rhétorique et la poétique. Sa **politique** définit l'homme comme *animal politique* : la cité est la forme accomplie de la communauté humaine, antérieure logiquement à l'individu. Redécouvert en Occident au XIIe siècle, il devient « le Philosophe » par excellence, autorité indépassable pour la scolastique médiévale.

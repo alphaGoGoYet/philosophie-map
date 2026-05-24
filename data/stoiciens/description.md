@@ -1,0 +1,5 @@
+Le stoïcisme, fondé par Zénon de Cittium au IVe siècle av. J.-C. et développé par Épictète, Marc Aurèle et Sénèque, place la **vertu** comme seul bien véritable. Tout ce qui ne dépend pas de nous — richesse, santé, réputation — appartient aux **indifférents** (*adiaphora*). Seule la qualité de notre volonté et de nos jugements nous appartient pleinement.
+
+Le monde est régi par le **logos**, raison universelle immanente qui ordonne toutes choses. L'âme humaine participe de ce logos divin : philosopher, c'est vivre en accord avec la nature rationnelle de l'univers. Cette vision conduit à un **cosmopolitisme** radical — tous les êtres humains partagent la même raison et sont membres d'une cité universelle.
+
+La **maîtrise de soi** stoïcienne n'est pas indifférence au monde, mais liberté intérieure : on peut être libre dans les fers, comme Épictète l'esclave le démontre. Les passions ne sont pas des forces irrationnelles à subir, mais des jugements erronés à corriger. Cette éthique de la résistance intérieure traversera le christianisme, la Renaissance et jusqu'aux thérapies cognitives modernes.
