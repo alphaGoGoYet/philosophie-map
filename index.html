@@ -165,7 +165,8 @@
       border-radius: 6px;
       pointer-events: none;
       display: none;
-      background: rgba(0,0,0,0.02);
+      background: rgba(255,255,255,0.92);
+      overflow: hidden;
       box-shadow: 0 0 0 9999px rgba(255,255,255,0.35);
     }
 
@@ -583,12 +584,33 @@ function zoomOut() {
 
 // ─── Hover rect ───────────────────────────────────────────────────────────────
 function updateHoverRect(screenX, screenY) {
-  const v = vp();
-  const s = overviewScale();
+  const v  = vp();
+  const s  = overviewScale();
+  const o  = overviewOffset(s);
   const rw = (v.w / detailScale) * s;
   const rh = (v.h / detailScale) * s;
   const r  = document.getElementById('hover-rect');
-  r.style.cssText = `display:block;width:${rw}px;height:${rh}px;left:${screenX - rw/2}px;top:${screenY - rh/2}px;`;
+  r.style.width  = rw + 'px';
+  r.style.height = rh + 'px';
+  r.style.left   = (screenX - rw/2) + 'px';
+  r.style.top    = (screenY - rh/2) + 'px';
+  r.style.display = 'block';
+
+  // Coordonnées canvas sous le curseur
+  const cx = (screenX - o.x) / s;
+  const cy = (screenY - o.y) / s;
+  const hw = v.w / (2 * detailScale);
+  const hh = v.h / (2 * detailScale);
+
+  if (!DATA) return;
+  r.innerHTML = DATA.nodes
+    .filter(n => n.x >= cx - hw && n.x <= cx + hw && n.y >= cy - hh && n.y <= cy + hh)
+    .map(n => {
+      const lx = (n.x - cx) * s + rw / 2;
+      const ly = (n.y - cy) * s + rh / 2;
+      const color = DATA.domains[n.domain] || '#334155';
+      return `<div style="position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);font-size:11px;font-weight:700;color:${color};white-space:nowrap;text-shadow:0 0 4px #fff,0 0 4px #fff">${n.name}</div>`;
+    }).join('');
 }
 
 // ─── Search ───────────────────────────────────────────────────────────────────
@@ -913,10 +935,9 @@ const viewport = document.getElementById('viewport');
 viewport.addEventListener('click', e => {
   if (isDragging) return;
   if (mode === 'overview') {
-    const nodeEl = e.target.closest('.node');
-    if (!nodeEl) return;
-    const n = nodeMap[nodeEl.dataset.id];
-    if (n) zoomTo(n.x + 120, n.y + 90);
+    const s = overviewScale();
+    const o = overviewOffset(s);
+    zoomTo((e.clientX - o.x) / s, ((e.clientY - HEADER_H) - o.y) / s);
   } else {
     closePanel();
   }
@@ -1051,14 +1072,15 @@ viewport.addEventListener('touchend', e => {
   }
   touchedLink = null;
 
-  if (mode === 'overview' && !isDragging && touchedNode) {
-    const n = nodeMap[touchedNode.dataset.id];
-    touchedNode = null;
-    if (n) zoomTo(n.x + 120, n.y + 90);
+  touchedNode = null;
+  if (mode === 'overview' && !isDragging) {
+    const touch = e.changedTouches[0];
+    const s = overviewScale();
+    const o = overviewOffset(s);
+    zoomTo((touch.clientX - o.x) / s, ((touch.clientY - HEADER_H) - o.y) / s);
     setTimeout(() => { isDragging = false; viewport.classList.remove('dragging'); }, 0);
     return;
   }
-  touchedNode = null;
 
   if (mode === 'detail') {
     const now = Date.now();
