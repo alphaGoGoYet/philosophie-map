@@ -586,9 +586,9 @@ function applySearch(q) {
 
 // ─── Panel ────────────────────────────────────────────────────────────────────
 function renderPanel(node, color, outs, ins, rich) {
-  const btns = (arr) => arr.map(({node: n, type}) => {
+  const btns = (arr) => arr.map(({node: n, type, linkS, linkT}) => {
     const st = (type && LINK_STYLES[type]) || LINK_DEFAULT;
-    return `<button class="panel-node-btn" data-id="${n.id}" data-link-s="${node.id}" data-link-t="${n.id}" data-link-type="${type || ''}">
+    return `<button class="panel-node-btn" data-id="${n.id}" data-link-s="${linkS || ''}" data-link-t="${linkT || ''}" data-link-type="${type || ''}">
       <span style="display:inline-block;background:${st.color}22;color:${st.color};border-radius:999px;padding:1px 7px;font-size:10px;font-weight:600;margin-right:4px">${st.label || ''}</span>${n.name}
     </button>`;
   }).join('');
@@ -651,10 +651,14 @@ function renderPanel(node, color, outs, ins, rich) {
 
   document.querySelectorAll('.panel-node-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const n = nodeMap[btn.dataset.id];
-      if (!n) return;
-      openPanel(n);
-      zoomTo(n.x + 120, n.y + 90);
+      if (btn.dataset.linkS) {
+        openLinkPanel(btn.dataset.linkS, btn.dataset.linkT, btn.dataset.linkType);
+      } else {
+        const n = nodeMap[btn.dataset.id];
+        if (!n) return;
+        openPanel(n);
+        zoomTo(n.x + 120, n.y + 90);
+      }
     });
   });
 }
@@ -662,9 +666,9 @@ function renderPanel(node, color, outs, ins, rich) {
 async function openPanel(node) {
   const color = DATA.domains[node.domain] || '#64748b';
   const outs = DATA.links.filter(([s]) => s === node.id)
-    .map(([,t,type]) => ({ node: nodeMap[t], type })).filter(o => o.node);
+    .map(([s,t,type]) => ({ node: nodeMap[t], type, linkS: s, linkT: t })).filter(o => o.node);
   const ins  = DATA.links.filter(([,t]) => t === node.id)
-    .map(([s,,type]) => ({ node: nodeMap[s], type })).filter(o => o.node);
+    .map(([s,t,type]) => ({ node: nodeMap[s], type, linkS: s, linkT: t })).filter(o => o.node);
 
   // Affichage immédiat sans données enrichies
   renderPanel(node, color, outs, ins, {});
