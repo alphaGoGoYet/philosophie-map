@@ -354,6 +354,21 @@
       color: #374151;
     }
     .legend-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    #link-tooltip {
+      position: fixed;
+      background: white;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      pointer-events: none;
+      z-index: 200;
+      display: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      white-space: nowrap;
+    }
+    .link-hit { cursor: pointer; }
   </style>
 </head>
 <body>
@@ -383,6 +398,7 @@
 
 <div id="legend"></div>
 <div id="link-legend"></div>
+<div id="link-tooltip"></div>
 
 <script>
 let DATA;
@@ -560,7 +576,7 @@ function applySearch(q) {
   document.querySelectorAll('.node').forEach(el => {
     el.classList.toggle('dimmed', q !== '' && !matchIds.has(el.dataset.id));
   });
-  document.querySelectorAll('#links-svg path').forEach(p => {
+  document.querySelectorAll('#links-svg path.link-vis').forEach(p => {
     const active = q === '' || (matchIds.has(p.dataset.s) && matchIds.has(p.dataset.t));
     const style = (p.dataset.type && LINK_STYLES[p.dataset.type]) || LINK_DEFAULT;
     p.setAttribute('stroke', active ? style.color : 'rgba(0,0,0,0.04)');
@@ -668,6 +684,46 @@ async function openPanel(node) {
 
 function closePanel() { document.getElementById('panel').classList.remove('open'); }
 
+async function openLinkPanel(sid, tid, type) {
+  const sNode = nodeMap[sid], tNode = nodeMap[tid];
+  const st = (type && LINK_STYLES[type]) || LINK_DEFAULT;
+  renderLinkPanel(sNode, tNode, st, null);
+  document.getElementById('panel').classList.add('open');
+  const text = await fetchText(`data/links/${sid}--${tid}.md`);
+  renderLinkPanel(sNode, tNode, st, text);
+}
+
+function renderLinkPanel(sNode, tNode, st, description) {
+  const descHTML = description
+    ? `<div class="panel-section">Relation</div><div class="panel-description">${renderMd(description)}</div>`
+    : `<div class="panel-section">Relation</div><div class="panel-description"><p><em>Chargement…</em></p></div>`;
+  document.getElementById('panel-content').innerHTML = `
+    <div class="panel-header">
+      <div class="panel-name" style="font-size:15px;line-height:1.6">
+        ${sNode?.name}
+        <span style="color:${st.color};margin:0 6px;font-weight:700">→</span>
+        ${tNode?.name}
+      </div>
+      <div class="panel-meta">
+        <span style="background:${st.color}22;color:${st.color};border-radius:999px;padding:3px 12px;font-weight:600;font-size:12px">${st.label || ''}</span>
+      </div>
+    </div>
+    ${descHTML}
+    <div class="panel-nodes" style="margin-top:12px">
+      <button class="panel-node-btn" data-id="${sNode?.id}">Voir ${sNode?.name}</button>
+      <button class="panel-node-btn" data-id="${tNode?.id}">Voir ${tNode?.name}</button>
+    </div>
+  `;
+  document.querySelectorAll('.panel-node-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const n = nodeMap[btn.dataset.id];
+      if (!n) return;
+      openPanel(n);
+      zoomTo(n.x + 120, n.y + 90);
+    });
+  });
+}
+
 // ─── Init ─────────────────────────────────────────────────────────────────────
 function init() {
   // SVG links
@@ -679,16 +735,61 @@ function init() {
     const tx = t.x + 120, ty = t.y + 90;
     const mx = (sx + tx) / 2;
     const style = (type && LINK_STYLES[type]) || LINK_DEFAULT;
+    const d = `M ${sx} ${sy} C ${mx} ${sy}, ${mx} ${ty}, ${tx} ${ty}`;
+
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.dataset.s    = sid;
+    g.dataset.t    = tid;
+    g.dataset.type = type || '';
+
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('d', `M ${sx} ${sy} C ${mx} ${sy}, ${mx} ${ty}, ${tx} ${ty}`);
+    path.setAttribute('d', d);
     path.setAttribute('fill', 'none');
     path.setAttribute('stroke', style.color);
     path.setAttribute('stroke-width', style.width);
     if (style.dash) path.setAttribute('stroke-dasharray', style.dash);
+    path.setAttribute('pointer-events', 'none');
+    path.classList.add('link-vis');
     path.dataset.s    = sid;
     path.dataset.t    = tid;
     path.dataset.type = type || '';
-    svg.appendChild(path);
+    g.appendChild(path);
+
+    const hit = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    hit.setAttribute('d', d);
+    hit.setAttribute('fill', 'none');
+    hit.setAttribute('stroke', 'transparent');
+    hit.setAttribute('stroke-width', '12');
+    hit.classList.add('link-hit');
+    g.appendChild(hit);
+
+    svg.appendChild(g);
+  });
+
+  // Tooltip + click sur les liens
+  const linkTooltip = document.getElementById('link-tooltip');
+  svg.addEventListener('mouseover', e => {
+    const g = e.target.closest('g[data-s]');
+    if (!g) return;
+    const st = (g.dataset.type && LINK_STYLES[g.dataset.type]) || LINK_DEFAULT;
+    const sn = nodeMap[g.dataset.s], tn = nodeMap[g.dataset.t];
+    linkTooltip.textContent = `${st.label || g.dataset.type} : ${sn?.name} → ${tn?.name}`;
+    linkTooltip.style.color = st.color;
+    linkTooltip.style.display = 'block';
+  });
+  svg.addEventListener('mousemove', e => {
+    linkTooltip.style.left = (e.clientX + 14) + 'px';
+    linkTooltip.style.top  = (e.clientY - 34) + 'px';
+  });
+  svg.addEventListener('mouseout', e => {
+    if (!e.relatedTarget?.closest('g[data-s]')) linkTooltip.style.display = 'none';
+  });
+  svg.addEventListener('click', async e => {
+    const g = e.target.closest('g[data-s]');
+    if (!g) return;
+    e.stopPropagation();
+    linkTooltip.style.display = 'none';
+    await openLinkPanel(g.dataset.s, g.dataset.t, g.dataset.type);
   });
 
   // Nodes
