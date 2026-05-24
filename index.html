@@ -603,14 +603,17 @@ function updateHoverRect(screenX, screenY) {
   const hh = v.h / (2 * detailScale);
 
   if (!DATA) return;
-  r.innerHTML = DATA.nodes
+  const visible = DATA.nodes
     .filter(n => n.x >= cx - hw && n.x <= cx + hw && n.y >= cy - hh && n.y <= cy + hh)
-    .map(n => {
-      const lx = (n.x - cx) * s + rw / 2;
-      const ly = (n.y - cy) * s + rh / 2;
-      const color = DATA.domains[n.domain] || '#334155';
-      return `<div style="position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);font-size:11px;font-weight:700;color:${color};white-space:nowrap;text-shadow:0 0 4px #fff,0 0 4px #fff">${n.name}</div>`;
-    }).join('');
+    .map(n => ({ ...n, dist: Math.hypot(n.x - cx, n.y - cy) }))
+    .sort((a, b) => a.dist - b.dist)
+    .slice(0, 12);
+  r.innerHTML = visible.map(n => {
+    const lx = (n.x - cx) * s + rw / 2;
+    const ly = (n.y - cy) * s + rh / 2;
+    const color = DATA.domains[n.domain] || '#334155';
+    return `<div style="position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);font-size:11px;font-weight:700;color:${color};white-space:nowrap;background:rgba(255,255,255,0.9);padding:1px 5px;border-radius:4px;border:1px solid ${color}44">${n.name}</div>`;
+  }).join('');
 }
 
 // ─── Search ───────────────────────────────────────────────────────────────────
