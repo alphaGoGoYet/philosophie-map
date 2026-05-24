@@ -78,6 +78,8 @@
       overflow: hidden;
       cursor: crosshair;
       user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
     }
     #viewport.detail { cursor: grab; }
     #viewport.detail.dragging { cursor: grabbing; }
@@ -694,7 +696,7 @@ viewport.addEventListener('touchstart', e => {
     dragStart  = { x: touch.clientX, y: touch.clientY };
     dragOrigin = { ...detailOffset };
   }
-}, { passive: true });
+}, { passive: false });
 
 viewport.addEventListener('touchmove', e => {
   e.preventDefault();
