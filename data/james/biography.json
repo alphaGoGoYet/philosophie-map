@@ -1,0 +1,15 @@
+{
+  "birth": "1842, New York",
+  "death": "1910, Chocorua, New Hampshire",
+  "nationality": "Américaine",
+  "formation": "Médecine à Harvard, formation en physiologie et psychologie",
+  "key_events": [
+    { "year": "1869", "event": "Obtient son doctorat en médecine à Harvard après une grave crise existentielle et dépressive" },
+    { "year": "1872", "event": "Enseigne la physiologie à Harvard, puis la psychologie et la philosophie" },
+    { "year": "1890", "event": "Publie 'Principes de psychologie', œuvre majeure qui fonde la psychologie fonctionnelle américaine" },
+    { "year": "1897", "event": "Tourne vers la philosophie avec 'La volonté de croire', défense du droit à croire sans preuve suffisante" },
+    { "year": "1907", "event": "Publie 'Le Pragmatisme', synthèse accessible qui popularise la doctrine héritée de Peirce" },
+    { "year": "1910", "event": "Meurt d'une insuffisance cardiaque, laissant inachevée 'Quelques problèmes de philosophie'" }
+  ],
+  "note": "Frère du romancier Henry James, William a traversé une crise dépressive majeure dans sa jeunesse dont il sortit en décidant de 'croire au libre arbitre' — expérience personnelle qui est à l'origine directe de sa philosophie pragmatiste de la croyance et de l'action."
+}

@@ -1,0 +1,15 @@
+{
+  "birth": "1900, Saint-Louis (Missouri)",
+  "death": "1987, Danville (Californie)",
+  "nationality": "Américaine",
+  "formation": "Université du Missouri, puis doctorat à l'Université de Chicago (sociologie)",
+  "key_events": [
+    { "year": "1925", "event": "Doctorat à Chicago ; suit les séminaires de George Herbert Mead, influence déterminante" },
+    { "year": "1927", "event": "Intègre le département de sociologie de Chicago comme enseignant-chercheur" },
+    { "year": "1937", "event": "Forge le terme « interactionnisme symbolique » dans un article collectif de synthèse" },
+    { "year": "1952", "event": "Participe aux travaux de la Commission sur les relations interraciales, appliquant son cadre théorique" },
+    { "year": "1958", "event": "Rejoint l'Université de Berkeley, où il dirige le département de sociologie" },
+    { "year": "1969", "event": "Publie Symbolic Interactionism: Perspective and Method, exposé systématique de la méthode" }
+  ],
+  "note": "Blumer insistait pour que le sociologue « respecte la nature de l'objet empirique » et refusait toute modélisation qui aplatirait le sens vécu des acteurs — position qui l'a mis en conflit durable avec les tenants du fonctionnalisme parsonien et de la sociologie quantitative."
+}

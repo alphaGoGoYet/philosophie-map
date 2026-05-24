@@ -274,6 +274,50 @@
     .bib-title { color: #111111; font-weight: 600; }
     .bib-year  { color: #666666; font-weight: 400; }
 
+    .bio-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+    .bio-meta span {
+      font-size: 11px;
+      font-weight: 500;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px 9px;
+      color: #444444;
+    }
+    .bio-events {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .bio-event {
+      display: flex;
+      gap: 8px;
+      font-size: 12px;
+    }
+    .bio-event-year {
+      font-weight: 600;
+      color: #444444;
+      min-width: 36px;
+      flex-shrink: 0;
+    }
+    .bio-event-text { color: #222222; }
+    .bio-note {
+      font-size: 12px;
+      font-style: italic;
+      color: #555555;
+      line-height: 1.6;
+      padding: 8px 12px;
+      border-left: 3px solid #cccccc;
+      background: rgba(0,0,0,0.02);
+      border-radius: 0 6px 6px 0;
+    }
+
     /* LEGEND */
     #legend {
       position: fixed;
@@ -481,6 +525,28 @@ function renderPanel(node, color, outs, ins, rich) {
       + `</ul>`
     : '';
 
+  const bio = rich.biography;
+  const bioHTML = bio ? (() => {
+    const meta = [
+      bio.birth    ? `🗓 ${bio.birth}`       : null,
+      bio.death    ? `✝ ${bio.death}`        : null,
+      bio.nationality ? `🌍 ${bio.nationality}` : null,
+      bio.formation   ? `🎓 ${bio.formation}`   : null,
+    ].filter(Boolean).map(t => `<span>${t}</span>`).join('');
+
+    const events = bio.key_events && bio.key_events.length
+      ? `<div class="bio-events">`
+        + bio.key_events.map(e => `<div class="bio-event"><span class="bio-event-year">${e.year}</span><span class="bio-event-text">${e.event}</span></div>`).join('')
+        + `</div>`
+      : '';
+
+    const note = bio.note ? `<div class="bio-note">${bio.note}</div>` : '';
+
+    return `<div class="panel-section">Biographie</div>
+      <div class="bio-meta">${meta}</div>
+      ${events}${note}`;
+  })() : '';
+
   document.getElementById('panel-content').innerHTML = `
     <div class="panel-header">
       <div class="panel-name">${node.name}</div>
@@ -488,6 +554,7 @@ function renderPanel(node, color, outs, ins, rich) {
     </div>
     <div class="panel-section">Concepts majeurs</div>
     <div class="panel-concepts">${node.concepts.map(c => `<div class="panel-concept">${c}</div>`).join('')}</div>
+    ${bioHTML}
     ${descHTML}
     ${quotesHTML}
     ${bibHTML}
@@ -516,14 +583,15 @@ async function openPanel(node) {
 
   // Chargement asynchrone des fichiers data/{id}/
   const base = `data/${node.id}`;
-  const [description, quotes, bibliography] = await Promise.all([
+  const [description, quotes, bibliography, biography] = await Promise.all([
     fetchText(`${base}/description.md`),
     fetchJSON(`${base}/quotes.json`),
-    fetchJSON(`${base}/bibliography.json`)
+    fetchJSON(`${base}/bibliography.json`),
+    fetchJSON(`${base}/biography.json`)
   ]);
 
-  if (description || quotes || bibliography) {
-    renderPanel(node, color, outs, ins, { description, quotes, bibliography });
+  if (description || quotes || bibliography || biography) {
+    renderPanel(node, color, outs, ins, { description, quotes, bibliography, biography });
   }
 }
 

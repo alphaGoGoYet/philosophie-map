@@ -1,0 +1,14 @@
+{
+  "birth": "1848, Wismar (Mecklembourg)",
+  "death": "1925, Bad Kleinen",
+  "nationality": "Allemand",
+  "formation": "Mathématiques et physique, universités de Iéna et Göttingen",
+  "key_events": [
+    { "year": "1879", "event": "Publication de la Begriffsschrift, invention de la logique moderne des prédicats" },
+    { "year": "1884", "event": "Les Fondements de l'arithmétique : programme logiciste (les mathématiques dérivées de la logique)" },
+    { "year": "1892", "event": "Articles fondateurs sur Sens et Dénotation, distinction objet/concept" },
+    { "year": "1902", "event": "Lettre de Russell signalant le paradoxe qui ruine son système des Grundgesetze" },
+    { "year": "1906", "event": "Abandon du programme logiciste après l'échec face au paradoxe de Russell" }
+  ],
+  "note": "Frege travailla toute sa vie dans l'indifférence quasi totale : ses œuvres fondatrices de la logique moderne furent ignorées jusqu'à ce que Russell et Wittgenstein les redécouvrent, lui offrant une reconnaissance posthume qu'il ne vit qu'à peine."
+}

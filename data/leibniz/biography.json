@@ -1,0 +1,15 @@
+{
+  "birth": "1646, Leipzig (Saint-Empire)",
+  "death": "1716, Hanovre (Saint-Empire)",
+  "nationality": "Allemand",
+  "formation": "Université de Leipzig et Altdorf (droit, philosophie, mathématiques)",
+  "key_events": [
+    { "year": "1666", "event": "Soutient sa thèse de droit à Altdorf ; refuse une chaire pour entrer au service diplomatique" },
+    { "year": "1672", "event": "Mission diplomatique à Paris : rencontre les savants européens et se forme aux mathématiques avancées" },
+    { "year": "1675", "event": "Invention du calcul infinitésimal, indépendamment de Newton (querelle de priorité ultérieure)" },
+    { "year": "1686", "event": "Rédige le Discours de métaphysique, exposé central de sa philosophie" },
+    { "year": "1700", "event": "Fonde et préside la Société des sciences de Berlin" },
+    { "year": "1714", "event": "Rédige la Monadologie, synthèse finale de sa métaphysique" }
+  ],
+  "note": "Leibniz n'a jamais occupé de chaire universitaire et n'a publié aucun grand traité systématique de son vivant : sa philosophie se déploie dans une correspondance de plus de 15 000 lettres échangées avec les esprits les plus divers d'Europe."
+}

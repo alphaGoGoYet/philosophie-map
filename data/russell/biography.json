@@ -1,0 +1,15 @@
+{
+  "birth": "1872, Trellech (Pays de Galles)",
+  "death": "1970, Penrhyndeudraeth (Pays de Galles)",
+  "nationality": "Britannique",
+  "formation": "Mathématiques et philosophie, Trinity College, Cambridge",
+  "key_events": [
+    { "year": "1903", "event": "Les Principes des mathématiques : formulation du programme logiciste" },
+    { "year": "1910-1913", "event": "Principia Mathematica avec Whitehead : tentative de fonder les mathématiques sur la logique" },
+    { "year": "1918", "event": "Emprisonné six mois à Brixton pour son pacifisme et son opposition à la Première Guerre mondiale" },
+    { "year": "1950", "event": "Prix Nobel de littérature pour l'ensemble de son œuvre de vulgarisation et d'engagement" },
+    { "year": "1955", "event": "Manifeste Russell-Einstein contre les armes nucléaires, fondation du mouvement Pugwash" },
+    { "year": "1961", "event": "Arrêté à 89 ans lors d'une manifestation pour le désarmement nucléaire à Londres" }
+  ],
+  "note": "Russell incarna une tension rare : l'un des logiciens les plus rigoureux du XXe siècle fut aussi un militant infatigable, emprisonné à deux reprises pour ses convictions pacifistes, preuve que la rigueur analytique n'exclut pas l'engagement moral radical."
+}

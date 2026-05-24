@@ -1,0 +1,15 @@
+{
+  "birth": "354, Thagaste (Numidie, actuelle Algérie)",
+  "death": "430, Hippone (Numidie)",
+  "nationality": "Romain d'Afrique (berbère)",
+  "formation": "Rhétorique à Carthage et Milan ; manichéisme puis néoplatonisme avant la conversion chrétienne",
+  "key_events": [
+    { "year": "354", "event": "Naissance à Thagaste d'un père païen et d'une mère chrétienne (Monique)" },
+    { "year": "373", "event": "Adhère au manichéisme pendant neuf ans, attiré par son explication dualiste du mal" },
+    { "year": "384", "event": "Devient professeur de rhétorique à Milan, fréquente l'évêque Ambroise et découvre le néoplatonisme" },
+    { "year": "386", "event": "Conversion au christianisme après une longue crise spirituelle, racontée dans les Confessions" },
+    { "year": "395", "event": "Devient évêque d'Hippone, poste qu'il occupera jusqu'à sa mort" },
+    { "year": "413-426", "event": "Rédige La Cité de Dieu en réponse au sac de Rome (410), fondant la philosophie de l'histoire chrétienne" }
+  ],
+  "note": "Augustin a vécu successivement comme manichéen, néoplatonicien et chrétien : cette trajectoire d'une conversion longue et douloureuse est le creuset de sa pensée sur la grâce, le libre arbitre et le mal — il a expérimenté philosophiquement ce qu'il enseignera théologiquement."
+}

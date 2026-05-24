@@ -1,0 +1,15 @@
+{
+  "birth": "1643, Woolsthorpe (Lincolnshire)",
+  "death": "1727, Kensington (Londres)",
+  "nationality": "Anglais",
+  "formation": "Trinity College, Cambridge ; autodidacte en mathématiques, optique et alchimie",
+  "key_events": [
+    { "year": "1643", "event": "Naissance prématurée à Woolsthorpe, père mort avant sa naissance ; enfance difficile" },
+    { "year": "1665-1666", "event": "Années miraculeuses : pendant la fermeture de Cambridge pour la peste, invente le calcul infinitésimal, la mécanique et la théorie des couleurs" },
+    { "year": "1687", "event": "Publie les Principia Mathematica, exposant la loi de la gravitation universelle et les trois lois du mouvement" },
+    { "year": "1696", "event": "Nommé directeur de la Monnaie royale de Londres, poste qu'il exerce avec rigueur pendant 30 ans" },
+    { "year": "1703", "event": "Élu président de la Royal Society, qu'il dominera jusqu'à sa mort" },
+    { "year": "1705", "event": "Anobli par la reine Anne, premier scientifique à recevoir cette distinction pour ses travaux" }
+  ],
+  "note": "Newton a consacré autant de temps, sinon plus, à l'alchimie et à l'exégèse biblique qu'à la physique : ses manuscrits théologiques et alchimiques représentent plus d'un million de mots. Ce paradoxe révèle que la révolution scientifique newtonienne s'est accomplie dans un esprit encore profondément ancré dans la recherche d'un ordre divin caché dans la nature."
+}

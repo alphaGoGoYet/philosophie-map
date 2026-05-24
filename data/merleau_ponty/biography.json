@@ -1,0 +1,15 @@
+{
+  "birth": "1908, Rochefort-sur-Mer (Charente-Maritime)",
+  "death": "1961, Paris",
+  "nationality": "Française",
+  "formation": "École normale supérieure, agrégation de philosophie (1930), psychologie et phénoménologie husserlienne",
+  "key_events": [
+    { "year": "1942", "event": "Publication de La Structure du comportement, première critique du dualisme cartésien" },
+    { "year": "1945", "event": "Publication de la Phénoménologie de la perception, œuvre maîtresse sur le corps-sujet" },
+    { "year": "1945", "event": "Co-fonde Les Temps modernes avec Sartre et Beauvoir" },
+    { "year": "1952", "event": "Élu au Collège de France, plus jeune titulaire de la chaire de philosophie" },
+    { "year": "1955", "event": "Rupture politique et intellectuelle avec Sartre autour du communisme" },
+    { "year": "1961", "event": "Meurt subitement à son bureau d'un accident vasculaire cérébral, laissant Le Visible et l'Invisible inachevé" }
+  ],
+  "note": "Il mourut à 53 ans, le Descartes ouvert devant lui sur son bureau — détail emblématique pour un philosophe dont toute l'œuvre fut un dialogue avec et contre Descartes sur la place du corps dans la pensée."
+}

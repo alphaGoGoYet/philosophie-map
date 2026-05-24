@@ -1,0 +1,15 @@
+{
+  "birth": "1931, New York",
+  "death": "2007, Palo Alto, Californie",
+  "nationality": "Américaine",
+  "formation": "Philosophie à l'Université de Chicago et à Yale",
+  "key_events": [
+    { "year": "1946", "event": "Entre à l'Université de Chicago à 15 ans dans le programme des Great Books" },
+    { "year": "1961", "event": "Rejoint Princeton où il enseigne la philosophie analytique pendant vingt ans" },
+    { "year": "1979", "event": "Publie 'La philosophie et le miroir de la nature', rupture radicale avec la philosophie analytique" },
+    { "year": "1982", "event": "Quitte Princeton pour Virginia, se définit désormais comme 'intellectuel culturel' plutôt que philosophe professionnel" },
+    { "year": "1989", "event": "Publie 'Contingence, ironie et solidarité', exposé de son néo-pragmatisme littéraire et politique" },
+    { "year": "1998", "event": "Rejoint Stanford, s'engage pour un patriotisme de gauche dans 'Achieving Our Country'" }
+  ],
+  "note": "Fils de militants trotskistes qui avaient rompu avec le Parti communiste, Rorty a grandi dans un foyer politiquement engagé tout en lisant Trotski et Marcel Proust — tension entre radicalisme politique et sensibilité littéraire qui structure toute son œuvre."
+}

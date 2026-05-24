@@ -1,0 +1,15 @@
+{
+  "birth": "1942, Calcutta, Inde",
+  "death": null,
+  "nationality": "Indienne-américaine",
+  "formation": "Littérature comparée à Presidency College (Calcutta), Cornell (doctorat sous Paul de Man)",
+  "key_events": [
+    { "year": "1967", "event": "Soutient sa thèse à Cornell sur Yeats, débute une carrière universitaire aux États-Unis" },
+    { "year": "1976", "event": "Traduit 'De la grammatologie' de Derrida en anglais avec une préface qui devient elle-même un texte de référence" },
+    { "year": "1988", "event": "Publie 'Les subalternes peuvent-elles parler ?', essai fondateur des études subalternes et postcoloniales" },
+    { "year": "1999", "event": "Publie 'A Critique of Postcolonial Reason', synthèse majeure de sa pensée" },
+    { "year": "2012", "event": "Rejoint Columbia University comme University Professor, la plus haute distinction académique de l'institution" },
+    { "year": "2013", "event": "Reçoit le Kyoto Prize, récompense internationale pour sa contribution aux sciences humaines" }
+  ],
+  "note": "Sa traduction de Derrida n'était pas un simple exercice académique : Spivak y a introduit la déconstruction dans le monde anglophone tout en la déplaçant vers des questions de genre et de colonialisme que Derrida lui-même n'avait pas thématisées — faisant de la traduction un acte politique."
+}

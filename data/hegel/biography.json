@@ -1,0 +1,15 @@
+{
+  "birth": "1770, Stuttgart (Wurtemberg)",
+  "death": "1831, Berlin",
+  "nationality": "Allemande",
+  "formation": "Théologie et philosophie au Stift de Tübingen, avec Schelling et Hölderlin",
+  "key_events": [
+    { "year": "1770", "event": "Naissance à Stuttgart dans une famille de fonctionnaires protestants" },
+    { "year": "1788", "event": "Entre au séminaire protestant de Tübingen, partage sa chambre avec Schelling et Hölderlin" },
+    { "year": "1806", "event": "Voit Napoléon entrer à Iéna ; y voit « l'Esprit du monde à cheval »" },
+    { "year": "1807", "event": "Publie la Phénoménologie de l'Esprit, œuvre fondatrice de son système" },
+    { "year": "1818", "event": "Nommé professeur à l'Université de Berlin, devient la figure dominante de la philosophie allemande" },
+    { "year": "1831", "event": "Meurt du choléra à Berlin au sommet de sa gloire académique" }
+  ],
+  "note": "La vision de Napoléon à Iéna n'est pas une anecdote : Hegel y voit la Raison s'incarner dans l'Histoire, ce qui est le cœur même de sa philosophie du devenir dialectique."
+}

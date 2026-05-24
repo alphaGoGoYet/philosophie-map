@@ -1,0 +1,15 @@
+{
+  "birth": "428 av. J.-C., Athènes",
+  "death": "348 av. J.-C., Athènes",
+  "nationality": "Grec (athénien)",
+  "formation": "Disciple de Socrate ; voyages en Italie du Sud, en Sicile et en Égypte",
+  "key_events": [
+    { "year": "428 av. J.-C.", "event": "Naissance à Athènes dans une famille aristocratique" },
+    { "year": "407 av. J.-C.", "event": "Rencontre Socrate, dont il devient le disciple le plus proche" },
+    { "year": "399 av. J.-C.", "event": "Mort de Socrate : traumatisme fondateur qui oriente toute sa philosophie politique et éthique" },
+    { "year": "387 av. J.-C.", "event": "Fonde l'Académie à Athènes, première institution d'enseignement supérieur en Occident" },
+    { "year": "367 av. J.-C.", "event": "Accueille Aristote à l'Académie" },
+    { "year": "360 av. J.-C.", "event": "Rédige les dialogues tardifs (République, Timée, Lois) exposant sa philosophie politique et cosmologique" }
+  ],
+  "note": "Platon fut profondément marqué par la condamnation injuste de Socrate : c'est cette expérience qui le convainc que la démocratie athénienne est corrompue et qu'il faut confier le pouvoir aux philosophes-rois."
+}

@@ -1,0 +1,15 @@
+{
+  "birth": "1859, Prostějov (Moravie, Empire austro-hongrois)",
+  "death": "1938, Fribourg-en-Brisgau",
+  "nationality": "Austro-hongrois, naturalisé allemand",
+  "formation": "Mathématiques (Vienne, Berlin, Halle), converti à la philosophie sous l'influence de Brentano",
+  "key_events": [
+    { "year": "1884", "event": "Suit les cours de Franz Brentano à Vienne, décisifs pour sa conversion à la philosophie" },
+    { "year": "1900-1901", "event": "Publication des Recherches logiques, acte de fondation de la phénoménologie" },
+    { "year": "1913", "event": "Publication des Idées directrices I, où il formule la réduction phénoménologique (épochè)" },
+    { "year": "1928", "event": "Mise à la retraite à Fribourg ; Heidegger lui succède à la chaire" },
+    { "year": "1933", "event": "Interdit d'enseignement et exclu de l'université par les lois nazies en tant que juif" },
+    { "year": "1936", "event": "Rédige La Crise des sciences européennes, son œuvre testamentaire sur la fondation du sens" }
+  ],
+  "note": "Ses manuscrits (environ 45 000 pages en sténographie) furent exfiltrés clandestinement en Belgique par le père franciscain Herman Van Breda en 1938, sauvés de la destruction nazie — c'est l'origine des Archives Husserl de Louvain."
+}

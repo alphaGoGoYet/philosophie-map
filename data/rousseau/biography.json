@@ -1,0 +1,15 @@
+{
+  "birth": "1712, Genève (République de Genève)",
+  "death": "1778, Ermenonville (France)",
+  "nationality": "Genevois (naturalisé français)",
+  "formation": "Autodidacte ; apprenti graveur, laquais, secrétaire",
+  "key_events": [
+    { "year": "1728", "event": "Fuit Genève à 16 ans, commence une vie errante sous la protection de Mme de Warens" },
+    { "year": "1749", "event": "Illumination sur la route de Vincennes : révélation de la bonté naturelle corrompue par la civilisation" },
+    { "year": "1750", "event": "Premier Discours (sur les sciences et les arts) remporte le prix de Dijon : célébrité soudaine" },
+    { "year": "1762", "event": "Publication du Contrat social et d'Émile ; les deux ouvrages sont condamnés et brûlés à Paris et Genève" },
+    { "year": "1765", "event": "Lapidé à Môtiers, chassé de l'île Saint-Pierre : début d'une errance européenne marquée par la paranoïa" },
+    { "year": "1770", "event": "Retour à Paris sous pseudonyme ; rédige les Confessions et les Rêveries du promeneur solitaire" }
+  ],
+  "note": "Rousseau abandonna ses cinq enfants à l'Hospice des Enfants-Trouvés, ce qu'il reconnut lui-même avec tourment dans ses Confessions — cette contradiction entre le théoricien de l'éducation naturelle et le père absent nourrit durablement les débats sur son œuvre."
+}

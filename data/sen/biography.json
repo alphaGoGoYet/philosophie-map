@@ -1,0 +1,15 @@
+{
+  "birth": "1933, Santiniketan (Bengale, Inde britannique)",
+  "death": null,
+  "nationality": "Indienne, puis britannique",
+  "formation": "Économie à Presidency College (Calcutta) et Trinity College (Cambridge, doctorat 1959)",
+  "key_events": [
+    { "year": "1943", "event": "Enfant, témoin de la grande famine du Bengale (3 millions de morts) ; expérience fondatrice de sa réflexion sur la justice" },
+    { "year": "1959", "event": "Doctorat à Cambridge, retour en Inde comme professeur à Jadavpur puis Delhi" },
+    { "year": "1970", "event": "Publication de 'Collective Choice and Social Welfare', fondation de l'économie du bien-être moderne" },
+    { "year": "1981", "event": "Publication de 'Poverty and Famines', démonstrant que les famines sont des échecs politiques, non de production" },
+    { "year": "1998", "event": "Prix Nobel d'économie pour ses contributions à l'économie du bien-être et à la théorie du choix social" },
+    { "year": "1999", "event": "Publication de 'Development as Freedom', exposé complet de son approche par les capabilités" }
+  ],
+  "note": "Sen a grandi à Santiniketan, la ville-école fondée par Rabindranath Tagore, dans un environnement qui mêlait arts, philosophies indiennes et humanisme occidental — un creuset intellectuel singulier qui explique la dimension éthique et interculturelle de toute son économie."
+}

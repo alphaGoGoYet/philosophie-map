@@ -1,0 +1,15 @@
+{
+  "birth": "1839, Cambridge, Massachusetts",
+  "death": "1914, Milford, Pennsylvanie",
+  "nationality": "Américaine",
+  "formation": "Chimie à Harvard, autodidacte en logique et philosophie",
+  "key_events": [
+    { "year": "1861", "event": "Entre au Coast and Geodetic Survey, emploi qu'il occupera 30 ans" },
+    { "year": "1867", "event": "Présente ses premières thèses logiques à l'Académie américaine des arts et sciences" },
+    { "year": "1877-1878", "event": "Publie 'La fixation de la croyance' et 'Comment rendre nos idées claires', textes fondateurs du pragmatisme" },
+    { "year": "1884", "event": "Contraint de démissionner de Johns Hopkins en raison de sa vie privée jugée scandaleuse" },
+    { "year": "1887", "event": "S'installe à Milford dans un isolement croissant, produit une œuvre immense restée largement inédite" },
+    { "year": "1914", "event": "Meurt dans la misère, ses manuscrits sauvés par William James qui lui avait fait don de ses propres revenus" }
+  ],
+  "note": "Peirce n'a jamais obtenu de poste universitaire stable et est mort dans la pauvreté, ignoré de son vivant. C'est cette marginalité même qui explique la liberté et la radicalité de sa sémiotique et de sa logique : il n'avait rien à perdre à penser autrement."
+}

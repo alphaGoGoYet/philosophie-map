@@ -1,0 +1,15 @@
+{
+  "birth": "1820, Derby (Angleterre)",
+  "death": "1903, Brighton",
+  "nationality": "Britannique",
+  "formation": "Autodidacte ; formation d'ingénieur civil sur le terrain, sans université",
+  "key_events": [
+    { "year": "1820", "event": "Naissance à Derby dans une famille de dissidents religieux et politiques ; refuse toute scolarisation formelle" },
+    { "year": "1837", "event": "Devient ingénieur pour les chemins de fer de Londres-Birmingham, travaillant sur les lignes en pleine expansion victorienne" },
+    { "year": "1848", "event": "Quitte l'ingénierie pour devenir journaliste à The Economist, tournant vers la philosophie sociale" },
+    { "year": "1851", "event": "Publie Statique sociale, premier exposé de son libéralisme évolutionniste radical" },
+    { "year": "1864", "event": "Forge l'expression « survie du plus apte » (survival of the fittest) pour résumer la sélection naturelle darwinienne" },
+    { "year": "1896", "event": "Achève son Système de philosophie synthétique en dix volumes, tentative encyclopédique d'unifier toutes les sciences sous l'évolution" }
+  ],
+  "note": "Spencer a forgé le terme « survie du plus apte » avant Darwin lui-même, et c'est Darwin qui le reprendra dans les éditions suivantes de L'Origine des espèces. Ce trajet d'ingénieur ferroviaire à grand système philosophique universel est l'une des trajectoires intellectuelles les plus singulières du XIXe siècle."
+}

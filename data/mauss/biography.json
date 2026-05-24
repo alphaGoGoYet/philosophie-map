@@ -1,0 +1,15 @@
+{
+  "birth": "1872, Épinal (Lorraine)",
+  "death": "1950, Paris",
+  "nationality": "Française",
+  "formation": "Philosophie (ENS), sanskritologie et histoire des religions",
+  "key_events": [
+    { "year": "1895", "event": "Rejoint l'équipe de L'Année sociologique, fondée par son oncle Émile Durkheim" },
+    { "year": "1904", "event": "Publie avec Henri Hubert l'Esquisse d'une théorie générale de la magie" },
+    { "year": "1914", "event": "Sert comme interprète pendant la Première Guerre mondiale, au contact direct des soldats" },
+    { "year": "1925", "event": "Publie l'Essai sur le don dans L'Année sociologique, son œuvre maîtresse" },
+    { "year": "1931", "event": "Élu professeur au Collège de France (chaire de sociologie)" },
+    { "year": "1940", "event": "Refuse de fuir malgré les lois antijuives ; son réseau de résistance protège plusieurs personnes" }
+  ],
+  "note": "Mauss n'a pas publié de grande monographie ; son œuvre est faite d'articles et de fragments, ce qui lui a valu d'être redécouvert tardivement — notamment par Lévi-Strauss et Bourdieu — comme le véritable fondateur de l'anthropologie sociale française."
+}

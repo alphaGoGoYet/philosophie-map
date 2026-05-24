@@ -1,0 +1,15 @@
+{
+  "birth": "1806, Pentonville, Londres",
+  "death": "1873, Avignon (France)",
+  "nationality": "Britannique",
+  "formation": "Éducation privée intensive imposée par son père James Mill, dès l'âge de 3 ans (grec, latin, arithmétique)",
+  "key_events": [
+    { "year": "1806", "event": "Naissance à Londres ; son père James Mill, ami de Bentham, entreprend dès l'enfance de faire de lui un génie utilitariste" },
+    { "year": "1819", "event": "À 13 ans, il a déjà étudié la logique, l'économie politique et l'histoire — mais n'a jamais joué avec d'autres enfants" },
+    { "year": "1826", "event": "Crise de dépression sévère à 20 ans ; comprend que l'éducation purement intellectuelle a atrophié sa vie émotionnelle" },
+    { "year": "1830", "event": "Rencontre Harriet Taylor, qui deviendra sa grande inspiratrice intellectuelle et sa femme après la mort de son époux" },
+    { "year": "1859", "event": "Publie De la liberté, son plaidoyer le plus célèbre pour les droits individuels" },
+    { "year": "1869", "event": "Publie L'Assujettissement des femmes, traité féministe pionnier coécrit avec Harriet Taylor" }
+  ],
+  "note": "La crise de dépression de ses 20 ans est un tournant fondateur : Mill découvre que le bonheur ne s'atteint pas en le recherchant directement, ce qui le conduit à enrichir l'utilitarisme benthamien de toute une dimension qualitative et émotionnelle."
+}

@@ -1,0 +1,15 @@
+{
+  "birth": "1844, Röcken (Prusse)",
+  "death": "1900, Weimar",
+  "nationality": "Allemande (renonce à la nationalité prussienne en 1869)",
+  "formation": "Philologie classique à Bonn puis Leipzig ; professeur à Bâle à 24 ans sans thèse",
+  "key_events": [
+    { "year": "1844", "event": "Naissance à Röcken, fils d'un pasteur luthérien qui meurt l'année suivante" },
+    { "year": "1869", "event": "Nommé professeur de philologie à l'Université de Bâle à 24 ans, exceptionnellement sans doctorat" },
+    { "year": "1872", "event": "Publie La Naissance de la tragédie, rupture avec la philologie académique, début de l'amitié avec Wagner" },
+    { "year": "1879", "event": "Contraint d'abandonner l'enseignement pour raisons de santé ; débute une vie de nomade solitaire" },
+    { "year": "1883", "event": "Rédige Ainsi parlait Zarathoustra après avoir appris la nouvelle du gai savoir à Sils-Maria" },
+    { "year": "1889", "event": "S'effondre dans les rues de Turin en étreignant un cheval ; sombrera dans la démence jusqu'à sa mort" }
+  ],
+  "note": "L'effondrement de Turin est entré dans la légende : Nietzsche embrasse l'encolure d'un cheval qu'il voit battu, puis s'écroule. Il ne reprendra jamais conscience lucide — comme si celui qui avait proclamé la mort de Dieu n'avait pu supporter de voir jusqu'au bout."
+}

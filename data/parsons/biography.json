@@ -1,0 +1,15 @@
+{
+  "birth": "1902, Colorado Springs (Colorado)",
+  "death": "1979, Munich",
+  "nationality": "Américaine",
+  "formation": "Amherst College, puis London School of Economics et Université de Heidelberg",
+  "key_events": [
+    { "year": "1925", "event": "Études à Heidelberg : lit Weber en allemand, rencontre Karl Mannheim et Alfred Weber" },
+    { "year": "1927", "event": "Rejoint le département de sociologie de Harvard, où il passera toute sa carrière" },
+    { "year": "1937", "event": "Publie The Structure of Social Action, synthèse de Weber, Durkheim, Pareto et Marshall" },
+    { "year": "1951", "event": "Publie The Social System, exposé systématique du fonctionnalisme structurel" },
+    { "year": "1956", "event": "Développe le schème AGIL (Adaptation, Goal-attainment, Integration, Latency) avec R. Bales" },
+    { "year": "1979", "event": "Décède à Munich lors d'un voyage célébrant les 50 ans de ses études en Allemagne" }
+  ],
+  "note": "Parsons mourut à Munich exactement cinquante ans après y avoir achevé sa thèse — une coïncidence qui symbolise son enracinement dans la tradition sociologique européenne qu'il transplantera et dominera aux États-Unis."
+}

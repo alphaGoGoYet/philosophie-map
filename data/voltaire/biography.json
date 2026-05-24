@@ -1,0 +1,15 @@
+{
+  "birth": "1694, Paris (France)",
+  "death": "1778, Paris (France)",
+  "nationality": "Français",
+  "formation": "Collège Louis-le-Grand (jésuites), droit (abandonné)",
+  "key_events": [
+    { "year": "1717", "event": "Emprisonné à la Bastille onze mois pour des vers satiriques contre le Régent" },
+    { "year": "1726", "event": "Exilé en Angleterre après une querelle avec le chevalier de Rohan ; découvre Locke et Newton" },
+    { "year": "1734", "event": "Publication des Lettres philosophiques, charge contre la France au profit du modèle anglais ; nouveau scandale" },
+    { "year": "1750", "event": "Séjour à la cour de Frédéric II de Prusse ; rupture orageuse en 1753" },
+    { "year": "1759", "event": "Publie Candide et s'installe à Ferney, près de Genève, pour échapper à toute juridiction" },
+    { "year": "1778", "event": "Retour triomphal à Paris pour la représentation d'Irène ; meurt épuisé, adulé par la foule" }
+  ],
+  "note": "Voltaire fit fortune grâce à la loterie (en repérant avec des mathématiciens une faille dans les billets d'État) et à des spéculations habiles — cette indépendance financière conquise de haute lutte fut la condition matérielle de son indépendance intellectuelle."
+}

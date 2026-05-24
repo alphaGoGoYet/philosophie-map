@@ -1,0 +1,15 @@
+{
+  "birth": "1922, Debrecen (Hongrie)",
+  "death": "1974, Londres",
+  "nationality": "Hongrois (naturalisé britannique)",
+  "formation": "Mathématiques et physique, Université de Debrecen ; philosophie à Budapest puis Cambridge",
+  "key_events": [
+    { "year": "1944", "event": "Militantisme communiste clandestin ; convainc ses camarades de ne pas fuir pour rester combattre — certains mourront en camp" },
+    { "year": "1950-1953", "event": "Emprisonné trois ans par le régime stalinien hongrois, accusé de déviationnisme" },
+    { "year": "1956", "event": "Fuit la Hongrie après la répression du soulèvement ; s'installe en Angleterre" },
+    { "year": "1961", "event": "Doctorat à Cambridge ; devient l'assistant puis le contradicteur de Popper à la LSE" },
+    { "year": "1963-1964", "event": "«Preuves et réfutations» dans le British Journal for the Philosophy of Science : dialectique des mathématiques" },
+    { "year": "1968-1974", "event": "Développe la méthodologie des programmes de recherche scientifique, alternative au falsificationisme de Popper" }
+  ],
+  "note": "Lakatos changea son nom (Lipsitz) en un nom purement hongrois pour mieux se fondre dans le militantisme communiste, puis l'abandonna après son emprisonnement — cette trajectoire d'un idéalisme trahi par le totalitarisme irrigue profondément sa philosophie du progrès rationnel en contexte d'incertitude."
+}

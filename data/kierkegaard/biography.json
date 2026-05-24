@@ -1,0 +1,15 @@
+{
+  "birth": "1813, Copenhague",
+  "death": "1855, Copenhague",
+  "nationality": "Danoise",
+  "formation": "Théologie à l'Université de Copenhague",
+  "key_events": [
+    { "year": "1813", "event": "Naissance à Copenhague, dernier d'une famille marquée par une mélancolie héréditaire" },
+    { "year": "1837", "event": "Rencontre Régine Olsen, dont il tombe éperdument amoureux" },
+    { "year": "1841", "event": "Rompt ses fiançailles avec Régine Olsen sans explication publique, acte qui hantera toute son œuvre" },
+    { "year": "1843", "event": "Publie en quelques mois L'Alternative, La Répétition et Crainte et Tremblement, tous trois liés à la rupture" },
+    { "year": "1846", "event": "Publie le Post-scriptum définitif, où il théorise les trois stades de l'existence" },
+    { "year": "1855", "event": "Meurt à 42 ans, épuisé, après une polémique publique contre l'Église établie du Danemark" }
+  ],
+  "note": "La rupture avec Régine Olsen n'est pas un simple fait privé : Kierkegaard y voit une épreuve abrahamique, le sacrifice de ce qu'on aime le plus au nom d'une vocation supérieure — ce qui est précisément le thème de Crainte et Tremblement."
+}

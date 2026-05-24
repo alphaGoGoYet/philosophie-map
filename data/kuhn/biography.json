@@ -1,0 +1,14 @@
+{
+  "birth": "1922, Cincinnati (Ohio)",
+  "death": "1996, Cambridge (Massachusetts)",
+  "nationality": "Américain",
+  "formation": "Physique, Harvard (doctorat en physique, 1949) ; autodidacte en histoire des sciences",
+  "key_events": [
+    { "year": "1947", "event": "Lecture d'Aristote : découverte que la science ancienne obéit à une logique propre, non à une proto-physique défaillante" },
+    { "year": "1956", "event": "Quitte la physique pour l'histoire et la philosophie des sciences à Berkeley" },
+    { "year": "1962", "event": "La Structure des révolutions scientifiques : concepts de paradigme, science normale et révolution scientifique" },
+    { "year": "1965", "event": "Colloque de Londres avec Popper et Lakatos : débat majeur sur la rationalité du changement scientifique" },
+    { "year": "1983", "event": "Rejoint le MIT ; travaux tardifs sur l'incommensurabilité et la taxonomie des concepts scientifiques" }
+  ],
+  "note": "C'est en préparant un cours sur Aristote que Kuhn eut une révélation : la physique aristotélicienne avait sa propre cohérence interne que les modernes ne pouvaient voir — cette expérience de «décentrement» cognitif est à l'origine directe du concept de paradigme."
+}

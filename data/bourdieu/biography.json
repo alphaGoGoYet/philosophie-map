@@ -1,0 +1,15 @@
+{
+  "birth": "1930, Denguin (Pyrénées-Atlantiques, Béarn)",
+  "death": "2002, Paris",
+  "nationality": "Française",
+  "formation": "Khâgne à Pau puis à Louis-le-Grand, ENS (philosophie), agrégation de philosophie",
+  "key_events": [
+    { "year": "1955", "event": "Appelé en Algérie comme soldat ; choisit d'y rester chercheur et documente la guerre de près" },
+    { "year": "1958", "event": "Publie Sociologie de l'Algérie, premier livre né de son terrain kabyle" },
+    { "year": "1964", "event": "Publie avec Passeron Les Héritiers, enquête sur les inégalités scolaires masquées en méritocratie" },
+    { "year": "1972", "event": "Esquisse d'une théorie de la pratique, exposition du concept d'habitus" },
+    { "year": "1979", "event": "La Distinction, analyse du goût comme espace de luttes sociales ; succès international" },
+    { "year": "1993", "event": "La Misère du monde, enquête collective sur les souffrances sociales ordinaires" }
+  ],
+  "note": "Fils de facteur béarnais, élève brillant dans un système qui l'excluait culturellement, Bourdieu a vécu dans sa propre trajectoire la tension entre capitaux culturels et origines sociales — ce qu'il appellera plus tard le « déchirement » de l'hétérodoxe."
+}

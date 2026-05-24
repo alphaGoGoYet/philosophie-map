@@ -1,0 +1,15 @@
+{
+  "birth": "1711, Édimbourg (Écosse)",
+  "death": "1776, Édimbourg (Écosse)",
+  "nationality": "Écossais (Britannique)",
+  "formation": "Université d'Édimbourg (sans diplôme), autodidacte intensif",
+  "key_events": [
+    { "year": "1734", "event": "Crise intellectuelle et nerveuse à 23 ans ; part se ressourcer en France à La Flèche" },
+    { "year": "1739", "event": "Publication du Traité de la nature humaine, « mort-né de la presse » selon ses propres mots" },
+    { "year": "1748", "event": "Enquête sur l'entendement humain : version accessible et remaniée de sa philosophie" },
+    { "year": "1752", "event": "Devient bibliothécaire de la Société des avocats d'Édimbourg ; rédige son Histoire d'Angleterre" },
+    { "year": "1763", "event": "Secrétaire d'ambassade à Paris : acclamé par les Encyclopédistes, ami de d'Alembert et Rousseau" },
+    { "year": "1776", "event": "Meurt sereinement d'un cancer, refusant toute conversion religieuse in extremis, ce qui scandalisa l'Europe" }
+  ],
+  "note": "Adam Smith, témoin de ses derniers moments, rapporta que Hume mourut avec une sérénité et un humour qui défiaient toute édification religieuse — cette mort devint elle-même un argument philosophique sur la vertu sans métaphysique."
+}

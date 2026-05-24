@@ -1,0 +1,14 @@
+{
+  "birth": "1932, Denver (Colorado)",
+  "death": null,
+  "nationality": "Américain",
+  "formation": "Philosophie, University of Wisconsin puis Oxford (boursier Rhodes, doctorat sous Austin)",
+  "key_events": [
+    { "year": "1959", "event": "Rejoint Berkeley ; développe et systématise la théorie des actes de langage d'Austin" },
+    { "year": "1969", "event": "Les Actes de langage : théorie systématique des conditions de félicité et de la signification intentionnelle" },
+    { "year": "1980", "event": "«Esprits, cerveaux et programmes» : argument de la chambre chinoise contre l'IA forte et le fonctionnalisme" },
+    { "year": "1983", "event": "Intentionalité : théorie de la conscience et du contenu mental comme propriétés biologiques du cerveau" },
+    { "year": "1995", "event": "La Construction de la réalité sociale : ontologie des faits institutionnels et de la réalité sociale" }
+  ],
+  "note": "L'argument de la chambre chinoise (1980) — une personne suit des règles formelles sans comprendre le chinois — déclencha l'une des controverses les plus vives de la philosophie de l'esprit contemporaine et reste un point de référence incontournable du débat sur la conscience artificielle."
+}

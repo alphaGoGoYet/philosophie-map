@@ -1,0 +1,15 @@
+{
+  "birth": "1864, Erfurt (Prusse)",
+  "death": "1920, Munich",
+  "nationality": "Allemande",
+  "formation": "Droit, économie politique et histoire (Berlin, Göttingen, Heidelberg)",
+  "key_events": [
+    { "year": "1889", "event": "Thèse sur l'histoire des sociétés commerciales au Moyen Âge ; agrégation en droit romain" },
+    { "year": "1894", "event": "Nommé professeur d'économie politique à Freiburg, puis à Heidelberg (1896)" },
+    { "year": "1897", "event": "Violente dispute avec son père, mort brutal de ce dernier peu après ; dépression nerveuse sévère pendant cinq ans" },
+    { "year": "1904", "event": "Publie L'Éthique protestante et l'esprit du capitalisme ; reprend progressivement l'activité intellectuelle" },
+    { "year": "1909", "event": "Fonde avec Simmel et Tönnies la Société allemande de sociologie" },
+    { "year": "1919", "event": "Conférences Le Savant et le Politique, exposé de la vocation et de l'éthique de responsabilité" }
+  ],
+  "note": "La longue dépression de Weber (1897-1902), durant laquelle il ne pouvait ni lire ni écrire, semble avoir renforcé son intérêt pour les tensions entre rationalité instrumentale et sens, entre la cage d'acier de la bureaucratie et la liberté de l'individu."
+}
