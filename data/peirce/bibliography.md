@@ -1,1 +1,6 @@
-
+- *The Fixation of Belief* (article, 1877)
+- *Comment rendre nos idées claires* (article, 1878)
+- *Studies in Logic* (1883)
+- *Pragmatism as a Principle and Method of Right Thinking* (conférences, 1903)
+- *Collected Papers of Charles Sanders Peirce* (posthume, éd. Hartshorne & Weiss, 1931–1958)
+- *The Essential Peirce* (anthologie, 1992–1998)

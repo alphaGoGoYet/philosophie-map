@@ -1,1 +1,5 @@
-
+- *John Maynard Keynes* (1975)
+- *Can "It" Happen Again? Essays on Instability and Finance* (1982)
+- *Stabilizing an Unstable Economy* (1986)
+- *The Financial Instability Hypothesis* (article, 1992)
+- *Finance and Stability: The Limits of Capitalism* (document de travail, 1993)

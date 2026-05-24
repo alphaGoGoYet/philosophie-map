@@ -1,1 +1,6 @@
-
+- *Ennéades* — Plotin (IIIe s., éd. Porphyre, env. 301)
+- *Vie de Plotin* — Porphyre (env. 301)
+- *Introduction aux Catégories d'Aristote* (*Isagoge*) — Porphyre (env. 268)
+- *Éléments de théologie* — Proclus (Ve s.)
+- *La Théologie platonicienne* — Proclus (Ve s.)
+- *De la hiérarchie céleste* — Pseudo-Denys l'Aréopagite (Ve–VIe s.)

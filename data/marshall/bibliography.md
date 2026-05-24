@@ -1,1 +1,5 @@
-
+- *The Economics of Industry* (1879)
+- *Principles of Economics* (1890)
+- *Elements of Economics of Industry* (1892)
+- *Industry and Trade* (1919)
+- *Money, Credit and Commerce* (1923)

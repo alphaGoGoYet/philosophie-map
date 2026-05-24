@@ -1,1 +1,6 @@
-
+- *La Vie de laboratoire* — Latour & Woolgar (1979)
+- *Science in Action* (1987)
+- *Nous n'avons jamais été modernes* (1991)
+- *Aramis ou l'amour des techniques* (1992)
+- *Politique de la nature* (1999)
+- *Reassembling the Social* (2005)

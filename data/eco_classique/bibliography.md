@@ -1,1 +1,5 @@
-
+- *Recherches sur la nature et les causes de la richesse des nations* — Adam Smith (1776)
+- *Des principes de l'économie politique et de l'impôt* — David Ricardo (1817)
+- *Essai sur le principe de population* — Thomas Malthus (1798)
+- *Principes d'économie politique* — John Stuart Mill (1848)
+- *Traité d'économie politique* — Jean-Baptiste Say (1803)

@@ -1,1 +1,6 @@
-
+- *The Structure of Social Action* (1937)
+- *The Social System* (1951)
+- *Toward a General Theory of Action* — avec Edward Shils (1951)
+- *Economy and Society* — avec Neil Smelser (1956)
+- *Societies: Evolutionary and Comparative Perspectives* (1966)
+- *The System of Modern Societies* (1971)

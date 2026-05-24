@@ -1,1 +1,6 @@
-
+- *Capitalisme et liberté* — Milton Friedman (1962)
+- *Une théorie de la fonction de consommation* — Milton Friedman (1957)
+- *La Liberté du choix* — Milton et Rose Friedman (1980)
+- *Prix et théorie* — George Stigler (1946)
+- *The Economics of Information* — George Stigler (1961)
+- *Une théorie de l'allocation du temps* — Gary Becker (1965)

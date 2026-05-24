@@ -1,1 +1,6 @@
-
+- *The Principles of Mathematics* (1903)
+- *Principia Mathematica* (1910-1913) — avec Alfred North Whitehead
+- *The Problems of Philosophy* (1912)
+- *Our Knowledge of the External World* (1914)
+- *Introduction to Mathematical Philosophy* (1919)
+- *A History of Western Philosophy* (1945)

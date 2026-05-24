@@ -1,1 +1,6 @@
-
+- *Lettres à Lucilius* (65 ap. J.-C.) — Sénèque
+- *De la Providence* (63 ap. J.-C.) — Sénèque
+- *Entretiens* (Ier-IIe s.) — Épictète
+- *Manuel* (Ier-IIe s.) — Épictète
+- *Pensées pour moi-même* (IIe s.) — Marc Aurèle
+- *Fragments* — Zénon de Kition et Chrysippe (IIIe s. av. J.-C.)

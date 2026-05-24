@@ -1,1 +1,5 @@
-
+- *Confessions* (397-401)
+- *La Cité de Dieu* (413-426)
+- *De la Trinité* (399-419)
+- *De libero arbitrio* (388-395)
+- *Contre les Académiciens* (386)

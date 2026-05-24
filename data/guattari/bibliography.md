@@ -1,1 +1,6 @@
-
+- *L'Anti-Œdipe* — Deleuze & Guattari (1972)
+- *Mille Plateaux* — Deleuze & Guattari (1980)
+- *Psychanalyse et transversalité* (1972)
+- *La Révolution moléculaire* (1977)
+- *Les Trois Écologies* (1989)
+- *Chaosmose* (1992)

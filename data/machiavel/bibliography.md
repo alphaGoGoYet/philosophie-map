@@ -1,1 +1,5 @@
-
+- *Le Prince* (1532)
+- *Discours sur la première décade de Tite-Live* (1531)
+- *L'Art de la guerre* (1521)
+- *Histoire de Florence* (1532)
+- *La Mandragore* (1524)

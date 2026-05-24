@@ -1,1 +1,5 @@
-
+- *Somme théologique* (1265-1274)
+- *Somme contre les Gentils* (1259-1265)
+- *De l'être et de l'essence* (1252-1256)
+- *Commentaire des Sentences de Pierre Lombard* (1252-1256)
+- *Questions disputées sur la vérité* (1256-1259)

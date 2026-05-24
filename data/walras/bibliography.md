@@ -1,1 +1,5 @@
-
+- *L'Économie politique et la justice* (1860)
+- *Éléments d'économie politique pure* (1874-1877)
+- *Théorie mathématique de la richesse sociale* (1883)
+- *Études d'économie sociale* (1896)
+- *Études d'économie politique appliquée* (1898)

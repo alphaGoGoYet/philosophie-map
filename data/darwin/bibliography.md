@@ -1,1 +1,5 @@
-
+- *De l'origine des espèces* (1859)
+- *La Variation des animaux et des plantes à l'état domestique* (1868)
+- *La Descendance de l'homme* (1871)
+- *L'Expression des émotions chez l'homme et les animaux* (1872)
+- *La Formation de la terre végétale par l'action des vers de terre* (1881)

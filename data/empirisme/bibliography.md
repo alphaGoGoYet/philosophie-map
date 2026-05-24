@@ -1,1 +1,6 @@
-
+- *Novum Organum* — Francis Bacon (1620)
+- *Essai sur l'entendement humain* — John Locke (1689)
+- *Principes de la connaissance humaine* — George Berkeley (1710)
+- *Traité de la nature humaine* — David Hume (1739)
+- *Enquête sur l'entendement humain* — David Hume (1748)
+- *Utilitarisme* — John Stuart Mill (1863)

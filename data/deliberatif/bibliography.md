@@ -1,1 +1,5 @@
-
+- *Théorie de l'agir communicationnel* — Jürgen Habermas (1981)
+- *Droit et démocratie* — Jürgen Habermas (1992)
+- *La Démocratie délibérative* — Joshua Cohen (1989)
+- *Democracy and Disagreement* — Amy Gutmann & Dennis Thompson (1996)
+- *Deliberative Democracy* — James Bohman & William Rehg, dir. (1997)

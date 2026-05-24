@@ -1,1 +1,6 @@
-
+- *La Route de la servitude* — Friedrich Hayek (1944)
+- *The Constitution of Liberty* — Friedrich Hayek (1960)
+- *Capitalisme et liberté* — Milton Friedman (1962)
+- *Anarchie, État et utopie* — Robert Nozick (1974)
+- *Free to Choose* — Milton & Rose Friedman (1980)
+- *Mont Pelerin Society Statement of Aims* (1947)

@@ -1,1 +1,6 @@
-
+- *Trouble dans le genre* (1990)
+- *Corps qui comptent* (1993)
+- *Le Pouvoir des mots* (1997)
+- *La Vie psychique du pouvoir* (1997)
+- *Precarious Life* (2004)
+- *Qu'est-ce qu'une vie bonne ?* (2012)

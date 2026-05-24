@@ -1,1 +1,6 @@
-
+- *Dialectique de la raison* — Horkheimer & Adorno (1944)
+- *Théorie critique* — Max Horkheimer (1937)
+- *Minima Moralia* — Theodor Adorno (1951)
+- *L'Homme unidimensionnel* — Herbert Marcuse (1964)
+- *Connaissance et intérêt* — Jürgen Habermas (1968)
+- *Théorie de l'agir communicationnel* — Jürgen Habermas (1981)

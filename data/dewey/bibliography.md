@@ -1,1 +1,6 @@
-
+- *L'École et l'enfant* (1900)
+- *Démocratie et éducation* (1916)
+- *La Reconstruction en philosophie* (1920)
+- *Expérience et nature* (1925)
+- *La Quête de la certitude* (1929)
+- *Logique : la théorie de l'enquête* (1938)

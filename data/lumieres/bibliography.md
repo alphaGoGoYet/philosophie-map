@@ -1,1 +1,6 @@
-
+- *Essai sur l'entendement humain* — John Locke (1689)
+- *Lettres philosophiques* — Voltaire (1734)
+- *De l'esprit des lois* — Montesquieu (1748)
+- *Encyclopédie, ou Dictionnaire raisonné des sciences, des arts et des métiers* — Diderot & d'Alembert (1751–1772)
+- *Du contrat social* — Jean-Jacques Rousseau (1762)
+- *Qu'est-ce que les Lumières ?* — Kant (1784)

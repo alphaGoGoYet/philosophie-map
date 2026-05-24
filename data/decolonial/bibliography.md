@@ -1,1 +1,6 @@
-
+- *Les Damnés de la Terre* — Frantz Fanon (1961)
+- *Orientalisme* — Edward Said (1978)
+- *La Colonialité du pouvoir* — Aníbal Quijano (1992)
+- *Local Histories/Global Designs* — Walter Mignolo (2000)
+- *Peau noire, masques blancs* — Frantz Fanon (1952)
+- *Can the Subaltern Speak ?* — Gayatri Spivak (1988)

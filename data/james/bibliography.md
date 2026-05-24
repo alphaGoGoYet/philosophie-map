@@ -1,1 +1,6 @@
-
+- *Principes de psychologie* (1890)
+- *La Volonté de croire* (1897)
+- *Les Variétés de l'expérience religieuse* (1902)
+- *Le Pragmatisme* (1907)
+- *La Signification de la vérité* (1909)
+- *Essais d'empirisme radical* (1912)

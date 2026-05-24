@@ -1,1 +1,6 @@
-
+- *Collective Choice and Social Welfare* (1970)
+- *On Economic Inequality* (1973)
+- *Poverty and Famines* (1981)
+- *Commodities and Capabilities* (1985)
+- *The Standard of Living* (1987)
+- *Development as Freedom* (1999)

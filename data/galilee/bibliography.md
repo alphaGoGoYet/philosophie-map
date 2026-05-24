@@ -1,1 +1,5 @@
-
+- *Le Messager sidéral* (1610)
+- *Lettres sur les taches solaires* (1613)
+- *L'Essayeur* (1623)
+- *Dialogue sur les deux grands systèmes du monde* (1632)
+- *Discours concernant deux sciences nouvelles* (1638)

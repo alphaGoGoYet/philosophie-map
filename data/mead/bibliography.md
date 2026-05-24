@@ -1,1 +1,5 @@
-
+- *Mind, Self, and Society* (1934)
+- *The Philosophy of the Present* (1932)
+- *Movements of Thought in the Nineteenth Century* (1936)
+- *The Philosophy of the Act* (1938)
+- *Selected Writings* (éd. Andrew Reck, 1964)

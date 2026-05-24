@@ -1,1 +1,6 @@
-
+- *Of Grammatology* (1976) — traduction de Derrida avec préface critique
+- *Can the Subaltern Speak?* (1988)
+- *The Post-Colonial Critic* (1990)
+- *Outside in the Teaching Machine* (1993)
+- *A Critique of Postcolonial Reason* (1999)
+- *Death of a Discipline* (2003)

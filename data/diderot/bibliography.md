@@ -1,1 +1,6 @@
-
+- *Encyclopédie, ou Dictionnaire raisonné des sciences, des arts et des métiers* (1751-1772)
+- *Lettre sur les aveugles à l'usage de ceux qui voient* (1749)
+- *Le Neveu de Rameau* (écrit v. 1762-1777, publ. 1805)
+- *Jacques le Fataliste et son maître* (écrit v. 1765-1784, publ. 1796)
+- *Le Rêve de d'Alembert* (1769, publ. 1830)
+- *Supplément au Voyage de Bougainville* (1772, publ. 1796)

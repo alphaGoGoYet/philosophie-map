@@ -1,1 +1,6 @@
-
+- *Mathematics, Matter and Method* (1975)
+- *Mind, Language and Reality* (1975)
+- *Meaning and the Moral Sciences* (1978)
+- *Reason, Truth and History* (1981)
+- *The Many Faces of Realism* (1987)
+- *Renewing Philosophy* (1992)
