@@ -642,8 +642,8 @@ function renderPanel(node, color, outs, ins, rich) {
     </div>
     <div class="panel-section">Concepts majeurs</div>
     <div class="panel-concepts">${node.concepts.map(c => `<div class="panel-concept">${c}</div>`).join('')}</div>
-    ${bioHTML}
     ${descHTML}
+    ${bioHTML}
     ${quotesHTML}
     ${bibHTML}
     ${outs.length ? `<div class="panel-section">Influence sur</div><div class="panel-nodes">${btns(outs)}</div>` : ''}
