@@ -405,7 +405,7 @@ let DATA;
 
 // ─── Fetch helpers ───────────────────────────────────────────────────────────
 async function fetchText(url) {
-  try { const r = await fetch(url); return r.ok ? await r.text() : null; }
+  try { const r = await fetch(url, { cache: 'no-cache' }); return r.ok ? await r.text() : null; }
   catch { return null; }
 }
 async function fetchJSON(url) {
