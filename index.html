@@ -586,9 +586,12 @@ function applySearch(q) {
 
 // ─── Panel ────────────────────────────────────────────────────────────────────
 function renderPanel(node, color, outs, ins, rich) {
-  const btns = (arr) => arr.map(n =>
-    `<button class="panel-node-btn" data-id="${n.id}">${n.name}</button>`
-  ).join('');
+  const btns = (arr) => arr.map(({node: n, type}) => {
+    const st = (type && LINK_STYLES[type]) || LINK_DEFAULT;
+    return `<button class="panel-node-btn" data-id="${n.id}" data-link-s="${node.id}" data-link-t="${n.id}" data-link-type="${type || ''}">
+      <span style="display:inline-block;background:${st.color}22;color:${st.color};border-radius:999px;padding:1px 7px;font-size:10px;font-weight:600;margin-right:4px">${st.label || ''}</span>${n.name}
+    </button>`;
+  }).join('');
 
   const descHTML = rich.description
     ? `<div class="panel-section">Pensée</div><div class="panel-description">${renderMd(rich.description)}</div>`
@@ -658,8 +661,10 @@ function renderPanel(node, color, outs, ins, rich) {
 
 async function openPanel(node) {
   const color = DATA.domains[node.domain] || '#64748b';
-  const outs  = DATA.links.filter(([s])  => s === node.id).map(([,t]) => nodeMap[t]).filter(Boolean);
-  const ins   = DATA.links.filter(([,t]) => t === node.id).map(([s])  => nodeMap[s]).filter(Boolean);
+  const outs = DATA.links.filter(([s]) => s === node.id)
+    .map(([,t,type]) => ({ node: nodeMap[t], type })).filter(o => o.node);
+  const ins  = DATA.links.filter(([,t]) => t === node.id)
+    .map(([s,,type]) => ({ node: nodeMap[s], type })).filter(o => o.node);
 
   // Affichage immédiat sans données enrichies
   renderPanel(node, color, outs, ins, {});
@@ -972,6 +977,20 @@ viewport.addEventListener('touchmove', e => {
 
 viewport.addEventListener('touchend', e => {
   document.getElementById('hover-rect').style.display = 'none';
+
+  // Tap sur un lien SVG
+  if (!isDragging && e.changedTouches.length === 1) {
+    const touch = e.changedTouches[0];
+    const el = document.elementFromPoint(touch.clientX, touch.clientY);
+    const g = el?.closest('g[data-s]');
+    if (g) {
+      e.preventDefault();
+      openLinkPanel(g.dataset.s, g.dataset.t, g.dataset.type);
+      setTimeout(() => { isDragging = false; viewport.classList.remove('dragging'); }, 0);
+      return;
+    }
+  }
+
   if (mode === 'detail') {
     const now = Date.now();
     if (!isDragging && now - lastTapTime < 300) {
