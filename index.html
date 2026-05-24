@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Atlas de la pensée occidentale</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -974,8 +974,8 @@ document.addEventListener('keydown', e => {
 
 // Ctrl+molette : zoom fin en mode détail
 viewport.addEventListener('wheel', e => {
+  if (e.ctrlKey) e.preventDefault();
   if (!e.ctrlKey || mode !== 'detail') return;
-  e.preventDefault();
   const factor = e.deltaY < 0 ? 1.1 : 0.9;
   const newScale = clamp(detailScale * factor, SCALE_MIN, SCALE_MAX);
   // Zoom centré sur la position de la souris
