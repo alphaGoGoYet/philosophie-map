@@ -998,6 +998,7 @@ window.addEventListener('resize', () => applyTransform(false));
 let lastTapTime = 0;
 
 viewport.addEventListener('touchstart', e => {
+  if (mode === 'overview') e.preventDefault();
   const touch = e.touches[0];
   if (mode === 'overview') {
     updateHoverRect(touch.clientX, touch.clientY - HEADER_H);
