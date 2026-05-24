@@ -682,6 +682,55 @@ viewport.addEventListener('wheel', e => {
 // Resize
 window.addEventListener('resize', () => applyTransform(false));
 
+// ─── Touch support ────────────────────────────────────────────────────────────
+let lastTapTime = 0;
+
+viewport.addEventListener('touchstart', e => {
+  const touch = e.touches[0];
+  if (mode === 'overview') {
+    updateHoverRect(touch.clientX, touch.clientY - HEADER_H);
+  } else {
+    isDragging = false;
+    dragStart  = { x: touch.clientX, y: touch.clientY };
+    dragOrigin = { ...detailOffset };
+  }
+}, { passive: true });
+
+viewport.addEventListener('touchmove', e => {
+  e.preventDefault();
+  const touch = e.touches[0];
+  if (mode === 'overview') {
+    updateHoverRect(touch.clientX, touch.clientY - HEADER_H);
+    return;
+  }
+  const dx = touch.clientX - dragStart.x;
+  const dy = touch.clientY - dragStart.y;
+  if (!isDragging && (Math.abs(dx) > 6 || Math.abs(dy) > 6)) {
+    isDragging = true;
+    viewport.classList.add('dragging');
+  }
+  if (isDragging) {
+    detailOffset = { x: dragOrigin.x + dx, y: dragOrigin.y + dy };
+    applyTransform(false);
+  }
+}, { passive: false });
+
+viewport.addEventListener('touchend', e => {
+  document.getElementById('hover-rect').style.display = 'none';
+  if (mode === 'detail') {
+    const now = Date.now();
+    if (!isDragging && now - lastTapTime < 300) {
+      e.preventDefault();
+      zoomOut();
+      lastTapTime = 0;
+      setTimeout(() => { isDragging = false; viewport.classList.remove('dragging'); }, 0);
+      return;
+    }
+    lastTapTime = isDragging ? 0 : now;
+  }
+  setTimeout(() => { isDragging = false; viewport.classList.remove('dragging'); }, 0);
+}, { passive: false });
+
 // Start
 (async () => {
   DATA = await fetchJSON('data/graph.json');
