@@ -115,7 +115,7 @@
     }
     .node.concept {
       border-style: dashed;
-      background: #fafaf8;
+      background: #f0f4fb;
     }
     .node.dimmed { opacity: 0.1; }
 
@@ -273,6 +273,25 @@
     }
     .bib-title { color: #111111; font-weight: 600; }
     .bib-year  { color: #666666; font-weight: 400; }
+    .panel-section-row { display: flex; align-items: center; }
+    .panel-section-row span:first-child { flex: 1; }
+    .biblio-sources { display: flex; gap: 3px; }
+    .biblio-source-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.1);
+      text-decoration: none;
+      font-size: 13px;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .biblio-source-btn:hover { background: rgba(0,0,0,0.12); }
 
     .bio-meta {
       display: flex;
@@ -607,8 +626,17 @@ function renderPanel(node, color, outs, ins, rich) {
         </blockquote>`).join('')
     : '';
 
+  const _authorEnc = encodeURIComponent(node.name);
   const bibHTML = rich.bibliography && rich.bibliography.length
-    ? `<div class="panel-section">Bibliographie</div><ul class="panel-biblio">`
+    ? `<div class="panel-section panel-section-row">
+        <span>Bibliographie</span>
+        <span class="biblio-sources">
+          <a class="biblio-source-btn" href="https://gallica.bnf.fr/recherche/simple?query=${_authorEnc}&lang=FR" target="_blank" title="Chercher sur Gallica">📚</a>
+          <a class="biblio-source-btn" href="https://fr.wikisource.org/wiki/Special:Search?search=${_authorEnc}" target="_blank" title="Lire sur Wikisource">📜</a>
+          <a class="biblio-source-btn" href="https://librivox.org/search?q=${_authorEnc}&search_form=get_results" target="_blank" title="Écouter sur LibriVox">🎧</a>
+        </span>
+      </div>
+      <ul class="panel-biblio">`
       + rich.bibliography.map(b => `<li><span class="bib-title">${b.title}</span> <span class="bib-year">(${b.year})</span></li>`).join('')
       + `</ul>`
     : '';
