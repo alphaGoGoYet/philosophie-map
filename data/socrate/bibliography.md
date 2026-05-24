@@ -1,0 +1,3 @@
+- *Apologie de Socrate (Platon)* (~399 av. J.-C.)
+- *Le Banquet (Platon)* (~385 av. J.-C.)
+- *Phédon (Platon)* (~380 av. J.-C.)

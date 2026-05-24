@@ -1,0 +1,3 @@
+- *Les Conséquences économiques de la paix* (1919)
+- *Traité sur la monnaie* (1930)
+- *Théorie générale de l'emploi, de l'intérêt et de la monnaie* (1936)

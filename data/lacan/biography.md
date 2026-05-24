@@ -1,0 +1,19 @@
+---
+birth: "1901, Paris"
+death: "1981, Paris"
+nationality: "Française"
+formation: "Médecine, spécialisation en psychiatrie, puis psychanalyse ; thèse de doctorat sur la paranoïa (1932)"
+---
+
+## Événements clés
+
+- **1932** — Soutient sa thèse de psychiatrie sur la psychose paranoïaque, saluée par les surréalistes
+- **1953** — Prononce le 'Discours de Rome', fondant son retour à Freud par la linguistique structurale
+- **1953** — Débute son séminaire hebdomadaire, tenu jusqu'en 1980 — lieu majeur de la pensée psychanalytique française
+- **1963** — Excommunié par l'IPA (Association Psychanalytique Internationale) pour ses séances à durée variable
+- **1966** — Publication des Écrits chez le Seuil, rendant accessibles ses textes théoriques majeurs
+- **1980** — Dissout son école (École Freudienne de Paris) par une lettre circulaire laconique
+
+## Note
+
+Lacan pratiquait des séances de durée variable — parfois de quelques minutes — ce qui lui valut l'exclusion des institutions analytiques officielles, mais qu'il théorisait comme une intervention clinique sur le rapport du sujet au temps.

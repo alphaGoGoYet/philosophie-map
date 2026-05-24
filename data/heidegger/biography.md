@@ -1,0 +1,19 @@
+---
+birth: "1889, Meßkirch (Bade, Allemagne)"
+death: "1976, Fribourg-en-Brisgau"
+nationality: "Allemande"
+formation: "Théologie puis philosophie à Fribourg, élève de Husserl"
+---
+
+## Événements clés
+
+- **1927** — Publication d'Être et Temps, œuvre fondatrice de l'analytique existentiale du Dasein
+- **1928** — Succède à Husserl à la chaire de philosophie de Fribourg
+- **1933** — Élu recteur de l'université de Fribourg, prononce le Discours de rectorat aligné sur le nazisme et adhère au NSDAP
+- **1934** — Démissionne du rectorat mais reste membre du parti jusqu'en 1945
+- **1945** — Interdit d'enseignement par les autorités françaises d'occupation jusqu'en 1951
+- **1966** — Interview accordée au Spiegel, publiée post-mortem en 1976 : refuse toute autocritique publique sur son engagement nazi
+
+## Note
+
+Heidegger n'a jamais présenté d'excuses publiques pour son engagement nazi, et ses Cahiers noirs (publiés à partir de 2014) révèlent des traces d'antisémitisme philosophique, rendant indissociable la question de l'homme et celle de l'œuvre.

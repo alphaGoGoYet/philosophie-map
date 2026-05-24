@@ -1,0 +1,4 @@
+- *Phénoménologie de l'Esprit* (1807)
+- *Science de la Logique* (1812-1816)
+- *Principes de la philosophie du droit* (1820)
+- *Leçons sur la philosophie de l'histoire* (1837 (posth.))

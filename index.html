@@ -330,6 +330,18 @@
       z-index: 50;
       pointer-events: none;
     }
+    #link-legend {
+      position: fixed;
+      bottom: 14px;
+      right: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      max-width: 320px;
+      justify-content: flex-end;
+      z-index: 50;
+      pointer-events: none;
+    }
     .legend-item {
       display: flex;
       align-items: center;
@@ -370,6 +382,7 @@
 </div>
 
 <div id="legend"></div>
+<div id="link-legend"></div>
 
 <script>
 let DATA;
@@ -383,6 +396,46 @@ async function fetchJSON(url) {
   try { const r = await fetch(url); return r.ok ? await r.json() : null; }
   catch { return null; }
 }
+
+function parseQuotesMd(text) {
+  if (!text) return null;
+  return text.split(/\n---\n/).map(block => {
+    const quoteMatch = block.match(/^>\s*(.+)/m);
+    const sourceMatch = block.match(/^\*(.+?)\*\s*$/m);
+    return quoteMatch ? { text: quoteMatch[1].trim(), source: sourceMatch ? sourceMatch[1].trim() : '' } : null;
+  }).filter(Boolean);
+}
+
+function parseBibliographyMd(text) {
+  if (!text) return null;
+  return text.split('\n').filter(l => l.startsWith('- ')).map(l => {
+    const titleMatch = l.match(/\*(.+?)\*/);
+    const yearMatch  = l.match(/\((\d{4}[^)]*)\)/);
+    return titleMatch ? { title: titleMatch[1], year: yearMatch ? yearMatch[1] : '' } : null;
+  }).filter(Boolean);
+}
+
+function parseBiographyMd(text) {
+  if (!text) return null;
+  const bio = {};
+  const fmMatch = text.match(/^---\n([\s\S]+?)\n---/);
+  if (fmMatch) {
+    fmMatch[1].split('\n').forEach(line => {
+      const m = line.match(/^(\w+):\s*"?([^"]*)"?\s*$/);
+      if (m) bio[m[1]] = m[2] === 'null' ? null : m[2];
+    });
+  }
+  const evSection = text.match(/## Événements clés\n([\s\S]*?)(?=\n##|$)/);
+  if (evSection) {
+    bio.key_events = evSection[1].split('\n')
+      .filter(l => /^- \*\*/.test(l))
+      .map(l => { const m = l.match(/^- \*\*(.+?)\*\* — (.+)/); return m ? { year: m[1], event: m[2] } : null; })
+      .filter(Boolean);
+  }
+  const noteSection = text.match(/## Note\n([\s\S]*?)(?=\n##|$)/);
+  if (noteSection) bio.note = noteSection[1].trim();
+  return Object.keys(bio).length ? bio : null;
+}
 function renderMd(text) {
   return text.trim()
     .split(/\n\n+/)
@@ -392,6 +445,19 @@ function renderMd(text) {
       + '</p>')
     .join('');
 }
+
+// ─── Link styles ─────────────────────────────────────────────────────────────
+const LINK_STYLES = {
+  filiation:   { color: '#3b82f6', dash: '',          width: 2.5, label: 'Filiation' },
+  influence:   { color: '#9ca3af', dash: '',          width: 2,   label: 'Influence' },
+  continuité:  { color: '#22c55e', dash: '',          width: 2.5, label: 'Continuité' },
+  rupture:     { color: '#ef4444', dash: '8,5',       width: 2.5, label: 'Rupture' },
+  opposition:  { color: '#991b1b', dash: '3,5',       width: 3,   label: 'Opposition' },
+  dialogue:    { color: '#8b5cf6', dash: '10,4,2,4',  width: 2,   label: 'Dialogue' },
+  synthèse:    { color: '#f97316', dash: '',          width: 2.5, label: 'Synthèse' },
+  appartenance:{ color: '#06b6d4', dash: '4,6',       width: 1.5, label: 'Appartenance' },
+};
+const LINK_DEFAULT = { color: 'rgba(0,0,0,0.35)', dash: '', width: 2 };
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 const CANVAS_W     = 10200;
@@ -496,7 +562,9 @@ function applySearch(q) {
   });
   document.querySelectorAll('#links-svg path').forEach(p => {
     const active = q === '' || (matchIds.has(p.dataset.s) && matchIds.has(p.dataset.t));
-    p.setAttribute('stroke', active ? 'rgba(0,0,0,0.45)' : 'rgba(0,0,0,0.05)');
+    const style = (p.dataset.type && LINK_STYLES[p.dataset.type]) || LINK_DEFAULT;
+    p.setAttribute('stroke', active ? style.color : 'rgba(0,0,0,0.04)');
+    p.setAttribute('stroke-width', active ? style.width : 1);
   });
 }
 
@@ -583,12 +651,15 @@ async function openPanel(node) {
 
   // Chargement asynchrone des fichiers data/{id}/
   const base = `data/${node.id}`;
-  const [description, quotes, bibliography, biography] = await Promise.all([
+  const [description, quotesRaw, bibliographyRaw, biographyRaw] = await Promise.all([
     fetchText(`${base}/description.md`),
-    fetchJSON(`${base}/quotes.json`),
-    fetchJSON(`${base}/bibliography.json`),
-    fetchJSON(`${base}/biography.json`)
+    fetchText(`${base}/quotes.md`),
+    fetchText(`${base}/bibliography.md`),
+    fetchText(`${base}/biography.md`)
   ]);
+  const quotes      = parseQuotesMd(quotesRaw);
+  const bibliography = parseBibliographyMd(bibliographyRaw);
+  const biography   = parseBiographyMd(biographyRaw);
 
   if (description || quotes || bibliography || biography) {
     renderPanel(node, color, outs, ins, { description, quotes, bibliography, biography });
@@ -601,19 +672,22 @@ function closePanel() { document.getElementById('panel').classList.remove('open'
 function init() {
   // SVG links
   const svg = document.getElementById('links-svg');
-  DATA.links.forEach(([sid, tid]) => {
+  DATA.links.forEach(([sid, tid, type]) => {
     const s = nodeMap[sid], t = nodeMap[tid];
     if (!s || !t) return;
     const sx = s.x + 120, sy = s.y + 90;
     const tx = t.x + 120, ty = t.y + 90;
     const mx = (sx + tx) / 2;
+    const style = (type && LINK_STYLES[type]) || LINK_DEFAULT;
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttribute('d', `M ${sx} ${sy} C ${mx} ${sy}, ${mx} ${ty}, ${tx} ${ty}`);
     path.setAttribute('fill', 'none');
-    path.setAttribute('stroke', 'rgba(0,0,0,0.45)');
-    path.setAttribute('stroke-width', '3');
-    path.dataset.s = sid;
-    path.dataset.t = tid;
+    path.setAttribute('stroke', style.color);
+    path.setAttribute('stroke-width', style.width);
+    if (style.dash) path.setAttribute('stroke-dasharray', style.dash);
+    path.dataset.s    = sid;
+    path.dataset.t    = tid;
+    path.dataset.type = type || '';
     svg.appendChild(path);
   });
 
@@ -645,13 +719,23 @@ function init() {
     canvas.appendChild(el);
   });
 
-  // Legend
+  // Legend — domaines
   const legend = document.getElementById('legend');
   Object.entries(DATA.domains).forEach(([domain, color]) => {
     const item = document.createElement('div');
     item.className = 'legend-item';
     item.innerHTML = `<div class="legend-dot" style="background:${color}"></div>${domain}`;
     legend.appendChild(item);
+  });
+
+  // Legend — types de liens
+  const linkLegend = document.getElementById('link-legend');
+  Object.entries(LINK_STYLES).forEach(([type, style]) => {
+    const item = document.createElement('div');
+    item.className = 'legend-item';
+    const svg = `<svg width="22" height="10" style="flex-shrink:0"><line x1="0" y1="5" x2="22" y2="5" stroke="${style.color}" stroke-width="${Math.min(style.width,2)}" stroke-dasharray="${style.dash}"/></svg>`;
+    item.innerHTML = `${svg}${style.label}`;
+    linkLegend.appendChild(item);
   });
 
   applyTransform(false);

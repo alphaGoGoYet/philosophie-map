@@ -1,0 +1,4 @@
+- *Connaissance et Intérêt* (1968)
+- *Théorie de l'agir communicationnel* (1981)
+- *De l'éthique de la discussion* (1991)
+- *Droit et Démocratie* (1992)

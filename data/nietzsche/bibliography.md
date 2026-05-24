@@ -1,0 +1,4 @@
+- *La Naissance de la tragédie* (1872)
+- *Ainsi parlait Zarathoustra* (1883-1885)
+- *Par-delà bien et mal* (1886)
+- *La Généalogie de la morale* (1887)

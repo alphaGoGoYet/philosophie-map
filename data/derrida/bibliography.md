@@ -1,0 +1,4 @@
+- *De la grammatologie* (1967)
+- *L'Écriture et la Différence* (1967)
+- *La Voix et le Phénomène* (1967)
+- *Marges de la philosophie* (1972)

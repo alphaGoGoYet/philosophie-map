@@ -1,0 +1,3 @@
+- *L'Éthique protestante et l'esprit du capitalisme* (1905)
+- *Économie et Société* (1922 (posth.))
+- *Le Savant et le Politique* (1919)

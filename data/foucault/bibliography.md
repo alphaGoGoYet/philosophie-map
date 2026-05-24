@@ -1,0 +1,4 @@
+- *Histoire de la folie à l'âge classique* (1961)
+- *Les Mots et les Choses* (1966)
+- *Surveiller et Punir* (1975)
+- *La Volonté de savoir (Histoire de la sexualité I)* (1976)

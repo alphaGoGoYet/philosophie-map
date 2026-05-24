@@ -1,0 +1,4 @@
+- *Le Deuxième Sexe* (1949)
+- *Les Mandarins* (1954)
+- *Mémoires d'une jeune fille rangée* (1958)
+- *La Vieillesse* (1970)

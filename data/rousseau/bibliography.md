@@ -1,0 +1,4 @@
+- *Discours sur l'origine de l'inégalité* (1755)
+- *Du Contrat social* (1762)
+- *Émile ou De l'éducation* (1762)
+- *Les Confessions* (1782 (posth.))

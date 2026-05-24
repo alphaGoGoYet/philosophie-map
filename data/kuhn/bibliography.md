@@ -1,0 +1,2 @@
+- *La Structure des révolutions scientifiques* (1962)
+- *La Tension essentielle* (1977)

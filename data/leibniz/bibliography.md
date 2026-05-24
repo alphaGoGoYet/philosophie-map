@@ -1,0 +1,4 @@
+- *Discours de métaphysique* (1686)
+- *Essais de théodicée* (1710)
+- *Monadologie* (1714)
+- *Nouveaux Essais sur l'entendement humain* (1765 (posth.))
