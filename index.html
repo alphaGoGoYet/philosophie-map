@@ -876,8 +876,8 @@ function init() {
     `;
 
     el.addEventListener('click', e => {
+      if (mode !== 'detail') return;
       e.stopPropagation();
-      if (mode === 'overview') { zoomTo(node.x + 120, node.y + 90); return; }
       openPanel(node);
     });
 
@@ -912,7 +912,14 @@ const viewport = document.getElementById('viewport');
 // Click: zoom in (overview) or close panel (detail)
 viewport.addEventListener('click', e => {
   if (isDragging) return;
-  if (mode === 'detail') closePanel();
+  if (mode === 'overview') {
+    const nodeEl = e.target.closest('.node');
+    if (!nodeEl) return;
+    const n = nodeMap[nodeEl.dataset.id];
+    if (n) zoomTo(n.x + 120, n.y + 90);
+  } else {
+    closePanel();
+  }
 });
 
 // Double-click: zoom out (detail)
