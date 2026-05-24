@@ -869,6 +869,7 @@ function init() {
     if (!e.relatedTarget?.closest('g[data-s]')) linkTooltip.style.display = 'none';
   });
   svg.addEventListener('click', async e => {
+    if (mode !== 'detail') return;
     const g = e.target.closest('g[data-s]');
     if (!g) return;
     e.stopPropagation();
@@ -1064,8 +1065,8 @@ viewport.addEventListener('touchmove', e => {
 viewport.addEventListener('touchend', e => {
   document.getElementById('hover-rect').style.display = 'none';
 
-  // Tap sur un lien SVG (mémorisé au touchstart)
-  if (!isDragging && touchedLink) {
+  // Tap sur un lien SVG (mémorisé au touchstart) — uniquement en vue détail
+  if (!isDragging && touchedLink && mode === 'detail') {
     const g = touchedLink;
     touchedLink = null;
     e.preventDefault();
