@@ -653,7 +653,7 @@ function renderPanel(node, color, outs, ins, rich) {
   document.querySelectorAll('.panel-node-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       if (btn.dataset.linkS) {
-        openLinkPanel(btn.dataset.linkS, btn.dataset.linkT, btn.dataset.linkType);
+        openLinkPanel(btn.dataset.linkS, btn.dataset.linkT, btn.dataset.linkType, node);
       } else {
         const n = nodeMap[btn.dataset.id];
         if (!n) return;
@@ -694,9 +694,12 @@ async function openPanel(node) {
 
 function closePanel() { document.getElementById('panel').classList.remove('open'); }
 
-async function openLinkPanel(sid, tid, type) {
+let _prevPanelNode = null;
+
+async function openLinkPanel(sid, tid, type, fromNode) {
   const sNode = nodeMap[sid], tNode = nodeMap[tid];
   const st = (type && LINK_STYLES[type]) || LINK_DEFAULT;
+  if (fromNode) _prevPanelNode = fromNode;
   renderLinkPanel(sNode, tNode, st, null);
   document.getElementById('panel').classList.add('open');
   const text = await fetchText(`data/links/${sid}--${tid}.md`);
@@ -707,7 +710,11 @@ function renderLinkPanel(sNode, tNode, st, description) {
   const descHTML = description
     ? `<div class="panel-section">Relation</div><div class="panel-description">${renderMd(description)}</div>`
     : `<div class="panel-section">Relation</div><div class="panel-description"><p><em>Chargement…</em></p></div>`;
+  const backBtn = _prevPanelNode
+    ? `<button id="link-back-btn" style="margin-bottom:10px;background:none;border:1px solid rgba(0,0,0,0.15);border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;color:#555">← ${_prevPanelNode.name}</button>`
+    : '';
   document.getElementById('panel-content').innerHTML = `
+    ${backBtn}
     <div class="panel-header">
       <div class="panel-name" style="font-size:15px;line-height:1.6">
         ${sNode?.name}
@@ -724,10 +731,16 @@ function renderLinkPanel(sNode, tNode, st, description) {
       <button class="panel-node-btn" data-id="${tNode?.id}">Voir ${tNode?.name}</button>
     </div>
   `;
+  document.getElementById('link-back-btn')?.addEventListener('click', () => {
+    const n = _prevPanelNode;
+    _prevPanelNode = null;
+    if (n) { openPanel(n); zoomTo(n.x + 120, n.y + 90); }
+  });
   document.querySelectorAll('.panel-node-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const n = nodeMap[btn.dataset.id];
       if (!n) return;
+      _prevPanelNode = null;
       openPanel(n);
       zoomTo(n.x + 120, n.y + 90);
     });
