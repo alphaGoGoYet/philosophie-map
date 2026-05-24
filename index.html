@@ -491,6 +491,7 @@ let isDragging   = false;
 let dragStart    = { x: 0, y: 0 };
 let dragOrigin   = { x: 0, y: 0 };
 let searchQuery  = '';
+let touchedLink  = null;
 
 let nodeMap;
 
@@ -767,8 +768,9 @@ function init() {
     const hit = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     hit.setAttribute('d', d);
     hit.setAttribute('fill', 'none');
-    hit.setAttribute('stroke', 'transparent');
-    hit.setAttribute('stroke-width', '12');
+    hit.setAttribute('stroke', 'rgba(0,0,0,0)');
+    hit.setAttribute('stroke-width', '16');
+    hit.setAttribute('pointer-events', 'stroke');
     hit.classList.add('link-hit');
     g.appendChild(hit);
 
@@ -800,6 +802,11 @@ function init() {
     linkTooltip.style.display = 'none';
     await openLinkPanel(g.dataset.s, g.dataset.t, g.dataset.type);
   });
+
+  // Touch : mémoriser le lien touché au touchstart (avant le drag du viewport)
+  svg.addEventListener('touchstart', e => {
+    touchedLink = e.target.closest('g[data-s]') || null;
+  }, { passive: true });
 
   // Nodes
   const canvas = document.getElementById('canvas');
@@ -982,18 +989,16 @@ viewport.addEventListener('touchmove', e => {
 viewport.addEventListener('touchend', e => {
   document.getElementById('hover-rect').style.display = 'none';
 
-  // Tap sur un lien SVG
-  if (!isDragging && e.changedTouches.length === 1) {
-    const touch = e.changedTouches[0];
-    const el = document.elementFromPoint(touch.clientX, touch.clientY);
-    const g = el?.closest('g[data-s]');
-    if (g) {
-      e.preventDefault();
-      openLinkPanel(g.dataset.s, g.dataset.t, g.dataset.type);
-      setTimeout(() => { isDragging = false; viewport.classList.remove('dragging'); }, 0);
-      return;
-    }
+  // Tap sur un lien SVG (mémorisé au touchstart)
+  if (!isDragging && touchedLink) {
+    const g = touchedLink;
+    touchedLink = null;
+    e.preventDefault();
+    openLinkPanel(g.dataset.s, g.dataset.t, g.dataset.type);
+    setTimeout(() => { isDragging = false; viewport.classList.remove('dragging'); }, 0);
+    return;
   }
+  touchedLink = null;
 
   if (mode === 'detail') {
     const now = Date.now();
