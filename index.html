@@ -29,7 +29,7 @@
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
-      height: var(--header-h);
+      height: auto;
       z-index: 100;
       background: rgba(200,196,188,0.92);
       backdrop-filter: blur(16px);
@@ -354,13 +354,10 @@
     /* LEGEND */
     #legend {
       display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
+      flex-wrap: wrap;
       gap: 5px;
       padding: 0 24px 8px;
-      scrollbar-width: none;
     }
-    #legend::-webkit-scrollbar { display: none; }
     #link-legend {
       position: fixed;
       bottom: 14px;
@@ -519,7 +516,10 @@ const LINK_DEFAULT = { color: 'rgba(0,0,0,0.35)', dash: '', width: 2 };
 // ─── Constants ───────────────────────────────────────────────────────────────
 const CANVAS_W     = 10200;
 const CANVAS_H     = 3000;
-const HEADER_H     = 108;
+function headerH() { return document.querySelector('header').offsetHeight || 108; }
+function updateHeaderH() {
+  document.documentElement.style.setProperty('--header-h', headerH() + 'px');
+}
 const SCALE_MIN    = 0.3;
 const SCALE_MAX    = 2.0;
 const SCALE_ENTRY  = 0.65;
@@ -539,7 +539,7 @@ let touchedNode  = null;
 let nodeMap;
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
-function vp() { return { w: window.innerWidth, h: window.innerHeight - HEADER_H }; }
+function vp() { return { w: window.innerWidth, h: window.innerHeight - headerH() }; }
 function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
 
 function overviewScale() {
@@ -964,6 +964,7 @@ function init() {
     linkLegend.appendChild(item);
   });
 
+  updateHeaderH();
   applyTransform(false);
 }
 
@@ -976,7 +977,7 @@ viewport.addEventListener('click', e => {
   if (mode === 'overview') {
     const s = overviewScale();
     const o = overviewOffset(s);
-    zoomTo((e.clientX - o.x) / s, ((e.clientY - HEADER_H) - o.y) / s);
+    zoomTo((e.clientX - o.x) / s, ((e.clientY - headerH()) - o.y) / s);
   } else {
     closePanel();
   }
@@ -997,7 +998,7 @@ viewport.addEventListener('mousedown', e => {
 
 document.addEventListener('mousemove', e => {
   if (mode === 'overview') {
-    updateHoverRect(e.clientX, e.clientY - HEADER_H);
+    updateHoverRect(e.clientX, e.clientY - headerH());
     return;
   }
   if (e.buttons !== 1) return;
@@ -1048,7 +1049,7 @@ viewport.addEventListener('wheel', e => {
   const newScale = clamp(detailScale * factor, SCALE_MIN, SCALE_MAX);
   // Zoom centré sur la position de la souris
   const mouseX = e.clientX;
-  const mouseY = e.clientY - HEADER_H;
+  const mouseY = e.clientY - headerH();
   const canvasX = (mouseX - detailOffset.x) / detailScale;
   const canvasY = (mouseY - detailOffset.y) / detailScale;
   detailOffset = {
@@ -1060,7 +1061,7 @@ viewport.addEventListener('wheel', e => {
 }, { passive: false });
 
 // Resize
-window.addEventListener('resize', () => applyTransform(false));
+window.addEventListener('resize', () => { updateHeaderH(); applyTransform(false); });
 
 // ─── Touch support ────────────────────────────────────────────────────────────
 let lastTapTime = 0;
@@ -1070,7 +1071,7 @@ viewport.addEventListener('touchstart', e => {
   const touch = e.touches[0];
   if (mode === 'overview') {
     touchedNode = e.target.closest('.node');
-    updateHoverRect(touch.clientX, touch.clientY - HEADER_H);
+    updateHoverRect(touch.clientX, touch.clientY - headerH());
   } else {
     isDragging = false;
     dragStart  = { x: touch.clientX, y: touch.clientY };
@@ -1082,7 +1083,7 @@ viewport.addEventListener('touchmove', e => {
   e.preventDefault();
   const touch = e.touches[0];
   if (mode === 'overview') {
-    updateHoverRect(touch.clientX, touch.clientY - HEADER_H);
+    updateHoverRect(touch.clientX, touch.clientY - headerH());
     return;
   }
   const dx = touch.clientX - dragStart.x;
@@ -1116,7 +1117,7 @@ viewport.addEventListener('touchend', e => {
     const touch = e.changedTouches[0];
     const s = overviewScale();
     const o = overviewOffset(s);
-    zoomTo((touch.clientX - o.x) / s, ((touch.clientY - HEADER_H) - o.y) / s);
+    zoomTo((touch.clientX - o.x) / s, ((touch.clientY - headerH()) - o.y) / s);
     setTimeout(() => { isDragging = false; viewport.classList.remove('dragging'); }, 0);
     return;
   }
