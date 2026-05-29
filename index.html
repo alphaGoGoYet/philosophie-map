@@ -15,7 +15,7 @@
       --border: rgba(0,0,0,0.1);
       --text: #1a1a1a;
       --muted: #6b7280;
-      --header-h: 72px;
+      --header-h: 108px;
     }
 
     body {
@@ -35,9 +35,16 @@
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       display: flex;
+      flex-direction: column;
+    }
+
+    .header-top {
+      display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 24px;
+      height: 60px;
+      flex-shrink: 0;
     }
 
     .header-title { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: #111111; }
@@ -346,16 +353,14 @@
 
     /* LEGEND */
     #legend {
-      position: fixed;
-      bottom: 14px;
-      left: 14px;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
       gap: 5px;
-      max-width: 580px;
-      z-index: 50;
-      pointer-events: none;
+      padding: 0 24px 8px;
+      scrollbar-width: none;
     }
+    #legend::-webkit-scrollbar { display: none; }
     #link-legend {
       position: fixed;
       bottom: 14px;
@@ -378,7 +383,14 @@
       padding: 3px 9px;
       font-size: 10px;
       color: #374151;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      user-select: none;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
     }
+    .legend-item:hover { background: rgba(255,255,255,1); border-color: rgba(0,0,0,0.3); }
+    .legend-item.active { color: white; border-color: transparent; }
     .legend-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
     #link-tooltip {
       position: fixed;
@@ -400,14 +412,17 @@
 <body>
 
 <header>
-  <div>
-    <div class="header-title">Atlas de la pensée occidentale</div>
-    <div class="header-sub" id="header-sub">Cliquer pour zoomer</div>
+  <div class="header-top">
+    <div>
+      <div class="header-title">Atlas de la pensée occidentale</div>
+      <div class="header-sub" id="header-sub">Cliquer pour zoomer</div>
+    </div>
+    <div class="header-right">
+      <input id="search" type="text" placeholder="Rechercher un penseur ou concept…" autocomplete="off">
+      <div class="mode-badge" id="mode-badge">Vue d'ensemble</div>
+    </div>
   </div>
-  <div class="header-right">
-    <input id="search" type="text" placeholder="Rechercher un penseur ou concept…" autocomplete="off">
-    <div class="mode-badge" id="mode-badge">Vue d'ensemble</div>
-  </div>
+  <div id="legend"></div>
 </header>
 
 <div id="viewport">
@@ -504,7 +519,7 @@ const LINK_DEFAULT = { color: 'rgba(0,0,0,0.35)', dash: '', width: 2 };
 // ─── Constants ───────────────────────────────────────────────────────────────
 const CANVAS_W     = 10200;
 const CANVAS_H     = 3000;
-const HEADER_H     = 72;
+const HEADER_H     = 108;
 const SCALE_MIN    = 0.3;
 const SCALE_MAX    = 2.0;
 const SCALE_ENTRY  = 0.65;
@@ -517,6 +532,7 @@ let isDragging   = false;
 let dragStart    = { x: 0, y: 0 };
 let dragOrigin   = { x: 0, y: 0 };
 let searchQuery  = '';
+let activeDomain = null;
 let touchedLink  = null;
 let touchedNode  = null;
 
@@ -616,20 +632,29 @@ function updateHoverRect(screenX, screenY) {
   }).join('');
 }
 
-// ─── Search ───────────────────────────────────────────────────────────────────
+// ─── Search & Filter ──────────────────────────────────────────────────────────
 function applySearch(q) {
   searchQuery = q;
-  const lq = q.toLowerCase();
+  applyFilter();
+}
+
+function applyFilter() {
+  const lq = searchQuery.toLowerCase();
+  const noFilter = searchQuery === '' && !activeDomain;
   const matchIds = new Set(
     DATA.nodes
-      .filter(n => n.name.toLowerCase().includes(lq) || n.concepts.some(c => c.toLowerCase().includes(lq)))
+      .filter(n => {
+        const matchSearch = lq === '' || n.name.toLowerCase().includes(lq) || n.concepts.some(c => c.toLowerCase().includes(lq));
+        const matchDom    = !activeDomain || n.domain === activeDomain;
+        return matchSearch && matchDom;
+      })
       .map(n => n.id)
   );
   document.querySelectorAll('.node').forEach(el => {
-    el.classList.toggle('dimmed', q !== '' && !matchIds.has(el.dataset.id));
+    el.classList.toggle('dimmed', !noFilter && !matchIds.has(el.dataset.id));
   });
   document.querySelectorAll('#links-svg path.link-vis').forEach(p => {
-    const active = q === '' || (matchIds.has(p.dataset.s) && matchIds.has(p.dataset.t));
+    const active = noFilter || (matchIds.has(p.dataset.s) && matchIds.has(p.dataset.t));
     const style = (p.dataset.type && LINK_STYLES[p.dataset.type]) || LINK_DEFAULT;
     p.setAttribute('stroke', active ? style.color : 'rgba(0,0,0,0.04)');
     p.setAttribute('stroke-width', active ? style.width : 1);
@@ -910,12 +935,22 @@ function init() {
     canvas.appendChild(el);
   });
 
-  // Legend — domaines
+  // Legend — domaines (cliquables pour filtrer)
   const legend = document.getElementById('legend');
   Object.entries(DATA.domains).forEach(([domain, color]) => {
     const item = document.createElement('div');
     item.className = 'legend-item';
+    item.dataset.domain = domain;
     item.innerHTML = `<div class="legend-dot" style="background:${color}"></div>${domain}`;
+    item.addEventListener('click', () => {
+      activeDomain = activeDomain === domain ? null : domain;
+      document.querySelectorAll('#legend .legend-item').forEach(i => {
+        const active = i.dataset.domain === activeDomain;
+        i.classList.toggle('active', active);
+        i.style.background = active ? DATA.domains[i.dataset.domain] : '';
+      });
+      applyFilter();
+    });
     legend.appendChild(item);
   });
 
