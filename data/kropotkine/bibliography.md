@@ -1,0 +1,6 @@
+- *Paroles d'un révolté* (1885)
+- *La Conquête du pain* (1892)
+- *Champs, usines et ateliers* (1899)
+- *L'Entraide, un facteur de l'évolution* (1902)
+- *La Science moderne et l'anarchie* (1913)
+- *Mémoires d'un révolutionnaire* (1899)

@@ -1,0 +1,5 @@
+- *Fédéralisme, socialisme et antithéologisme* (1867)
+- *Dieu et l'État* (1871, posthume)
+- *L'Empire knouto-germanique et la révolution sociale* (1871)
+- *Étatisme et anarchie* (1873)
+- *Œuvres complètes* (éd. James Guillaume, 1895-1913)

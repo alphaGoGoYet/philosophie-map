@@ -107,7 +107,12 @@
     { "id": "said",           "name": "Said",                   "type": "author",  "era": "XXe",               "domain": "Postcolonial",      "concepts": ["Orientalisme", "Discours colonial"],                                                        "x": 9350, "y": 1150 },
     { "id": "spivak",         "name": "Spivak",                 "type": "author",  "era": "XXe-XXIe",          "domain": "Postcolonial",      "concepts": ["Subaltern studies", "Voix dominées"],                                                       "x": 9650, "y": 1150 },
     { "id": "mbembe",         "name": "Mbembe",                 "type": "author",  "era": "XXe-XXIe",          "domain": "Postcolonial",      "concepts": ["Nécropolitique", "Postcolonie"],                                                            "x": 9350, "y": 1370 },
-    { "id": "decolonial",     "name": "Courants décoloniaux",   "type": "concept", "era": "XXe-XXIe",          "domain": "Postcolonial",      "concepts": ["Critique de l'eurocentrisme", "Colonialité du pouvoir"],                                    "x": 9650, "y": 1370 }
+    { "id": "decolonial",     "name": "Courants décoloniaux",   "type": "concept", "era": "XXe-XXIe",          "domain": "Postcolonial",      "concepts": ["Critique de l'eurocentrisme", "Colonialité du pouvoir"],                                    "x": 9650, "y": 1370 },
+    { "id": "anarchisme",    "name": "Anarchisme",             "type": "concept", "era": "XIXe-XXe",           "domain": "Anarchisme",        "concepts": ["Anti-étatisme", "Autogestion", "Fédéralisme libertaire"],                                       "x": 5150, "y": 490  },
+    { "id": "proudhon",      "name": "Proudhon",               "type": "author",  "era": "XIXe",               "domain": "Anarchisme",        "concepts": ["Mutuellisme", "Fédéralisme", "La propriété c'est le vol"],                                      "x": 4850, "y": 710  },
+    { "id": "stirner",       "name": "Stirner",                "type": "author",  "era": "XIXe",               "domain": "Anarchisme",        "concepts": ["L'Unique", "Anarchisme individualiste", "Critique des idéaux"],                                 "x": 4850, "y": 1150 },
+    { "id": "bakounine",     "name": "Bakounine",              "type": "author",  "era": "XIXe",               "domain": "Anarchisme",        "concepts": ["Anarchisme collectiviste", "Anti-autoritarisme", "Révolution immédiate"],                       "x": 5150, "y": 710  },
+    { "id": "kropotkine",    "name": "Kropotkine",             "type": "author",  "era": "XIXe-XXe",           "domain": "Anarchisme",        "concepts": ["Anarchisme communiste", "Entraide", "Fédération de communes"],                                  "x": 5450, "y": 710  }
   ],
   "links": [
     ["socrate","platon","filiation"],["platon","aristote","filiation"],["aristote","stoiciens","influence"],["platon","epicure","opposition"],["platon","neoplatonisme","continuité"],
@@ -143,7 +148,14 @@
     ["hume","popper","dialogue"],["kant","popper","influence"],["popper","kuhn","opposition"],["kuhn","lakatos","dialogue"],["wittgenstein","habermas","influence"],
     ["peirce","james","filiation"],["james","dewey","continuité"],["dewey","rorty","continuité"],
     ["locke","lib_tradition","continuité"],["lib_tradition","rawls","influence"],["rawls","nozick","opposition"],["habermas","deliberatif","continuité"],
-    ["marx","fanon","influence"],["foucault","said","influence"],["derrida","spivak","influence"],["fanon","mbembe","influence"],["said","mbembe","influence"],["foucault","decolonial","influence"]
+    ["marx","fanon","influence"],["foucault","said","influence"],["derrida","spivak","influence"],["fanon","mbembe","influence"],["said","mbembe","influence"],["foucault","decolonial","influence"],
+    ["proudhon","anarchisme","appartenance"],["bakounine","anarchisme","appartenance"],["kropotkine","anarchisme","appartenance"],["stirner","anarchisme","appartenance"],
+    ["hegel","proudhon","influence"],["hegel","stirner","influence"],
+    ["marx","proudhon","opposition"],["marx","bakounine","opposition"],
+    ["proudhon","bakounine","influence"],["proudhon","kropotkine","influence"],
+    ["bakounine","kropotkine","influence"],
+    ["darwin","kropotkine","dialogue"],
+    ["nietzsche","stirner","dialogue"]
   ],
   "domains": {
     "Antique":           "#7c3aed",
@@ -161,6 +173,7 @@
     "Épistémologie":     "#0ea5e9",
     "Pragmatisme":       "#f97316",
     "Politique":         "#ea580c",
-    "Postcolonial":      "#be123c"
+    "Postcolonial":      "#be123c",
+    "Anarchisme":        "#b45309"
   }
 }

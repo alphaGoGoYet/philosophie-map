@@ -1,0 +1,6 @@
+- *Qu'est-ce que la propriété ?* (1840)
+- *Système des contradictions économiques, ou Philosophie de la misère* (1846)
+- *Idée générale de la révolution au XIXe siècle* (1851)
+- *De la justice dans la révolution et dans l'Église* (1858)
+- *Du principe fédératif* (1863)
+- *De la capacité politique des classes ouvrières* (1865, posthume)
