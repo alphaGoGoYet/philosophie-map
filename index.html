@@ -592,6 +592,23 @@ function zoomTo(canvasX, canvasY) {
   applyTransform(true);
 }
 
+function zoomToFitNodes(nodes) {
+  if (!nodes.length) return;
+  const PAD = 180;
+  const minX = Math.min(...nodes.map(n => n.x)) - PAD;
+  const maxX = Math.max(...nodes.map(n => n.x)) + PAD;
+  const minY = Math.min(...nodes.map(n => n.y)) - PAD;
+  const maxY = Math.max(...nodes.map(n => n.y)) + PAD;
+  const v = vp();
+  const scale = clamp(Math.min(v.w / (maxX - minX), v.h / (maxY - minY)), SCALE_MIN, SCALE_MAX);
+  const cx = (minX + maxX) / 2;
+  const cy = (minY + maxY) / 2;
+  detailScale = scale;
+  detailOffset = { x: v.w / 2 - cx * scale, y: v.h / 2 - cy * scale };
+  mode = 'detail';
+  applyTransform(true);
+}
+
 function zoomOut() {
   mode = 'overview';
   closePanel();
@@ -950,6 +967,12 @@ function init() {
         i.style.background = active ? DATA.domains[i.dataset.domain] : '';
       });
       applyFilter();
+      if (activeDomain) {
+        const domainNodes = DATA.nodes.filter(n => n.domain === activeDomain);
+        zoomToFitNodes(domainNodes);
+      } else {
+        zoomOut();
+      }
     });
     legend.appendChild(item);
   });
