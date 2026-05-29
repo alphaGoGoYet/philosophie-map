@@ -552,6 +552,18 @@ function overviewOffset(s) {
 }
 
 // ─── Transform ───────────────────────────────────────────────────────────────
+function currentScale() {
+  return mode === 'overview' ? overviewScale() : detailScale;
+}
+
+function updateLinkStrokes() {
+  const s = currentScale();
+  document.querySelectorAll('#links-svg path.link-vis').forEach(p => {
+    const style = (p.dataset.type && LINK_STYLES[p.dataset.type]) || LINK_DEFAULT;
+    p.setAttribute('stroke-width', style.width / s);
+  });
+}
+
 function applyTransform(animated) {
   const canvas  = document.getElementById('canvas');
   const vport   = document.getElementById('viewport');
@@ -576,6 +588,7 @@ function applyTransform(animated) {
     sub.textContent   = 'Glisser · Double-clic ou Echap pour revenir';
     hRect.style.display = 'none';
   }
+  updateLinkStrokes();
 }
 
 // ─── Zoom ─────────────────────────────────────────────────────────────────────
@@ -670,11 +683,12 @@ function applyFilter() {
   document.querySelectorAll('.node').forEach(el => {
     el.classList.toggle('dimmed', !noFilter && !matchIds.has(el.dataset.id));
   });
+  const s = currentScale();
   document.querySelectorAll('#links-svg path.link-vis').forEach(p => {
     const active = noFilter || (matchIds.has(p.dataset.s) && matchIds.has(p.dataset.t));
     const style = (p.dataset.type && LINK_STYLES[p.dataset.type]) || LINK_DEFAULT;
     p.setAttribute('stroke', active ? style.color : 'rgba(0,0,0,0.04)');
-    p.setAttribute('stroke-width', active ? style.width : 1);
+    p.setAttribute('stroke-width', active ? style.width / s : 0.8 / s);
   });
 }
 
