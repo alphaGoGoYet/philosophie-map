@@ -654,12 +654,29 @@ function updateHoverRect(screenX, screenY) {
     .map(n => ({ ...n, dist: Math.hypot(n.x - cx, n.y - cy) }))
     .sort((a, b) => a.dist - b.dist)
     .slice(0, 12);
-  r.innerHTML = visible.map(n => {
-    const lx = (n.x - cx) * s + rw / 2;
-    const ly = (n.y - cy) * s + rh / 2;
-    const color = DATA.domains[n.domain] || '#334155';
-    return `<div style="position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);font-size:11px;font-weight:700;color:${color};white-space:nowrap;background:rgba(255,255,255,0.9);padding:1px 5px;border-radius:4px;border:1px solid ${color}44">${n.name}</div>`;
-  }).join('');
+
+  const visIds = new Set(visible.map(n => n.id));
+  const linksSvg = DATA.links
+    .filter(([src, tgt]) => visIds.has(src) && visIds.has(tgt))
+    .map(([src, tgt, type]) => {
+      const sn = nodeMap[src], tn = nodeMap[tgt];
+      if (!sn || !tn) return '';
+      const x1 = (sn.x - cx) * s + rw / 2;
+      const y1 = (sn.y - cy) * s + rh / 2;
+      const x2 = (tn.x - cx) * s + rw / 2;
+      const y2 = (tn.y - cy) * s + rh / 2;
+      const st = (type && LINK_STYLES[type]) || LINK_DEFAULT;
+      const dash = st.dash ? `stroke-dasharray="${st.dash}"` : '';
+      return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${st.color}" stroke-width="${st.width * 1.2}" ${dash} opacity="0.85"/>`;
+    }).join('');
+
+  r.innerHTML = `<svg style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">${linksSvg}</svg>`
+    + visible.map(n => {
+      const lx = (n.x - cx) * s + rw / 2;
+      const ly = (n.y - cy) * s + rh / 2;
+      const color = DATA.domains[n.domain] || '#334155';
+      return `<div style="position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);font-size:11px;font-weight:700;color:${color};white-space:nowrap;background:rgba(255,255,255,0.9);padding:1px 5px;border-radius:4px;border:1px solid ${color}44">${n.name}</div>`;
+    }).join('');
 }
 
 // ─── Search & Filter ──────────────────────────────────────────────────────────
