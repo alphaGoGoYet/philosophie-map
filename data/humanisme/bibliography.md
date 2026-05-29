@@ -1,0 +1,6 @@
+- *De la dignité de l'homme* — Pic de la Mirandole (1486)
+- *L'Utopie* — Thomas More (1516)
+- *Éloge de la folie* — Érasme (1511)
+- *Gargantua* — François Rabelais (1534)
+- *Les Essais* — Michel de Montaigne (1580)
+- *La Cité du Soleil* — Tommaso Campanella (1602)

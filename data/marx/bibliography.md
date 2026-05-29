@@ -1,0 +1,4 @@
+- *Manuscrits économico-philosophiques* (1844)
+- *Manifeste du Parti communiste (avec Engels)* (1848)
+- *Le Capital, tome I* (1867)
+- *Critique du programme de Gotha* (1875)

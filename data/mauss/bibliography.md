@@ -1,0 +1,5 @@
+- *Essai sur le don* (1925)
+- *Esquisse d'une théorie générale de la magie* — avec Henri Hubert (1902)
+- *Mélanges d'histoire des religions* — avec Henri Hubert (1909)
+- *Sociologie et anthropologie* (recueil posthume, 1950)
+- *Manuel d'ethnographie* (1947)

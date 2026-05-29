@@ -1,0 +1,5 @@
+- *L'Interprétation des rêves* (1900)
+- *Trois essais sur la théorie sexuelle* (1905)
+- *Totem et Tabou* (1913)
+- *Au-delà du principe de plaisir* (1920)
+- *Malaise dans la civilisation* (1930)

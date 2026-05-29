@@ -1,0 +1,4 @@
+- *La Reproduction (avec Passeron)* (1970)
+- *La Distinction* (1979)
+- *Le Sens pratique* (1980)
+- *La Misère du monde* (1993)

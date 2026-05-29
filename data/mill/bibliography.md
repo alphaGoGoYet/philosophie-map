@@ -1,0 +1,6 @@
+- *Système de logique déductive et inductive* (1843)
+- *Principes d'économie politique* (1848)
+- *De la liberté* (1859)
+- *Utilitarisme* (1863)
+- *L'Assujettissement des femmes* (1869)
+- *Autobiographie* (1873)

@@ -1,0 +1,6 @@
+- *De la postcolonie : essai sur l'imagination politique dans l'Afrique contemporaine* (2000)
+- *Nécropolitique* (2003)
+- *Sortir de la grande nuit : essai sur l'Afrique décolonisée* (2010)
+- *Critique de la raison nègre* (2013)
+- *Politiques de l'inimitié* (2016)
+- *La Communauté terrestre* (2023)

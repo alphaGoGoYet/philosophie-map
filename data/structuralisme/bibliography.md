@@ -1,0 +1,6 @@
+- *Cours de linguistique générale* (1916) — Ferdinand de Saussure
+- *La Morphologie du conte* (1928) — Vladimir Propp
+- *Anthropologie structurale* (1958) — Claude Lévi-Strauss
+- *Mythologiques* (1964-1971) — Claude Lévi-Strauss
+- *Écrits* (1966) — Jacques Lacan
+- *Système de la mode* (1967) — Roland Barthes

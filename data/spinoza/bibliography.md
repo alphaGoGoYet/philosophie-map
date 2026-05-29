@@ -1,0 +1,3 @@
+- *Traité théologico-politique* (1670)
+- *Éthique* (1677 (posth.))
+- *Traité politique* (1677 (posth.))

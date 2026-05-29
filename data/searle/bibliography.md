@@ -1,0 +1,6 @@
+- *Speech Acts: An Essay in the Philosophy of Language* (1969)
+- *Expression and Meaning* (1979)
+- *Intentionality: An Essay in the Philosophy of Mind* (1983)
+- *Minds, Brains and Science* (1984)
+- *The Construction of Social Reality* (1995)
+- *The Mystery of Consciousness* (1997)

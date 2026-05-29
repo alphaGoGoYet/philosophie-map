@@ -1,0 +1,4 @@
+- *Recherches logiques* (1900-1901)
+- *Idées directrices pour une phénoménologie* (1913)
+- *Méditations cartésiennes* (1931)
+- *La Crise des sciences européennes* (1936)

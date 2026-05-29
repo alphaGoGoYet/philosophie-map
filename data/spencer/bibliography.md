@@ -1,0 +1,6 @@
+- *Social Statics* (1851)
+- *Principles of Psychology* (1855)
+- *First Principles* (1862)
+- *Principles of Biology* (1864-1867)
+- *Principles of Sociology* (1876-1896)
+- *The Man Versus the State* (1884)

@@ -1,0 +1,6 @@
+- *Mathematical Logic* (1940)
+- *From a Logical Point of View* (1953)
+- *Word and Object* (1960)
+- *Ontological Relativity and Other Essays* (1969)
+- *Philosophy of Logic* (1970)
+- *The Roots of Reference* (1974)

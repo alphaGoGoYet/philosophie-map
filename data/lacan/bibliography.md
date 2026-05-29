@@ -1,0 +1,6 @@
+- *De la psychose paranoïaque dans ses rapports avec la personnalité* (1932)
+- *Écrits* (1966)
+- *Le Séminaire, Livre I : Les Écrits techniques de Freud* (1953–1954)
+- *Le Séminaire, Livre XI : Les Quatre Concepts fondamentaux de la psychanalyse* (1964)
+- *Le Séminaire, Livre XX : Encore* (1972–1973)
+- *Télévision* (1974)

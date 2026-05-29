@@ -1,0 +1,3 @@
+- *Tractatus logico-philosophicus* (1921)
+- *Recherches philosophiques* (1953 (posth.))
+- *Le Cahier bleu et le Cahier brun* (1958 (posth.))

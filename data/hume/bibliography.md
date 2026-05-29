@@ -1,0 +1,3 @@
+- *Traité de la nature humaine* (1739-1740)
+- *Enquête sur l'entendement humain* (1748)
+- *Dialogues sur la religion naturelle* (1779 (posth.))

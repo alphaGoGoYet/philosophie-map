@@ -1,0 +1,4 @@
+- *Quand dire c'est faire* (1962)
+- *Le langage de la perception* (1962)
+- *Écrits philosophiques* (1961)
+- *Sens et vérité* (1950)

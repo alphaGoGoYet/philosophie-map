@@ -1,0 +1,6 @@
+- *Tractatus Logico-Philosophicus* (1921) — Ludwig Wittgenstein
+- *Der logische Aufbau der Welt* (1928) — Rudolf Carnap
+- *Language, Truth and Logic* (1936) — A.J. Ayer
+- *The Unity of Science* (1934) — Rudolf Carnap
+- *Logik der Forschung* (1934) — Karl Popper
+- *Foundations of the Theory of Signs* (1938) — Charles Morris

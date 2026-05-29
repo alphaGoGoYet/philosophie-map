@@ -1,0 +1,5 @@
+- *Lettres persanes* (1721)
+- *Considérations sur les causes de la grandeur des Romains et de leur décadence* (1734)
+- *De l'esprit des lois* (1748)
+- *Défense de l'Esprit des lois* (1750)
+- *Mes pensées* (posthume, 1899)

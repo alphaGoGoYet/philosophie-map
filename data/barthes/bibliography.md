@@ -1,0 +1,6 @@
+- *Mythologies* (1957)
+- *Sur Racine* (1963)
+- *Éléments de sémiologie* (1964)
+- *S/Z* (1970)
+- *Le Plaisir du texte* (1973)
+- *La Chambre claire* (1980)

@@ -1,0 +1,6 @@
+- *Orientalism* (1978)
+- *The Question of Palestine* (1979)
+- *Covering Islam* (1981)
+- *The World, the Text, and the Critic* (1983)
+- *Culture and Imperialism* (1993)
+- *Out of Place: A Memoir* (1999)

@@ -1,0 +1,4 @@
+- *De la division du travail social* (1893)
+- *Les Règles de la méthode sociologique* (1895)
+- *Le Suicide* (1897)
+- *Les Formes élémentaires de la vie religieuse* (1912)

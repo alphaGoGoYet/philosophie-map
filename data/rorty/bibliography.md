@@ -1,0 +1,6 @@
+- *Philosophy and the Mirror of Nature* (1979)
+- *Consequences of Pragmatism* (1982)
+- *Contingency, Irony, and Solidarity* (1989)
+- *Objectivity, Relativism, and Truth* (1991)
+- *Achieving Our Country* (1998)
+- *Philosophy as Cultural Politics* (2007)

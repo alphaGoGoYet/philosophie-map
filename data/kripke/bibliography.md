@@ -1,0 +1,5 @@
+- *Sémantique des mondes possibles* — conférences (1963)
+- *Naming and Necessity* (1972)
+- *Outline of a Theory of Truth* (1975)
+- *Wittgenstein on Rules and Private Language* (1982)
+- *Reference and Existence* (conférences 1973, pub. 2013)

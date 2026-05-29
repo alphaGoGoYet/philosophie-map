@@ -1,0 +1,6 @@
+- *Sur le processus de civilisation* (1939)
+- *La Société de cour* (1969)
+- *La Dynamique de l'Occident* (1939)
+- *Qu'est-ce que la sociologie ?* (1970)
+- *La Solitude des mourants* (1982)
+- *Mozart, sociologie d'un génie* (1991)

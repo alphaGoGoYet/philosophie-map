@@ -1,0 +1,6 @@
+- *Lettres philosophiques* (1734)
+- *Le Siècle de Louis XIV* (1751)
+- *Micromégas* (1752)
+- *Candide, ou l'Optimisme* (1759)
+- *Traité sur la tolérance* (1763)
+- *Dictionnaire philosophique* (1764)

@@ -1,0 +1,6 @@
+- *Les Structures élémentaires de la parenté* (1949)
+- *Tristes Tropiques* (1955)
+- *Anthropologie structurale* (1958)
+- *La Pensée sauvage* (1962)
+- *Mythologiques* (4 vol., 1964–1971)
+- *La Voie des masques* (1975)

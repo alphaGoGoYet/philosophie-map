@@ -1,0 +1,5 @@
+- *De la démocratie en Amérique* (1835-1840)
+- *L'Ancien Régime et la Révolution* (1856)
+- *Souvenirs* (1893, posthume)
+- *Rapport sur la démocratie en Suisse* (1848)
+- *Correspondance avec Gobineau* (1843-1859)

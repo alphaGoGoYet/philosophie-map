@@ -1,0 +1,3 @@
+- *Discours de la méthode* (1637)
+- *Méditations métaphysiques* (1641)
+- *Les Principes de la philosophie* (1644)

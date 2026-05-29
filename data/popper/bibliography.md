@@ -1,0 +1,4 @@
+- *La Logique de la découverte scientifique* (1934)
+- *La Société ouverte et ses ennemis* (1945)
+- *Misère de l'historicisme* (1944-1945)
+- *Conjectures et réfutations* (1963)

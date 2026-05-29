@@ -1,0 +1,4 @@
+- *Mémoire sur le système primitif des voyelles dans les langues indo-européennes* (1879)
+- *Cours de linguistique générale* (1916)
+- *Anagrammes homériques* (2000)
+- *Écrits de linguistique générale* (2002)

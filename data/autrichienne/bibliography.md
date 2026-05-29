@@ -1,0 +1,6 @@
+- *Principes d'économie politique* — Carl Menger (1871)
+- *Capital et intérêt* — Eugen von Böhm-Bawerk (1884)
+- *L'Action humaine* — Ludwig von Mises (1949)
+- *La Route de la servitude* — Friedrich Hayek (1944)
+- *Prix et production* — Friedrich Hayek (1931)
+- *L'Homme, l'économie et l'État* — Murray Rothbard (1962)

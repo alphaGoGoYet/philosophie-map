@@ -1,0 +1,5 @@
+- *Grundsätze der Volkswirtschaftslehre* (Principes d'économie politique, 1871)
+- *Untersuchungen über die Methode der Socialwissenschaften* (1883)
+- *Die Irrthümer des Historismus in der deutschen Nationalökonomie* (1884)
+- *Zur Theorie des Kapitals* (1888)
+- *Geld* (posthume, 1909)

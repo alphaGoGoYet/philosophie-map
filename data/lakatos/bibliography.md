@@ -1,0 +1,5 @@
+- *Preuves et réfutations* (1976)
+- *La Méthodologie des programmes de recherche scientifique* (1978)
+- *Histoire et méthodologie des sciences* (1978)
+- *Mathematics, Science and Epistemology* (1978)
+- *Against Method* — avec Paul Feyerabend (1999)

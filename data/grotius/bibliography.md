@@ -1,0 +1,5 @@
+- *Mare liberum* (1609)
+- *De iure belli ac pacis* (1625)
+- *De iure praedae* (réd. 1604, pub. 1868)
+- *De antiquitate reipublicae Batavicae* (1610)
+- *Introduction à la jurisprudence hollandaise* (1631)

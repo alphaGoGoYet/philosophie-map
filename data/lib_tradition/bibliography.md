@@ -1,0 +1,6 @@
+- *Deux traités du gouvernement civil* — John Locke (1689)
+- *De l'esprit des lois* — Montesquieu (1748)
+- *La Richesse des nations* — Adam Smith (1776)
+- *Sur la liberté* — John Stuart Mill (1859)
+- *La Constitution de la liberté* — Friedrich Hayek (1960)
+- *Théorie de la justice* — John Rawls (1971)

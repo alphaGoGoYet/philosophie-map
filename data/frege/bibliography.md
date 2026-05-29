@@ -1,0 +1,5 @@
+- *Idéographie* (1879)
+- *Les Fondements de l'arithmétique* (1884)
+- *Sens et dénotation* (1892)
+- *Les Lois fondamentales de l'arithmétique* (1893–1903)
+- *Recherches logiques* (1918–1923)

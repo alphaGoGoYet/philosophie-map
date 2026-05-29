@@ -1,0 +1,6 @@
+- *Glossae super Porphyrium* — Pierre Abélard (env. 1108)
+- *Sic et Non* — Pierre Abélard (env. 1121)
+- *Summa Logicae* — Guillaume d'Ockham (env. 1323)
+- *Quodlibeta Septem* — Guillaume d'Ockham (env. 1325)
+- *Summulae de Dialectica* — Jean Buridan (XIVe s.)
+- *De Corpore* — Thomas Hobbes (1655)

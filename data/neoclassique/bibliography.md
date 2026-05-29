@@ -1,0 +1,6 @@
+- *Grundsätze der Volkswirtschaftslehre* — Carl Menger (1871)
+- *Théorie de l'économie politique* — William Stanley Jevons (1871)
+- *Éléments d'économie politique pure* — Léon Walras (1874)
+- *Principles of Economics* — Alfred Marshall (1890)
+- *Value and Capital* — John Hicks (1939)
+- *Foundations of Economic Analysis* — Paul Samuelson (1947)

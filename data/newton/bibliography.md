@@ -1,0 +1,5 @@
+- *De Motu Corporum in Gyrum* (manuscrit, 1684)
+- *Philosophiæ Naturalis Principia Mathematica* (1687)
+- *Opticks* (1704)
+- *Arithmetica Universalis* (1707)
+- *Observations upon the Prophecies of Daniel and the Apocalypse of St. John* (posthume, 1733)

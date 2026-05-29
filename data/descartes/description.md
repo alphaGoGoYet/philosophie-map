@@ -1,3 +1,5 @@
-Descartes inaugure la philosophie moderne en faisant du doute méthodique le point de départ de toute certitude. Le cogito — « je pense, donc je suis » — est la première vérité indubitable.
+Descartes inaugure la philosophie moderne en faisant du **doute méthodique** le point de départ de toute certitude. En suspendant provisoirement toute croyance — même celles fondées sur les sens ou les mathématiques — il cherche ce qui résiste à tout scepticisme. Le **cogito** — « je pense, donc je suis » — est cette première vérité indubitable : on ne peut douter sans penser, et penser prouve que l'on existe.
 
-Son dualisme radical sépare la *res cogitans* (âme pensante) de la *res extensa* (corps étendu), posant les bases d'un mécanisme universel et d'une science mathématisée de la nature.
+Son **dualisme radical** sépare la *res cogitans* (la substance pensante, l'âme) de la *res extensa* (la substance étendue, le corps), deux réalités de nature entièrement différente. Cette distinction fonde à la fois le mécanisme universel — le corps, comme la nature entière, est une machine régie par des lois — et une **mathématisation de la physique** dont *Les Méditations métaphysiques* et la *Géométrie* portent l'ambition.
+
+L'héritage cartésien est double : il ouvre la voie à la science moderne en réduisant la matière à l'étendue mesurable, mais il lègue aussi à la philosophie le problème difficile de l'**union de l'âme et du corps**, que ses successeurs — Malebranche, Spinoza, Leibniz — s'efforceront de résoudre chacun à leur manière.

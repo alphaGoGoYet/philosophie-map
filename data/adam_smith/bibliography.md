@@ -1,0 +1,4 @@
+- *Théorie des sentiments moraux* (1759)
+- *Recherches sur la nature et les causes de la richesse des nations* (1776)
+- *Leçons sur la jurisprudence* (1762-1763, publ. 1978)
+- *Essais philosophiques* (1795)

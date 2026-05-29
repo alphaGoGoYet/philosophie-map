@@ -1,0 +1,5 @@
+- *Introduction aux principes de morale et de législation* (1789)
+- *Panoptique* (1791)
+- *Déontologie* (1834, posth.)
+- *Fragments sur le gouvernement* (1776)
+- *Théorie des peines et des récompenses* (1811)

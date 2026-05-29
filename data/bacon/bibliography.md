@@ -1,0 +1,5 @@
+- *Novum Organum* (1620)
+- *De la dignité et de l'accroissement des sciences* (1623)
+- *La Nouvelle Atlantide* (1627)
+- *Essais* (1597, éd. augmentée 1625)
+- *The Advancement of Learning* (1605)

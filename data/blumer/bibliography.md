@@ -1,0 +1,4 @@
+- *Interactionnisme symbolique : perspective et méthode* (1969)
+- *Movies and Conduct* (1933)
+- *Critiques du comportementalisme* (1955)
+- *Industrialisation as an Agent of Social Change* (1990, posth.)

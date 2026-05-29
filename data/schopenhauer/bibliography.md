@@ -1,0 +1,3 @@
+- *Le Monde comme volonté et comme représentation* (1818)
+- *Le Fondement de la morale* (1840)
+- *Parerga et Paralipomena* (1851)

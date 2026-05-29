@@ -1,0 +1,6 @@
+- *Sic et Non* (1122) — Pierre Abélard
+- *Sentences* (1150) — Pierre Lombard
+- *Somme contre les Gentils* (1259-1265) — Thomas d'Aquin
+- *Summa Theologiae* (1265-1274) — Thomas d'Aquin
+- *Opus Oxoniense* (1300-1304) — Duns Scot
+- *Tractatus de Primo Principio* (1304) — Duns Scot

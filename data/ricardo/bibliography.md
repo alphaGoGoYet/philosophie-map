@@ -1,0 +1,5 @@
+- *The High Price of Bullion, a Proof of the Depreciation of Bank Notes* (1810)
+- *Essay on the Influence of a Low Price of Corn on the Profits of Stock* (1815)
+- *On the Principles of Political Economy and Taxation* (1817)
+- *Notes on Malthus* (1820)
+- *Plan for the Establishment of a National Bank* (1824)

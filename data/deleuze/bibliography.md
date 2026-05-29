@@ -1,0 +1,4 @@
+- *Différence et Répétition* (1968)
+- *L'Anti-Œdipe (avec Guattari)* (1972)
+- *Mille Plateaux (avec Guattari)* (1980)
+- *Qu'est-ce que la philosophie ? (avec Guattari)* (1991)

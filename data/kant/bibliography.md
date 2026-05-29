@@ -1,0 +1,4 @@
+- *Critique de la raison pure* (1781)
+- *Fondements de la métaphysique des mœurs* (1785)
+- *Critique de la raison pratique* (1788)
+- *Critique de la faculté de juger* (1790)
