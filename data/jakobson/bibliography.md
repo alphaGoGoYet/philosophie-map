@@ -1,0 +1,5 @@
+- *Remarques sur l'évolution phonologique du russe* (1929)
+- *Kindersprache, Aphasie und allgemeine Lautgesetze* (1941)
+- *Fundamentals of Language* (avec Halle, 1956)
+- *Essais de linguistique générale* (1963)
+- *Questions de poétique* (1973)

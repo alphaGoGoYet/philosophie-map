@@ -1,0 +1,3 @@
+Carnap rejoint le **Cercle de Vienne** fondé par Moritz Schlick en 1924, et leur collaboration définit l'agenda du positivisme logique. Schlick, physicien de formation philosophique, apporte la vision générale et le charisme fédérateur ; Carnap apporte la **rigueur technique** logique et la capacité de systématisation. Ensemble, ils co-rédigent le *Manifeste du Cercle de Vienne* (1929, avec Neurath) qui pose les bases du programme.
+
+Leur relation est d'abord celle d'un maître (Schlick, plus âgé) et d'un disciple brillant, mais Carnap dépasse rapidement son mentor sur le plan de la sophistication logique. Après l'assassinat de Schlick en 1936, Carnap — déjà émigré — devient le principal représentant du programme viennois dans le monde anglophone.

@@ -1,0 +1,5 @@
+Walter Mignolo est l'un des théoriciens majeurs de la pensée décoloniale. Prolongeant les travaux d'Aníbal Quijano sur la « colonialité du pouvoir », il développe le concept de « différence coloniale » pour désigner la fracture épistémique produite par la conquête européenne : les savoirs des peuples colonisés ont été systématiquement dévalorisés, subordonnés à une raison occidentale présentée comme universelle.
+
+Son projet central est celui de la « désobéissance épistémique » : refuser d'accepter les cadres conceptuels imposés par la modernité européenne et valoriser les formes de connaissance issues des marges — ce qu'il nomme la « pensée frontalière » ou « gnose du bord ». Il ne s'agit pas de rejeter la modernité mais de la percevoir depuis son revers, la colonialité, qui en est la face cachée et constitutive.
+
+Mignolo dialogue avec Frantz Fanon, Aimé Césaire, et les travaux du groupe Modernité/Colonialité (Quijano, Dussel, Escobar). Il insiste sur le « lieu d'énonciation » : tout discours philosophique est situé géographiquement et historiquement, et prétendre à l'universalité sans reconnaître ce lieu est une forme de violence épistémique.

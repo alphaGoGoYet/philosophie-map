@@ -1,0 +1,7 @@
+- *Les Héritiers. Les étudiants et la culture* (1964), avec Pierre Bourdieu
+- *Rapport pédagogique et communication* (1965), avec Pierre Bourdieu et Monique de Saint-Martin
+- *Le Métier de sociologue* (1968), avec Pierre Bourdieu et Jean-Claude Chamboredon
+- *La Reproduction. Éléments pour une théorie du système d'enseignement* (1970), avec Pierre Bourdieu
+- *L'Œil à la page. Enquête sur les images et les bibliothèques* (1984), avec Michel Grumbach
+- *Le Savant et le populaire. Misérabilisme et populisme en sociologie et en littérature* (1989), avec Claude Grignon
+- *Le Raisonnement sociologique. L'espace non poppérien du raisonnement naturel* (1991 ; rééd. augmentée 2006)

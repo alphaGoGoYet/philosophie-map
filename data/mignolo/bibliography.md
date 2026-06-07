@@ -1,0 +1,5 @@
+- *The Darker Side of the Renaissance* (1995)
+- *Local Histories / Global Designs* (2000)
+- *The Idea of Latin America* (2005)
+- *The Darker Side of Western Modernity* (2011)
+- *On Decoloniality* (avec Catherine Walsh, 2018)

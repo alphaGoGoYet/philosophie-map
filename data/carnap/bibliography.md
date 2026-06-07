@@ -1,0 +1,16 @@
+- *Der Raum. Ein Beitrag zur Wissenschaftslehre* (1922)
+- *Physikalische Begriffsbildung* (1926)
+- *Der logische Aufbau der Welt* (1928) — trad. fr. *La Construction logique du monde*
+- *Scheinprobleme in der Philosophie* (1928) — trad. fr. *Pseudo-problèmes en philosophie*
+- *Die logische Syntax der Sprache* (1934) — trad. angl. *The Logical Syntax of Language*
+- *Philosophy and Logical Syntax* (1935)
+- *Testability and Meaning* (1936–1937)
+- *Foundations of Logic and Mathematics* (1939)
+- *Introduction to Semantics* (1942)
+- *Formalization of Logic* (1943)
+- *Meaning and Necessity. A Study in Semantics and Modal Logic* (1947)
+- *Logical Foundations of Probability* (1950)
+- *The Continuum of Inductive Methods* (1952)
+- *Introduction to Symbolic Logic and Its Applications* (1954)
+- *Philosophical Foundations of Physics* (1966) — trad. fr. *Les Fondements philosophiques de la physique*
+- *The Philosophy of Rudolf Carnap* (éd. P. A. Schilpp, 1963) — inclut l'autobiographie intellectuelle de Carnap

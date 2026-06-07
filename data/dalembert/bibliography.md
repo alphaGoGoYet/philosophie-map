@@ -1,0 +1,5 @@
+- *Traité de dynamique* (1743)
+- *Discours préliminaire de l'Encyclopédie* (1751)
+- *Mélanges de littérature, d'histoire et de philosophie* (1753)
+- *Éléments de musique* (1752)
+- *Opuscules mathématiques* (1761-1780)

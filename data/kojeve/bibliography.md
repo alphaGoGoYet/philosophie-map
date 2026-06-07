@@ -1,0 +1,7 @@
+- *Introduction à la lecture de Hegel* (1947)
+- *Esquisse d'une phénoménologie du droit* (posth. 1981)
+- *Le Concept, le Temps et le Discours* (posth. 1990)
+- *L'Athéisme* (posth. 1998)
+- *La Notion de l'autorité* (posth. 2004)
+- *L'Empire latin. Esquisse d'une doctrine de la politique française* (1945, rééd. 1990)
+- *Tyrannie et sagesse* (1954) — réponse à Leo Strauss, in *De la tyrannie*

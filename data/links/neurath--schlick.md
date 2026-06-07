@@ -1,0 +1,3 @@
+Voir [schlick--neurath](schlick--neurath.md). Neurath et Schlick représentent les deux pôles internes du Cercle de Vienne : Schlick incarne le versant **épistémologique et fondationniste**, Neurath le versant **holistique et politique**. Leur désaccord sur les protocoles d'observation — Schlick défend leur ancrage direct dans l'expérience vécue, Neurath refuse tout fondement absolu — est le débat philosophique le plus important du Cercle.
+
+Au-delà des divergences, Neurath reconnaît en Schlick le meneur indispensable d'un projet collectif, et collabore loyalement à la revue et aux publications communes. La mort de Schlick en 1936 prive le mouvement de son centre de gravité institutionnel.

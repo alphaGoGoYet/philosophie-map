@@ -1,0 +1,6 @@
+- *Einführung in das mathematische Denken* (1936)
+- *"Verifiability"* (1945, article dans Proceedings of the Aristotelian Society)
+- *How I See Philosophy* (1956)
+- *The Principles of Linguistic Philosophy* (1965, posthume ; titre original : *Logik, Sprache, Philosophie*)
+- *Wittgenstein und der Wiener Kreis* (1967, posthume ; notes des conversations avec Wittgenstein, 1929-1932)
+- *Philosophical Papers* (1977, posthume)

@@ -1,0 +1,15 @@
+- *Platos dialektische Ethik* (1931)
+- *Volk und Geschichte im Denken Herders* (1942)
+- *Wahrheit und Methode. Grundzüge einer philosophischen Hermeneutik* (1960) — trad. fr. *Vérité et Méthode*, 1976
+- *Kleine Schriften* (4 vol., 1967-1977)
+- *Hegels Dialektik* (1971) — trad. fr. *La Dialectique de Hegel*, 1980
+- *Vernunft im Zeitalter der Wissenschaft* (1976) — trad. fr. *Raison dans l'âge de la science*, 1979
+- *Die Aktualität des Schönen* (1977) — trad. fr. *L'Actualité du beau*, 1992
+- *Philosophische Lehrjahre* (1977) — trad. fr. *Philosophie herméneutique*, 1996
+- *Dialogue and Dialectic: Eight Hermeneutical Studies on Plato* (1980)
+- *Reason in the Age of Science* (1981)
+- *Text und Interpretation* (1983) — recueil incluant l'échange avec Derrida
+- *Das Erbe Europas* (1989) — trad. fr. *L'Héritage de l'Europe*, 1996
+- *Hermeneutik im Rückblick* (Gesammelte Werke, vol. 10, 1995)
+- *Der Anfang der Philosophie* (1996) — trad. fr. *Le Commencement de la philosophie*, 2002
+- *Hermeneutische Entwürfe* (2000)

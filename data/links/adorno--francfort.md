@@ -1,0 +1,3 @@
+Theodor Adorno est avec Max Horkheimer le **co-fondateur intellectuel** de l'École de Francfort et de la théorie critique. Son opus central, la *Dialectique de la Raison* (1947), co-écrit avec Horkheimer, constitue le manifeste théorique de l'école : la raison instrumentale des Lumières, loin de libérer l'homme, a produit les conditions de sa domination. La *Negative Dialektik* (1966) et la *Théorie esthétique* posthume (1970) approfondissent cette analyse : l'art serait le dernier refuge d'une rationalité non asservie à la domination.
+
+Adorno incarne la dimension **esthétique et musicologique** de l'École de Francfort, sa critique de l'industrie culturelle et du jazz comme formes de pacification sociale restant parmi ses contributions les plus débattues.

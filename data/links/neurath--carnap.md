@@ -1,0 +1,3 @@
+Neurath et Carnap co-dirigent le projet de l'**Encyclopédie internationale de la science unifiée** depuis les États-Unis après leur émigration respective. Leur collaboration illustre l'ambition du positivisme logique : unifier toutes les sciences (physique, biologie, psychologie, sciences sociales) dans un cadre commun basé sur le **langage physicaliste** et la logique.
+
+Philosophiquement, Neurath rapproche Carnap de positions plus **holistes** : l'*Empirisme sans dogmes* de Neurath et les débats sur les protocoles d'observation poussent Carnap à reconnaître que les énoncés d'observation ne sont pas des données immédiates mais sont eux-mêmes théorie-chargés. Ce glissement prépare les révisions ultérieures de Carnap sur la nature de la confirmation scientifique.

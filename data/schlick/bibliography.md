@@ -1,0 +1,7 @@
+- *Lebensweisheit. Versuch einer Glückseligkeitslehre* (1908)
+- *Das Wesen der Wahrheit nach der modernen Logik* (1910)
+- *Raum und Zeit in der gegenwärtigen Physik* (1917 ; 4e éd. 1922)
+- *Allgemeine Erkenntnislehre* (1918 ; 2e éd. 1925) — trad. : *General Theory of Knowledge*
+- *Fragen der Ethik* (1930) — trad. : *Problems of Ethics*
+- *Gesammelte Aufsätze 1926–1936* (1938, posthume)
+- *Philosophie der Natur* (1948, posthume)

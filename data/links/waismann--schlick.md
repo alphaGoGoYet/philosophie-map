@@ -1,0 +1,3 @@
+Friedrich Waismann est le **disciple le plus proche** de Moritz Schlick au sein du Cercle de Vienne. Il lui doit sa formation philosophique et son intégration au Cercle, et Schlick lui confie la tâche de mettre par écrit les idées de Wittgenstein issues de leurs conversations communes — projet qui donnera naissance au volume *Wittgenstein und der Wiener Kreis* (1967, posthume).
+
+La relation est d'une loyauté totale du côté de Waismann. Après l'assassinat de Schlick en 1936, Waismann quitte Vienne et finit par rejoindre Oxford, où il enseignera la philosophie du langage. Son parcours illustre comment le Cercle de Vienne a disseminé ses idées dans le monde anglophone via l'exil de ses membres.

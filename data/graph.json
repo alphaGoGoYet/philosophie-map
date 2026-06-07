@@ -1,179 +1,2792 @@
 {
   "nodes": [
-    { "id": "socrate",        "name": "Socrate",                "type": "author",  "era": "Antiquité",         "domain": "Antique",           "concepts": ["Maïeutique", "Éthique du dialogue"],                                                          "x": 50,   "y": 490  },
-    { "id": "platon",         "name": "Platon",                 "type": "author",  "era": "Antiquité",         "domain": "Antique",           "concepts": ["Monde des idées", "Idéalisme"],                                                               "x": 350,  "y": 270  },
-    { "id": "aristote",       "name": "Aristote",               "type": "author",  "era": "Antiquité",         "domain": "Antique",           "concepts": ["Logique", "Métaphysique empirique"],                                                          "x": 650,  "y": 270  },
-    { "id": "stoiciens",      "name": "Stoïciens",              "type": "concept", "era": "Antiquité",         "domain": "Antique",           "concepts": ["Vertu", "Maîtrise de soi"],                                                                   "x": 950,  "y": 50   },
-    { "id": "epicure",        "name": "Épicure",                "type": "author",  "era": "Antiquité",         "domain": "Antique",           "concepts": ["Ataraxie", "Hédonisme modéré"],                                                               "x": 950,  "y": 490  },
-    { "id": "neoplatonisme",  "name": "Plotin / Néoplatonisme", "type": "concept", "era": "Antiquité",         "domain": "Antique",           "concepts": ["Émanation", "Hiérarchie spirituelle"],                                                        "x": 950,  "y": 930  },
-    { "id": "aquin",          "name": "Thomas d'Aquin",         "type": "author",  "era": "Moyen Âge",         "domain": "Médiéval",          "concepts": ["Synthèse foi/raison", "Aristotélisme chrétien"],                                              "x": 1250, "y": 270  },
-    { "id": "augustin",       "name": "Augustin",               "type": "author",  "era": "Antiquité tardive", "domain": "Médiéval",          "concepts": ["Foi intérieure", "Temps et âme"],                                                             "x": 1250, "y": 710  },
-    { "id": "scolastique",    "name": "Scolastique",            "type": "concept", "era": "Moyen Âge",         "domain": "Médiéval",          "concepts": ["Logique théologique", "Foi et raison"],                                                       "x": 1550, "y": 490  },
-    { "id": "nominalisme",    "name": "Nominalisme",            "type": "concept", "era": "Moyen Âge",         "domain": "Médiéval",          "concepts": ["Universaux contestés", "Primat des individus"],                                               "x": 1850, "y": 490  },
-    { "id": "humanisme",      "name": "Humanisme",              "type": "concept", "era": "Renaissance",       "domain": "Médiéval",          "concepts": ["Retour aux textes", "Centralité de l'homme"],                                                 "x": 2150, "y": 490  },
-    { "id": "machiavel",      "name": "Machiavel",              "type": "author",  "era": "Renaissance",       "domain": "Renaissance",       "concepts": ["Raison d'État", "Réalisme politique"],                                                        "x": 2450, "y": 50   },
-    { "id": "grotius",        "name": "Grotius",                "type": "author",  "era": "Renaissance",       "domain": "Renaissance",       "concepts": ["Droit naturel", "Droit international"],                                                       "x": 2450, "y": 490  },
-    { "id": "bacon",          "name": "Bacon",                  "type": "author",  "era": "Renaissance",       "domain": "Renaissance",       "concepts": ["Méthode expérimentale", "Induction"],                                                         "x": 2450, "y": 930  },
-    { "id": "galilee",        "name": "Galilée",                "type": "author",  "era": "Renaissance",       "domain": "Renaissance",       "concepts": ["Mathématisation", "Science moderne"],                                                         "x": 2750, "y": 930  },
-    { "id": "newton",         "name": "Newton",                 "type": "author",  "era": "XVIIe-XVIIIe",     "domain": "Renaissance",       "concepts": ["Mécanique classique", "Lois universelles"],                                                   "x": 3050, "y": 930  },
-    { "id": "lumieres",       "name": "Lumières",               "type": "concept", "era": "XVIIIe",            "domain": "Moderne",           "concepts": ["Raison critique", "Progrès et émancipation"],                                                 "x": 3350, "y": 930  },
-    { "id": "descartes",      "name": "Descartes",              "type": "author",  "era": "XVIIe",             "domain": "Moderne",           "concepts": ["Cogito", "Dualisme", "Méthode scientifique"],                                                 "x": 2450, "y": 1370 },
-    { "id": "spinoza",        "name": "Spinoza",                "type": "author",  "era": "XVIIe",             "domain": "Moderne",           "concepts": ["Monisme", "Déterminisme"],                                                                    "x": 2750, "y": 1370 },
-    { "id": "leibniz",        "name": "Leibniz",                "type": "author",  "era": "XVIIe",             "domain": "Moderne",           "concepts": ["Monadologie", "Harmonie préétablie"],                                                         "x": 2750, "y": 1590 },
-    { "id": "empirisme",      "name": "Empirisme",              "type": "concept", "era": "XVIIe-XVIIIe",     "domain": "Moderne",           "concepts": ["Connaissance par l'expérience", "Observation"],                                               "x": 3050, "y": 1370 },
-    { "id": "hobbes",         "name": "Hobbes",                 "type": "author",  "era": "XVIIe",             "domain": "Moderne",           "concepts": ["État souverain", "Contrat social"],                                                           "x": 3050, "y": 1810 },
-    { "id": "locke",          "name": "Locke",                  "type": "author",  "era": "XVIIe",             "domain": "Moderne",           "concepts": ["Tabula rasa", "Libéralisme"],                                                                 "x": 3350, "y": 1370 },
-    { "id": "hume",           "name": "Hume",                   "type": "author",  "era": "XVIIIe",            "domain": "Moderne",           "concepts": ["Scepticisme", "Critique de la causalité"],                                                    "x": 3350, "y": 1810 },
-    { "id": "voltaire",       "name": "Voltaire",               "type": "author",  "era": "XVIIIe",            "domain": "Moderne",           "concepts": ["Tolérance", "Critique religieuse"],                                                           "x": 3650, "y": 930  },
-    { "id": "montesquieu",    "name": "Montesquieu",            "type": "author",  "era": "XVIIIe",            "domain": "Moderne",           "concepts": ["Séparation des pouvoirs", "Libéralisme politique"],                                           "x": 3650, "y": 1150 },
-    { "id": "rousseau",       "name": "Rousseau",               "type": "author",  "era": "XVIIIe",            "domain": "Moderne",           "concepts": ["Volonté générale", "Contrat social"],                                                         "x": 3650, "y": 1590 },
-    { "id": "diderot",        "name": "Diderot",                "type": "author",  "era": "XVIIIe",            "domain": "Moderne",           "concepts": ["Encyclopédie", "Diffusion du savoir"],                                                        "x": 3950, "y": 930  },
-    { "id": "kant",           "name": "Kant",                   "type": "author",  "era": "XVIIIe",            "domain": "Critique",          "concepts": ["Critique de la raison pure", "Impératif catégorique", "Synthèse empirisme/rationalisme"],     "x": 3950, "y": 1370 },
-    { "id": "hegel",          "name": "Hegel",                  "type": "author",  "era": "XIXe",              "domain": "Idéalisme",         "concepts": ["Dialectique", "Histoire de l'esprit", "Esprit absolu"],                                       "x": 4250, "y": 1150 },
-    { "id": "schopenhauer",   "name": "Schopenhauer",           "type": "author",  "era": "XIXe",              "domain": "XIXe",              "concepts": ["Volonté primale", "Pessimisme"],                                                              "x": 4250, "y": 1590 },
-    { "id": "marx",           "name": "Marx",                   "type": "author",  "era": "XIXe",              "domain": "Critique sociale",  "concepts": ["Matérialisme historique", "Lutte des classes", "Aliénation"],                                 "x": 4550, "y": 930  },
-    { "id": "kierkegaard",    "name": "Kierkegaard",            "type": "author",  "era": "XIXe",              "domain": "XIXe",              "concepts": ["Angoisse", "Existence subjective"],                                                           "x": 4550, "y": 1590 },
-    { "id": "nietzsche",      "name": "Nietzsche",              "type": "author",  "era": "XIXe",              "domain": "Continental",       "concepts": ["Volonté de puissance", "Critique morale", "Éternel retour"],                                  "x": 4850, "y": 1370 },
-    { "id": "freud",          "name": "Freud",                  "type": "author",  "era": "XIXe-XXe",          "domain": "Continental",       "concepts": ["Inconscient", "Psychanalyse", "Ça/Moi/Surmoi"],                                              "x": 4850, "y": 1810 },
-    { "id": "bentham",        "name": "Bentham",                "type": "author",  "era": "XIXe",              "domain": "XIXe",              "concepts": ["Utilitarisme", "Calcul du bonheur"],                                                          "x": 4250, "y": 2030 },
-    { "id": "mill",           "name": "J.S. Mill",              "type": "author",  "era": "XIXe",              "domain": "XIXe",              "concepts": ["Liberté individuelle", "Utilitarisme libéral"],                                               "x": 4550, "y": 2030 },
-    { "id": "tocqueville",    "name": "Tocqueville",            "type": "author",  "era": "XIXe",              "domain": "XIXe",              "concepts": ["Démocratie en Amérique", "Égalité et liberté"],                                               "x": 4850, "y": 2030 },
-    { "id": "adam_smith",     "name": "Adam Smith",             "type": "author",  "era": "XVIIIe-XIXe",      "domain": "Économie",          "concepts": ["Main invisible", "Division du travail"],                                                      "x": 4250, "y": 2470 },
-    { "id": "ricardo",        "name": "Ricardo",                "type": "author",  "era": "XIXe",              "domain": "Économie",          "concepts": ["Valeur travail", "Commerce international"],                                                   "x": 4550, "y": 2470 },
-    { "id": "darwin",         "name": "Darwin",                 "type": "author",  "era": "XIXe",              "domain": "XIXe",              "concepts": ["Évolution", "Sélection naturelle"],                                                           "x": 4550, "y": 2690 },
-    { "id": "spencer",        "name": "Spencer",                "type": "author",  "era": "XIXe",              "domain": "XIXe",              "concepts": ["Darwinisme social", "Évolutionnisme"],                                                        "x": 4850, "y": 2690 },
-    { "id": "comte",          "name": "Comte",                  "type": "author",  "era": "XIXe",              "domain": "Sciences sociales", "concepts": ["Positivisme", "Sociologie"],                                                                  "x": 5450, "y": 50   },
-    { "id": "durkheim",       "name": "Durkheim",               "type": "author",  "era": "XIXe-XXe",          "domain": "Sciences sociales", "concepts": ["Faits sociaux", "Cohésion sociale", "Anomie"],                                                "x": 5750, "y": 50   },
-    { "id": "mauss",          "name": "Mauss",                  "type": "author",  "era": "XXe",               "domain": "Sciences sociales", "concepts": ["Essai sur le don", "Fait social total"],                                                      "x": 6050, "y": 50   },
-    { "id": "levi_strauss",   "name": "Lévi-Strauss",           "type": "author",  "era": "XXe",               "domain": "Sciences sociales", "concepts": ["Structures élémentaires", "Anthropologie structurale"],                                       "x": 6350, "y": 50   },
-    { "id": "weber",          "name": "Weber",                  "type": "author",  "era": "XIXe-XXe",          "domain": "Sciences sociales", "concepts": ["Rationalisation", "Sociologie compréhensive", "Éthique protestante"],                        "x": 5750, "y": 490  },
-    { "id": "parsons",        "name": "Parsons",                "type": "author",  "era": "XXe",               "domain": "Sciences sociales", "concepts": ["Fonctionnalisme", "Système social"],                                                          "x": 6050, "y": 490  },
-    { "id": "elias",          "name": "Elias",                  "type": "author",  "era": "XXe",               "domain": "Sciences sociales", "concepts": ["Processus de civilisation", "Figurations sociales"],                                         "x": 6050, "y": 710  },
-    { "id": "bourdieu",       "name": "Bourdieu",               "type": "author",  "era": "XXe",               "domain": "Sciences sociales", "concepts": ["Habitus", "Capital culturel", "Reproduction sociale"],                                       "x": 6350, "y": 490  },
-    { "id": "mead",           "name": "Mead",                   "type": "author",  "era": "XXe",               "domain": "Sciences sociales", "concepts": ["Interactionnisme symbolique", "Soi social"],                                                 "x": 5450, "y": 710  },
-    { "id": "blumer",         "name": "Blumer",                 "type": "author",  "era": "XXe",               "domain": "Sciences sociales", "concepts": ["Interaction symbolique", "Sens social"],                                                     "x": 5750, "y": 930  },
-    { "id": "goffman",        "name": "Goffman",                "type": "author",  "era": "XXe",               "domain": "Sciences sociales", "concepts": ["Mise en scène sociale", "Stigmate"],                                                         "x": 6050, "y": 930  },
-    { "id": "latour",         "name": "Latour",                 "type": "author",  "era": "XXe-XXIe",          "domain": "Sciences sociales", "concepts": ["Acteur-réseau", "Sociologie des sciences"],                                                  "x": 6650, "y": 490  },
-    { "id": "eco_classique",  "name": "Économie classique",     "type": "concept", "era": "XVIIIe-XIXe",      "domain": "Économie",          "concepts": ["Marché", "Valeur travail"],                                                                   "x": 5450, "y": 1370 },
-    { "id": "walras",         "name": "Walras",                 "type": "author",  "era": "XIXe",              "domain": "Économie",          "concepts": ["Équilibre général", "Mathématisation"],                                                      "x": 5450, "y": 1810 },
-    { "id": "neoclassique",   "name": "École néoclassique",     "type": "concept", "era": "XIXe-XXe",          "domain": "Économie",          "concepts": ["Utilité marginale", "Équilibre de marché"],                                                  "x": 5750, "y": 1810 },
-    { "id": "menger",         "name": "Menger",                 "type": "author",  "era": "XIXe",              "domain": "Économie",          "concepts": ["Valeur subjective", "École autrichienne"],                                                   "x": 5450, "y": 2250 },
-    { "id": "autrichienne",   "name": "École autrichienne",     "type": "concept", "era": "XIXe-XXe",          "domain": "Économie",          "concepts": ["Ordre spontané", "Anti-planisme"],                                                           "x": 5750, "y": 2250 },
-    { "id": "hayek",          "name": "Hayek",                  "type": "author",  "era": "XXe",               "domain": "Économie",          "concepts": ["Ordre spontané", "Marché libre", "Critique du planisme"],                                    "x": 6050, "y": 2250 },
-    { "id": "marshall",       "name": "Marshall",               "type": "author",  "era": "XIXe-XXe",          "domain": "Économie",          "concepts": ["Offre et demande", "Microéconomie"],                                                         "x": 5750, "y": 1370 },
-    { "id": "keynes",         "name": "Keynes",                 "type": "author",  "era": "XXe",               "domain": "Économie",          "concepts": ["Demande globale", "Intervention de l'État"],                                                 "x": 6050, "y": 1370 },
-    { "id": "minsky",         "name": "Minsky",                 "type": "author",  "era": "XXe",               "domain": "Économie",          "concepts": ["Instabilité financière", "Cycles du crédit"],                                                "x": 6350, "y": 1370 },
-    { "id": "chicago",        "name": "Chicago / Friedman",     "type": "concept", "era": "XXe",               "domain": "Économie",          "concepts": ["Monétarisme", "Libre marché"],                                                               "x": 6350, "y": 1810 },
-    { "id": "neoliberalisme", "name": "Néolibéralisme",         "type": "concept", "era": "XXe-XXIe",          "domain": "Économie",          "concepts": ["Dérégulation", "Primat du marché"],                                                          "x": 6650, "y": 1810 },
-    { "id": "sen",            "name": "Amartya Sen",            "type": "author",  "era": "XXe-XXIe",          "domain": "Économie",          "concepts": ["Capabilités", "Justice et développement"],                                                   "x": 6650, "y": 1370 },
-    { "id": "husserl",        "name": "Husserl",                "type": "author",  "era": "XIXe-XXe",          "domain": "Continental",       "concepts": ["Phénoménologie", "Conscience intentionnelle", "Épochè"],                                     "x": 6950, "y": 50   },
-    { "id": "heidegger",      "name": "Heidegger",              "type": "author",  "era": "XXe",               "domain": "Continental",       "concepts": ["Être-au-monde", "Ontologie", "Dasein"],                                                      "x": 7250, "y": 50   },
-    { "id": "sartre",         "name": "Sartre",                 "type": "author",  "era": "XXe",               "domain": "Continental",       "concepts": ["Existentialisme", "Liberté radicale", "Mauvaise foi"],                                       "x": 7550, "y": 50   },
-    { "id": "arendt",         "name": "Arendt",                 "type": "author",  "era": "XXe",               "domain": "Continental",       "concepts": ["Totalitarisme", "Action politique", "Banalité du mal"],                                      "x": 7550, "y": 270  },
-    { "id": "merleau_ponty",  "name": "Merleau-Ponty",          "type": "author",  "era": "XXe",               "domain": "Continental",       "concepts": ["Phénoménologie du corps", "Perception"],                                                     "x": 7550, "y": 490  },
-    { "id": "francfort",      "name": "École de Francfort",     "type": "concept", "era": "XXe",               "domain": "Continental",       "concepts": ["Théorie critique", "Culture et domination"],                                                 "x": 7250, "y": 710  },
-    { "id": "habermas",       "name": "Habermas",               "type": "author",  "era": "XXe-XXIe",          "domain": "Continental",       "concepts": ["Agir communicationnel", "Démocratie délibérative"],                                          "x": 7550, "y": 710  },
-    { "id": "beauvoir",       "name": "Beauvoir",               "type": "author",  "era": "XXe",               "domain": "Continental",       "concepts": ["Féminisme existentialiste", "Le Deuxième Sexe"],                                             "x": 7850, "y": 50   },
-    { "id": "saussure",       "name": "Saussure",               "type": "author",  "era": "XIXe-XXe",          "domain": "Continental",       "concepts": ["Linguistique structurale", "Signifiant/signifié"],                                           "x": 6950, "y": 930  },
-    { "id": "structuralisme", "name": "Structuralisme",         "type": "concept", "era": "XXe",               "domain": "Continental",       "concepts": ["Structures profondes", "Systèmes de signes"],                                                "x": 7250, "y": 930  },
-    { "id": "lacan",          "name": "Lacan",                  "type": "author",  "era": "XXe",               "domain": "Continental",       "concepts": ["Inconscient structuré comme un langage", "Ordre symbolique"],                                "x": 7550, "y": 930  },
-    { "id": "barthes",        "name": "Barthes",                "type": "author",  "era": "XXe",               "domain": "Continental",       "concepts": ["Mythologies", "Sémiologie", "Mort de l'auteur"],                                             "x": 7550, "y": 1150 },
-    { "id": "foucault",       "name": "Foucault",               "type": "author",  "era": "XXe",               "domain": "Continental",       "concepts": ["Pouvoir/savoir", "Biopolitique", "Institutions et discours"],                               "x": 7850, "y": 490  },
-    { "id": "derrida",        "name": "Derrida",                "type": "author",  "era": "XXe",               "domain": "Continental",       "concepts": ["Déconstruction", "Différance", "Critique du logocentrisme"],                                "x": 8150, "y": 270  },
-    { "id": "deleuze",        "name": "Deleuze",                "type": "author",  "era": "XXe",               "domain": "Continental",       "concepts": ["Multiplicités", "Rhizome", "Immanence"],                                                    "x": 8150, "y": 710  },
-    { "id": "guattari",       "name": "Guattari",               "type": "author",  "era": "XXe",               "domain": "Continental",       "concepts": ["Anti-Œdipe", "Cartographies schizoanalytiques"],                                            "x": 8450, "y": 710  },
-    { "id": "butler",         "name": "Judith Butler",          "type": "author",  "era": "XXe-XXIe",          "domain": "Continental",       "concepts": ["Performativité du genre", "Théorie queer"],                                                  "x": 8150, "y": 930  },
-    { "id": "frege",          "name": "Frege",                  "type": "author",  "era": "XIXe-XXe",          "domain": "Analytique",        "concepts": ["Logique formelle", "Fondements des mathématiques"],                                         "x": 6950, "y": 1370 },
-    { "id": "russell",        "name": "Russell",                "type": "author",  "era": "XIXe-XXe",          "domain": "Analytique",        "concepts": ["Logicisme", "Théorie des types"],                                                           "x": 7250, "y": 1370 },
-    { "id": "wittgenstein",   "name": "Wittgenstein",           "type": "author",  "era": "XXe",               "domain": "Analytique",        "concepts": ["Jeux de langage", "Limites du langage", "Tractatus"],                                       "x": 7550, "y": 1370 },
-    { "id": "positivisme",    "name": "Positivisme logique",    "type": "concept", "era": "XXe",               "domain": "Analytique",        "concepts": ["Vérification", "Cercle de Vienne"],                                                         "x": 7850, "y": 1370 },
-    { "id": "quine",          "name": "Quine",                  "type": "author",  "era": "XXe",               "domain": "Analytique",        "concepts": ["Holisme", "Critique analytique/synthétique"],                                               "x": 8150, "y": 1370 },
-    { "id": "putnam",         "name": "Putnam",                 "type": "author",  "era": "XXe",               "domain": "Analytique",        "concepts": ["Réalisme interne", "Esprit et langage"],                                                    "x": 8450, "y": 1370 },
-    { "id": "kripke",         "name": "Kripke",                 "type": "author",  "era": "XXe",               "domain": "Analytique",        "concepts": ["Désignateur rigide", "Logique modale"],                                                     "x": 8450, "y": 1590 },
-    { "id": "austin",         "name": "Austin",                 "type": "author",  "era": "XXe",               "domain": "Analytique",        "concepts": ["Actes de langage", "Philosophie ordinaire"],                                                "x": 7850, "y": 1590 },
-    { "id": "searle",         "name": "Searle",                 "type": "author",  "era": "XXe",               "domain": "Analytique",        "concepts": ["Intentionnalité", "Actes de langage"],                                                      "x": 8150, "y": 1590 },
-    { "id": "popper",         "name": "Popper",                 "type": "author",  "era": "XXe",               "domain": "Épistémologie",     "concepts": ["Falsifiabilité", "Société ouverte", "Science critique"],                                    "x": 7850, "y": 1810 },
-    { "id": "kuhn",           "name": "Kuhn",                   "type": "author",  "era": "XXe",               "domain": "Épistémologie",     "concepts": ["Paradigmes", "Révolutions scientifiques"],                                                  "x": 8150, "y": 1810 },
-    { "id": "lakatos",        "name": "Lakatos",                "type": "author",  "era": "XXe",               "domain": "Épistémologie",     "concepts": ["Programmes de recherche", "Épistémologie historique"],                                      "x": 8450, "y": 1810 },
-    { "id": "peirce",         "name": "Peirce",                 "type": "author",  "era": "XIXe",              "domain": "Pragmatisme",       "concepts": ["Pragmatisme", "Sémiotique"],                                                                "x": 9050, "y": 50   },
-    { "id": "james",          "name": "William James",          "type": "author",  "era": "XIXe-XXe",          "domain": "Pragmatisme",       "concepts": ["Pragmatisme psychologique", "Pluralisme"],                                                  "x": 9350, "y": 50   },
-    { "id": "dewey",          "name": "Dewey",                  "type": "author",  "era": "XIXe-XXe",          "domain": "Pragmatisme",       "concepts": ["Démocratie expérimentale", "Éducation"],                                                    "x": 9650, "y": 50   },
-    { "id": "rorty",          "name": "Rorty",                  "type": "author",  "era": "XXe",               "domain": "Pragmatisme",       "concepts": ["Antifondationnalisme", "Pragmatisme libéral"],                                              "x": 9950, "y": 50   },
-    { "id": "lib_tradition",  "name": "Tradition libérale",     "type": "concept", "era": "XVIIIe-XIXe",      "domain": "Politique",         "concepts": ["Droits individuels", "Libertés civiles"],                                                   "x": 9050, "y": 490  },
-    { "id": "rawls",          "name": "Rawls",                  "type": "author",  "era": "XXe",               "domain": "Politique",         "concepts": ["Justice comme équité", "Voile d'ignorance", "Théorie de la justice"],                       "x": 9350, "y": 490  },
-    { "id": "nozick",         "name": "Nozick",                 "type": "author",  "era": "XXe",               "domain": "Politique",         "concepts": ["État minimal", "Libertarianisme"],                                                          "x": 9650, "y": 490  },
-    { "id": "deliberatif",    "name": "Théories délibératives", "type": "concept", "era": "XXe-XXIe",          "domain": "Politique",         "concepts": ["Discussion publique", "Consensus démocratique"],                                            "x": 9650, "y": 710  },
-    { "id": "fanon",          "name": "Fanon",                  "type": "author",  "era": "XXe",               "domain": "Postcolonial",      "concepts": ["Colonialisme", "Aliénation et violence", "Décolonisation"],                                 "x": 9050, "y": 1150 },
-    { "id": "said",           "name": "Said",                   "type": "author",  "era": "XXe",               "domain": "Postcolonial",      "concepts": ["Orientalisme", "Discours colonial"],                                                        "x": 9350, "y": 1150 },
-    { "id": "spivak",         "name": "Spivak",                 "type": "author",  "era": "XXe-XXIe",          "domain": "Postcolonial",      "concepts": ["Subaltern studies", "Voix dominées"],                                                       "x": 9650, "y": 1150 },
-    { "id": "mbembe",         "name": "Mbembe",                 "type": "author",  "era": "XXe-XXIe",          "domain": "Postcolonial",      "concepts": ["Nécropolitique", "Postcolonie"],                                                            "x": 9350, "y": 1370 },
-    { "id": "decolonial",     "name": "Courants décoloniaux",   "type": "concept", "era": "XXe-XXIe",          "domain": "Postcolonial",      "concepts": ["Critique de l'eurocentrisme", "Colonialité du pouvoir"],                                    "x": 9650, "y": 1370 },
-    { "id": "anarchisme",    "name": "Anarchisme",             "type": "concept", "era": "XIXe-XXe",           "domain": "Anarchisme",        "concepts": ["Anti-étatisme", "Autogestion", "Fédéralisme libertaire"],                                       "x": 5150, "y": 490  },
-    { "id": "proudhon",      "name": "Proudhon",               "type": "author",  "era": "XIXe",               "domain": "Anarchisme",        "concepts": ["Mutuellisme", "Fédéralisme", "La propriété c'est le vol"],                                      "x": 4850, "y": 710  },
-    { "id": "stirner",       "name": "Stirner",                "type": "author",  "era": "XIXe",               "domain": "Anarchisme",        "concepts": ["L'Unique", "Anarchisme individualiste", "Critique des idéaux"],                                 "x": 4850, "y": 1150 },
-    { "id": "bakounine",     "name": "Bakounine",              "type": "author",  "era": "XIXe",               "domain": "Anarchisme",        "concepts": ["Anarchisme collectiviste", "Anti-autoritarisme", "Révolution immédiate"],                       "x": 5150, "y": 710  },
-    { "id": "kropotkine",    "name": "Kropotkine",             "type": "author",  "era": "XIXe-XXe",           "domain": "Anarchisme",        "concepts": ["Anarchisme communiste", "Entraide", "Fédération de communes"],                                  "x": 5450, "y": 710  }
+    {
+      "id": "socrate",
+      "name": "Socrate",
+      "type": "author",
+      "era": "Antiquité",
+      "domain": "Antique",
+      "concepts": [
+        "Maïeutique",
+        "Éthique du dialogue"
+      ],
+      "x": 50,
+      "y": 490
+    },
+    {
+      "id": "platon",
+      "name": "Platon",
+      "type": "author",
+      "era": "Antiquité",
+      "domain": "Antique",
+      "concepts": [
+        "Monde des idées",
+        "Idéalisme"
+      ],
+      "x": 350,
+      "y": 270
+    },
+    {
+      "id": "aristote",
+      "name": "Aristote",
+      "type": "author",
+      "era": "Antiquité",
+      "domain": "Antique",
+      "concepts": [
+        "Logique",
+        "Métaphysique empirique"
+      ],
+      "x": 650,
+      "y": 270
+    },
+    {
+      "id": "stoiciens",
+      "name": "Stoïciens",
+      "type": "concept",
+      "era": "Antiquité",
+      "domain": "Antique",
+      "concepts": [
+        "Vertu",
+        "Maîtrise de soi"
+      ],
+      "x": 950,
+      "y": 50
+    },
+    {
+      "id": "epicure",
+      "name": "Épicure",
+      "type": "author",
+      "era": "Antiquité",
+      "domain": "Antique",
+      "concepts": [
+        "Ataraxie",
+        "Hédonisme modéré"
+      ],
+      "x": 950,
+      "y": 490
+    },
+    {
+      "id": "neoplatonisme",
+      "name": "Plotin / Néoplatonisme",
+      "type": "concept",
+      "era": "Antiquité",
+      "domain": "Antique",
+      "concepts": [
+        "Émanation",
+        "Hiérarchie spirituelle"
+      ],
+      "x": 950,
+      "y": 930
+    },
+    {
+      "id": "aquin",
+      "name": "Thomas d'Aquin",
+      "type": "author",
+      "era": "Moyen Âge",
+      "domain": "Médiéval",
+      "concepts": [
+        "Synthèse foi/raison",
+        "Aristotélisme chrétien"
+      ],
+      "x": 1250,
+      "y": 270
+    },
+    {
+      "id": "augustin",
+      "name": "Augustin",
+      "type": "author",
+      "era": "Antiquité tardive",
+      "domain": "Médiéval",
+      "concepts": [
+        "Foi intérieure",
+        "Temps et âme"
+      ],
+      "x": 1250,
+      "y": 710
+    },
+    {
+      "id": "scolastique",
+      "name": "Scolastique",
+      "type": "concept",
+      "era": "Moyen Âge",
+      "domain": "Médiéval",
+      "concepts": [
+        "Logique théologique",
+        "Foi et raison"
+      ],
+      "x": 1550,
+      "y": 490
+    },
+    {
+      "id": "nominalisme",
+      "name": "Nominalisme",
+      "type": "concept",
+      "era": "Moyen Âge",
+      "domain": "Médiéval",
+      "concepts": [
+        "Universaux contestés",
+        "Primat des individus"
+      ],
+      "x": 1850,
+      "y": 490
+    },
+    {
+      "id": "humanisme",
+      "name": "Humanisme",
+      "type": "concept",
+      "era": "Renaissance",
+      "domain": "Médiéval",
+      "concepts": [
+        "Retour aux textes",
+        "Centralité de l'homme"
+      ],
+      "x": 2150,
+      "y": 490
+    },
+    {
+      "id": "machiavel",
+      "name": "Machiavel",
+      "type": "author",
+      "era": "Renaissance",
+      "domain": "Renaissance",
+      "concepts": [
+        "Raison d'État",
+        "Réalisme politique"
+      ],
+      "x": 2450,
+      "y": 50
+    },
+    {
+      "id": "grotius",
+      "name": "Grotius",
+      "type": "author",
+      "era": "Renaissance",
+      "domain": "Renaissance",
+      "concepts": [
+        "Droit naturel",
+        "Droit international"
+      ],
+      "x": 2450,
+      "y": 490
+    },
+    {
+      "id": "bacon",
+      "name": "Bacon",
+      "type": "author",
+      "era": "Renaissance",
+      "domain": "Renaissance",
+      "concepts": [
+        "Méthode expérimentale",
+        "Induction"
+      ],
+      "x": 2450,
+      "y": 930
+    },
+    {
+      "id": "galilee",
+      "name": "Galilée",
+      "type": "author",
+      "era": "Renaissance",
+      "domain": "Renaissance",
+      "concepts": [
+        "Mathématisation",
+        "Science moderne"
+      ],
+      "x": 2750,
+      "y": 930
+    },
+    {
+      "id": "newton",
+      "name": "Newton",
+      "type": "author",
+      "era": "XVIIe-XVIIIe",
+      "domain": "Renaissance",
+      "concepts": [
+        "Mécanique classique",
+        "Lois universelles"
+      ],
+      "x": 3050,
+      "y": 930
+    },
+    {
+      "id": "lumieres",
+      "name": "Lumières",
+      "type": "concept",
+      "era": "XVIIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Raison critique",
+        "Progrès et émancipation"
+      ],
+      "x": 3350,
+      "y": 930
+    },
+    {
+      "id": "descartes",
+      "name": "Descartes",
+      "type": "author",
+      "era": "XVIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Cogito",
+        "Dualisme",
+        "Méthode scientifique"
+      ],
+      "x": 2450,
+      "y": 1370
+    },
+    {
+      "id": "spinoza",
+      "name": "Spinoza",
+      "type": "author",
+      "era": "XVIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Monisme",
+        "Déterminisme"
+      ],
+      "x": 2750,
+      "y": 1370
+    },
+    {
+      "id": "leibniz",
+      "name": "Leibniz",
+      "type": "author",
+      "era": "XVIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Monadologie",
+        "Harmonie préétablie"
+      ],
+      "x": 2750,
+      "y": 1590
+    },
+    {
+      "id": "empirisme",
+      "name": "Empirisme",
+      "type": "concept",
+      "era": "XVIIe-XVIIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Connaissance par l'expérience",
+        "Observation"
+      ],
+      "x": 3050,
+      "y": 1370
+    },
+    {
+      "id": "hobbes",
+      "name": "Hobbes",
+      "type": "author",
+      "era": "XVIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "État souverain",
+        "Contrat social"
+      ],
+      "x": 3050,
+      "y": 1810
+    },
+    {
+      "id": "locke",
+      "name": "Locke",
+      "type": "author",
+      "era": "XVIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Tabula rasa",
+        "Libéralisme"
+      ],
+      "x": 3350,
+      "y": 1370
+    },
+    {
+      "id": "hume",
+      "name": "Hume",
+      "type": "author",
+      "era": "XVIIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Scepticisme",
+        "Critique de la causalité"
+      ],
+      "x": 3350,
+      "y": 1810
+    },
+    {
+      "id": "voltaire",
+      "name": "Voltaire",
+      "type": "author",
+      "era": "XVIIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Tolérance",
+        "Critique religieuse"
+      ],
+      "x": 3650,
+      "y": 930
+    },
+    {
+      "id": "montesquieu",
+      "name": "Montesquieu",
+      "type": "author",
+      "era": "XVIIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Séparation des pouvoirs",
+        "Libéralisme politique"
+      ],
+      "x": 3650,
+      "y": 1150
+    },
+    {
+      "id": "rousseau",
+      "name": "Rousseau",
+      "type": "author",
+      "era": "XVIIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Volonté générale",
+        "Contrat social"
+      ],
+      "x": 3650,
+      "y": 1590
+    },
+    {
+      "id": "diderot",
+      "name": "Diderot",
+      "type": "author",
+      "era": "XVIIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Encyclopédie",
+        "Diffusion du savoir"
+      ],
+      "x": 3950,
+      "y": 930
+    },
+    {
+      "id": "kant",
+      "name": "Kant",
+      "type": "author",
+      "era": "XVIIIe",
+      "domain": "Critique",
+      "concepts": [
+        "Critique de la raison pure",
+        "Impératif catégorique",
+        "Synthèse empirisme/rationalisme"
+      ],
+      "x": 3950,
+      "y": 1370
+    },
+    {
+      "id": "hegel",
+      "name": "Hegel",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "Idéalisme",
+      "concepts": [
+        "Dialectique",
+        "Histoire de l'esprit",
+        "Esprit absolu"
+      ],
+      "x": 4250,
+      "y": 1150
+    },
+    {
+      "id": "schopenhauer",
+      "name": "Schopenhauer",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "XIXe",
+      "concepts": [
+        "Volonté primale",
+        "Pessimisme"
+      ],
+      "x": 4250,
+      "y": 1590
+    },
+    {
+      "id": "marx",
+      "name": "Marx",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "Critique sociale",
+      "concepts": [
+        "Matérialisme historique",
+        "Lutte des classes",
+        "Aliénation"
+      ],
+      "x": 4550,
+      "y": 930
+    },
+    {
+      "id": "kierkegaard",
+      "name": "Kierkegaard",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "XIXe",
+      "concepts": [
+        "Angoisse",
+        "Existence subjective"
+      ],
+      "x": 4550,
+      "y": 1590
+    },
+    {
+      "id": "nietzsche",
+      "name": "Nietzsche",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "Continental",
+      "concepts": [
+        "Volonté de puissance",
+        "Critique morale",
+        "Éternel retour"
+      ],
+      "x": 4850,
+      "y": 1370
+    },
+    {
+      "id": "freud",
+      "name": "Freud",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Inconscient",
+        "Psychanalyse",
+        "Ça/Moi/Surmoi"
+      ],
+      "x": 4850,
+      "y": 1810
+    },
+    {
+      "id": "bentham",
+      "name": "Bentham",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "XIXe",
+      "concepts": [
+        "Utilitarisme",
+        "Calcul du bonheur"
+      ],
+      "x": 4250,
+      "y": 2030
+    },
+    {
+      "id": "mill",
+      "name": "J.S. Mill",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "XIXe",
+      "concepts": [
+        "Liberté individuelle",
+        "Utilitarisme libéral"
+      ],
+      "x": 4550,
+      "y": 2030
+    },
+    {
+      "id": "tocqueville",
+      "name": "Tocqueville",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "XIXe",
+      "concepts": [
+        "Démocratie en Amérique",
+        "Égalité et liberté"
+      ],
+      "x": 4850,
+      "y": 2030
+    },
+    {
+      "id": "adam_smith",
+      "name": "Adam Smith",
+      "type": "author",
+      "era": "XVIIIe-XIXe",
+      "domain": "Économie",
+      "concepts": [
+        "Main invisible",
+        "Division du travail"
+      ],
+      "x": 4250,
+      "y": 2470
+    },
+    {
+      "id": "ricardo",
+      "name": "Ricardo",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "Économie",
+      "concepts": [
+        "Valeur travail",
+        "Commerce international"
+      ],
+      "x": 4550,
+      "y": 2470
+    },
+    {
+      "id": "darwin",
+      "name": "Darwin",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "XIXe",
+      "concepts": [
+        "Évolution",
+        "Sélection naturelle"
+      ],
+      "x": 4550,
+      "y": 2690
+    },
+    {
+      "id": "spencer",
+      "name": "Spencer",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "XIXe",
+      "concepts": [
+        "Darwinisme social",
+        "Évolutionnisme"
+      ],
+      "x": 4850,
+      "y": 2690
+    },
+    {
+      "id": "comte",
+      "name": "Comte",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Positivisme",
+        "Sociologie"
+      ],
+      "x": 5450,
+      "y": 50
+    },
+    {
+      "id": "durkheim",
+      "name": "Durkheim",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Faits sociaux",
+        "Cohésion sociale",
+        "Anomie"
+      ],
+      "x": 5750,
+      "y": 50
+    },
+    {
+      "id": "mauss",
+      "name": "Mauss",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Essai sur le don",
+        "Fait social total"
+      ],
+      "x": 6050,
+      "y": 50
+    },
+    {
+      "id": "levi_strauss",
+      "name": "Lévi-Strauss",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Structures élémentaires",
+        "Anthropologie structurale"
+      ],
+      "x": 6350,
+      "y": 50
+    },
+    {
+      "id": "weber",
+      "name": "Weber",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Rationalisation",
+        "Sociologie compréhensive",
+        "Éthique protestante"
+      ],
+      "x": 5750,
+      "y": 490
+    },
+    {
+      "id": "parsons",
+      "name": "Parsons",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Fonctionnalisme",
+        "Système social"
+      ],
+      "x": 6050,
+      "y": 490
+    },
+    {
+      "id": "elias",
+      "name": "Elias",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Processus de civilisation",
+        "Figurations sociales"
+      ],
+      "x": 6050,
+      "y": 710
+    },
+    {
+      "id": "bourdieu",
+      "name": "Bourdieu",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Habitus",
+        "Capital culturel",
+        "Reproduction sociale"
+      ],
+      "x": 6350,
+      "y": 490
+    },
+    {
+      "id": "mead",
+      "name": "Mead",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Interactionnisme symbolique",
+        "Soi social"
+      ],
+      "x": 5450,
+      "y": 710
+    },
+    {
+      "id": "blumer",
+      "name": "Blumer",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Interaction symbolique",
+        "Sens social"
+      ],
+      "x": 5750,
+      "y": 930
+    },
+    {
+      "id": "goffman",
+      "name": "Goffman",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Mise en scène sociale",
+        "Stigmate"
+      ],
+      "x": 6050,
+      "y": 930
+    },
+    {
+      "id": "latour",
+      "name": "Latour",
+      "type": "author",
+      "era": "XXe-XXIe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Acteur-réseau",
+        "Sociologie des sciences"
+      ],
+      "x": 6650,
+      "y": 490
+    },
+    {
+      "id": "eco_classique",
+      "name": "Économie classique",
+      "type": "concept",
+      "era": "XVIIIe-XIXe",
+      "domain": "Économie",
+      "concepts": [
+        "Marché",
+        "Valeur travail"
+      ],
+      "x": 5450,
+      "y": 1370
+    },
+    {
+      "id": "walras",
+      "name": "Walras",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "Économie",
+      "concepts": [
+        "Équilibre général",
+        "Mathématisation"
+      ],
+      "x": 5450,
+      "y": 1810
+    },
+    {
+      "id": "neoclassique",
+      "name": "École néoclassique",
+      "type": "concept",
+      "era": "XIXe-XXe",
+      "domain": "Économie",
+      "concepts": [
+        "Utilité marginale",
+        "Équilibre de marché"
+      ],
+      "x": 5750,
+      "y": 1810
+    },
+    {
+      "id": "menger",
+      "name": "Menger",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "Économie",
+      "concepts": [
+        "Valeur subjective",
+        "École autrichienne"
+      ],
+      "x": 5450,
+      "y": 2250
+    },
+    {
+      "id": "autrichienne",
+      "name": "École autrichienne",
+      "type": "concept",
+      "era": "XIXe-XXe",
+      "domain": "Économie",
+      "concepts": [
+        "Ordre spontané",
+        "Anti-planisme"
+      ],
+      "x": 5750,
+      "y": 2250
+    },
+    {
+      "id": "hayek",
+      "name": "Hayek",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Économie",
+      "concepts": [
+        "Ordre spontané",
+        "Marché libre",
+        "Critique du planisme"
+      ],
+      "x": 6050,
+      "y": 2250
+    },
+    {
+      "id": "marshall",
+      "name": "Marshall",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Économie",
+      "concepts": [
+        "Offre et demande",
+        "Microéconomie"
+      ],
+      "x": 5750,
+      "y": 1370
+    },
+    {
+      "id": "keynes",
+      "name": "Keynes",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Économie",
+      "concepts": [
+        "Demande globale",
+        "Intervention de l'État"
+      ],
+      "x": 6050,
+      "y": 1370
+    },
+    {
+      "id": "minsky",
+      "name": "Minsky",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Économie",
+      "concepts": [
+        "Instabilité financière",
+        "Cycles du crédit"
+      ],
+      "x": 6350,
+      "y": 1370
+    },
+    {
+      "id": "chicago",
+      "name": "Chicago / Friedman",
+      "type": "concept",
+      "era": "XXe",
+      "domain": "Économie",
+      "concepts": [
+        "Monétarisme",
+        "Libre marché"
+      ],
+      "x": 6350,
+      "y": 1810
+    },
+    {
+      "id": "neoliberalisme",
+      "name": "Néolibéralisme",
+      "type": "concept",
+      "era": "XXe-XXIe",
+      "domain": "Économie",
+      "concepts": [
+        "Dérégulation",
+        "Primat du marché"
+      ],
+      "x": 6650,
+      "y": 1810
+    },
+    {
+      "id": "sen",
+      "name": "Amartya Sen",
+      "type": "author",
+      "era": "XXe-XXIe",
+      "domain": "Économie",
+      "concepts": [
+        "Capabilités",
+        "Justice et développement"
+      ],
+      "x": 6650,
+      "y": 1370
+    },
+    {
+      "id": "husserl",
+      "name": "Husserl",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Phénoménologie",
+        "Conscience intentionnelle",
+        "Épochè"
+      ],
+      "x": 6950,
+      "y": 50
+    },
+    {
+      "id": "heidegger",
+      "name": "Heidegger",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Être-au-monde",
+        "Ontologie",
+        "Dasein"
+      ],
+      "x": 7250,
+      "y": 50
+    },
+    {
+      "id": "sartre",
+      "name": "Sartre",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Existentialisme",
+        "Liberté radicale",
+        "Mauvaise foi"
+      ],
+      "x": 7550,
+      "y": 50
+    },
+    {
+      "id": "arendt",
+      "name": "Arendt",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Totalitarisme",
+        "Action politique",
+        "Banalité du mal"
+      ],
+      "x": 7550,
+      "y": 270
+    },
+    {
+      "id": "merleau_ponty",
+      "name": "Merleau-Ponty",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Phénoménologie du corps",
+        "Perception"
+      ],
+      "x": 7550,
+      "y": 490
+    },
+    {
+      "id": "francfort",
+      "name": "École de Francfort",
+      "type": "concept",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Théorie critique",
+        "Culture et domination"
+      ],
+      "x": 7250,
+      "y": 710
+    },
+    {
+      "id": "habermas",
+      "name": "Habermas",
+      "type": "author",
+      "era": "XXe-XXIe",
+      "domain": "Continental",
+      "concepts": [
+        "Agir communicationnel",
+        "Démocratie délibérative"
+      ],
+      "x": 7550,
+      "y": 710
+    },
+    {
+      "id": "beauvoir",
+      "name": "Beauvoir",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Féminisme existentialiste",
+        "Le Deuxième Sexe"
+      ],
+      "x": 7850,
+      "y": 50
+    },
+    {
+      "id": "saussure",
+      "name": "Saussure",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Linguistique structurale",
+        "Signifiant/signifié"
+      ],
+      "x": 6950,
+      "y": 930
+    },
+    {
+      "id": "structuralisme",
+      "name": "Structuralisme",
+      "type": "concept",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Structures profondes",
+        "Systèmes de signes"
+      ],
+      "x": 7250,
+      "y": 930
+    },
+    {
+      "id": "lacan",
+      "name": "Lacan",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Inconscient structuré comme un langage",
+        "Ordre symbolique"
+      ],
+      "x": 7550,
+      "y": 930
+    },
+    {
+      "id": "barthes",
+      "name": "Barthes",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Mythologies",
+        "Sémiologie",
+        "Mort de l'auteur"
+      ],
+      "x": 7550,
+      "y": 1150
+    },
+    {
+      "id": "foucault",
+      "name": "Foucault",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Pouvoir/savoir",
+        "Biopolitique",
+        "Institutions et discours"
+      ],
+      "x": 7850,
+      "y": 490
+    },
+    {
+      "id": "derrida",
+      "name": "Derrida",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Déconstruction",
+        "Différance",
+        "Critique du logocentrisme"
+      ],
+      "x": 8150,
+      "y": 270
+    },
+    {
+      "id": "deleuze",
+      "name": "Deleuze",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Multiplicités",
+        "Rhizome",
+        "Immanence"
+      ],
+      "x": 8150,
+      "y": 710
+    },
+    {
+      "id": "guattari",
+      "name": "Guattari",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Anti-Œdipe",
+        "Cartographies schizoanalytiques"
+      ],
+      "x": 8450,
+      "y": 710
+    },
+    {
+      "id": "butler",
+      "name": "Judith Butler",
+      "type": "author",
+      "era": "XXe-XXIe",
+      "domain": "Continental",
+      "concepts": [
+        "Performativité du genre",
+        "Théorie queer"
+      ],
+      "x": 8150,
+      "y": 930
+    },
+    {
+      "id": "frege",
+      "name": "Frege",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Logique formelle",
+        "Fondements des mathématiques"
+      ],
+      "x": 6950,
+      "y": 1370
+    },
+    {
+      "id": "russell",
+      "name": "Russell",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Logicisme",
+        "Théorie des types"
+      ],
+      "x": 7250,
+      "y": 1370
+    },
+    {
+      "id": "wittgenstein",
+      "name": "Wittgenstein",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Jeux de langage",
+        "Limites du langage",
+        "Tractatus"
+      ],
+      "x": 7550,
+      "y": 1370
+    },
+    {
+      "id": "positivisme",
+      "name": "Positivisme logique",
+      "type": "concept",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Vérification",
+        "Cercle de Vienne"
+      ],
+      "x": 7850,
+      "y": 1370
+    },
+    {
+      "id": "quine",
+      "name": "Quine",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Holisme",
+        "Critique analytique/synthétique"
+      ],
+      "x": 8150,
+      "y": 1370
+    },
+    {
+      "id": "putnam",
+      "name": "Putnam",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Réalisme interne",
+        "Esprit et langage"
+      ],
+      "x": 8450,
+      "y": 1370
+    },
+    {
+      "id": "kripke",
+      "name": "Kripke",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Désignateur rigide",
+        "Logique modale"
+      ],
+      "x": 8450,
+      "y": 1590
+    },
+    {
+      "id": "austin",
+      "name": "Austin",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Actes de langage",
+        "Philosophie ordinaire"
+      ],
+      "x": 7850,
+      "y": 1590
+    },
+    {
+      "id": "searle",
+      "name": "Searle",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Intentionnalité",
+        "Actes de langage"
+      ],
+      "x": 8150,
+      "y": 1590
+    },
+    {
+      "id": "popper",
+      "name": "Popper",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Épistémologie",
+      "concepts": [
+        "Falsifiabilité",
+        "Société ouverte",
+        "Science critique"
+      ],
+      "x": 7850,
+      "y": 1810
+    },
+    {
+      "id": "kuhn",
+      "name": "Kuhn",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Épistémologie",
+      "concepts": [
+        "Paradigmes",
+        "Révolutions scientifiques"
+      ],
+      "x": 8150,
+      "y": 1810
+    },
+    {
+      "id": "lakatos",
+      "name": "Lakatos",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Épistémologie",
+      "concepts": [
+        "Programmes de recherche",
+        "Épistémologie historique"
+      ],
+      "x": 8450,
+      "y": 1810
+    },
+    {
+      "id": "peirce",
+      "name": "Peirce",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "Pragmatisme",
+      "concepts": [
+        "Pragmatisme",
+        "Sémiotique"
+      ],
+      "x": 9050,
+      "y": 50
+    },
+    {
+      "id": "james",
+      "name": "William James",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Pragmatisme",
+      "concepts": [
+        "Pragmatisme psychologique",
+        "Pluralisme"
+      ],
+      "x": 9350,
+      "y": 50
+    },
+    {
+      "id": "dewey",
+      "name": "Dewey",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Pragmatisme",
+      "concepts": [
+        "Démocratie expérimentale",
+        "Éducation"
+      ],
+      "x": 9650,
+      "y": 50
+    },
+    {
+      "id": "rorty",
+      "name": "Rorty",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Pragmatisme",
+      "concepts": [
+        "Antifondationnalisme",
+        "Pragmatisme libéral"
+      ],
+      "x": 9950,
+      "y": 50
+    },
+    {
+      "id": "lib_tradition",
+      "name": "Tradition libérale",
+      "type": "concept",
+      "era": "XVIIIe-XIXe",
+      "domain": "Politique",
+      "concepts": [
+        "Droits individuels",
+        "Libertés civiles"
+      ],
+      "x": 9050,
+      "y": 490
+    },
+    {
+      "id": "rawls",
+      "name": "Rawls",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Politique",
+      "concepts": [
+        "Justice comme équité",
+        "Voile d'ignorance",
+        "Théorie de la justice"
+      ],
+      "x": 9350,
+      "y": 490
+    },
+    {
+      "id": "nozick",
+      "name": "Nozick",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Politique",
+      "concepts": [
+        "État minimal",
+        "Libertarianisme"
+      ],
+      "x": 9650,
+      "y": 490
+    },
+    {
+      "id": "deliberatif",
+      "name": "Théories délibératives",
+      "type": "concept",
+      "era": "XXe-XXIe",
+      "domain": "Politique",
+      "concepts": [
+        "Discussion publique",
+        "Consensus démocratique"
+      ],
+      "x": 9650,
+      "y": 710
+    },
+    {
+      "id": "fanon",
+      "name": "Fanon",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Postcolonial",
+      "concepts": [
+        "Colonialisme",
+        "Aliénation et violence",
+        "Décolonisation"
+      ],
+      "x": 9050,
+      "y": 1150
+    },
+    {
+      "id": "said",
+      "name": "Said",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Postcolonial",
+      "concepts": [
+        "Orientalisme",
+        "Discours colonial"
+      ],
+      "x": 9350,
+      "y": 1150
+    },
+    {
+      "id": "spivak",
+      "name": "Spivak",
+      "type": "author",
+      "era": "XXe-XXIe",
+      "domain": "Postcolonial",
+      "concepts": [
+        "Subaltern studies",
+        "Voix dominées"
+      ],
+      "x": 9650,
+      "y": 1150
+    },
+    {
+      "id": "mbembe",
+      "name": "Mbembe",
+      "type": "author",
+      "era": "XXe-XXIe",
+      "domain": "Postcolonial",
+      "concepts": [
+        "Nécropolitique",
+        "Postcolonie"
+      ],
+      "x": 9350,
+      "y": 1370
+    },
+    {
+      "id": "decolonial",
+      "name": "Courants décoloniaux",
+      "type": "concept",
+      "era": "XXe-XXIe",
+      "domain": "Postcolonial",
+      "concepts": [
+        "Critique de l'eurocentrisme",
+        "Colonialité du pouvoir"
+      ],
+      "x": 9650,
+      "y": 1370
+    },
+    {
+      "id": "adorno",
+      "name": "Adorno",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Critique sociale",
+      "concepts": [
+        "Dialectique négative",
+        "Industrie culturelle",
+        "Théorie esthétique"
+      ],
+      "x": 7250,
+      "y": 490
+    },
+    {
+      "id": "horkheimer",
+      "name": "Horkheimer",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Critique sociale",
+      "concepts": [
+        "Théorie critique",
+        "Raison instrumentale",
+        "Éclipse de la raison"
+      ],
+      "x": 7250,
+      "y": 270
+    },
+    {
+      "id": "marcuse",
+      "name": "Marcuse",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Critique sociale",
+      "concepts": [
+        "Homme unidimensionnel",
+        "Éros et civilisation",
+        "Libération"
+      ],
+      "x": 7250,
+      "y": 1150
+    },
+    {
+      "id": "benjamin",
+      "name": "Benjamin",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Critique sociale",
+      "concepts": [
+        "Aura de l'œuvre d'art",
+        "Temps messianique",
+        "Dialectique des images"
+      ],
+      "x": 7250,
+      "y": 1590
+    },
+    {
+      "id": "carnap",
+      "name": "Carnap",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Vérificationnisme",
+        "Logique du langage",
+        "Anti-métaphysique"
+      ],
+      "x": 7850,
+      "y": 710
+    },
+    {
+      "id": "schlick",
+      "name": "Schlick",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Positivisme logique",
+        "Théorie de la connaissance",
+        "Cercle de Vienne"
+      ],
+      "x": 7850,
+      "y": 930
+    },
+    {
+      "id": "neurath",
+      "name": "Neurath",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Physicalisme",
+        "Unité de la science",
+        "Protocoles d'observation"
+      ],
+      "x": 7850,
+      "y": 1150
+    },
+    {
+      "id": "ayer",
+      "name": "Ayer",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Principe de vérification",
+        "Empirisme logique",
+        "Langage vérité et logique"
+      ],
+      "x": 7850,
+      "y": 270
+    },
+    {
+      "id": "waismann",
+      "name": "Waismann",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Texture ouverte",
+        "Logique et langage",
+        "Philosophie analytique"
+      ],
+      "x": 8150,
+      "y": 50
+    },
+    {
+      "id": "gadamer",
+      "name": "Gadamer",
+      "type": "author",
+      "era": "XXe-XXIe",
+      "domain": "Continental",
+      "concepts": [
+        "Herméneutique",
+        "Fusion des horizons",
+        "Cercle herméneutique"
+      ],
+      "x": 6950,
+      "y": 270
+    },
+    {
+      "id": "jaspers",
+      "name": "Jaspers",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Situations limites",
+        "Transcendance",
+        "Existenz"
+      ],
+      "x": 6950,
+      "y": 490
+    },
+    {
+      "id": "kojeve",
+      "name": "Kojève",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Fin de l'histoire",
+        "Dialectique maître-esclave",
+        "Hégélianisme"
+      ],
+      "x": 6950,
+      "y": 710
+    },
+    {
+      "id": "malebranche",
+      "name": "Malebranche",
+      "type": "author",
+      "era": "XVIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Occasionalisme",
+        "Vision en Dieu",
+        "Rationalisme chrétien"
+      ],
+      "x": 2750,
+      "y": 1150
+    },
+    {
+      "id": "feuerbach",
+      "name": "Feuerbach",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "XIXe",
+      "concepts": [
+        "Matérialisme anthropologique",
+        "Critique de la religion",
+        "Humanisme"
+      ],
+      "x": 4550,
+      "y": 1150
+    },
+    {
+      "id": "whitehead",
+      "name": "Whitehead",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Analytique",
+      "concepts": [
+        "Philosophie du processus",
+        "Organicisme",
+        "Créativité"
+      ],
+      "x": 7250,
+      "y": 1810
+    },
+    {
+      "id": "passeron",
+      "name": "Passeron",
+      "type": "author",
+      "era": "XXe-XXIe",
+      "domain": "Sciences sociales",
+      "concepts": [
+        "Reproduction sociale",
+        "Raisonnement sociologique",
+        "Capital culturel"
+      ],
+      "x": 6350,
+      "y": 270
+    },
+    {
+      "id": "dalembert",
+      "name": "d'Alembert",
+      "type": "author",
+      "era": "XVIIIe",
+      "domain": "Moderne",
+      "concepts": [
+        "Encyclopédie",
+        "Mathématiques",
+        "Sciences et philosophie"
+      ],
+      "x": 3950,
+      "y": 710
+    },
+    {
+      "id": "jakobson",
+      "name": "Jakobson",
+      "type": "author",
+      "era": "XXe",
+      "domain": "Continental",
+      "concepts": [
+        "Fonctions du langage",
+        "Phonologie",
+        "Métaphore et métonymie"
+      ],
+      "x": 6650,
+      "y": 270
+    },
+    {
+      "id": "mignolo",
+      "name": "Mignolo",
+      "type": "author",
+      "era": "XXe-XXIe",
+      "domain": "Postcolonial",
+      "concepts": [
+        "Colonialité du pouvoir",
+        "Option décoloniale",
+        "Pensée frontalière"
+      ],
+      "x": 9950,
+      "y": 1370
+    },
+    {
+      "id": "anarchisme",
+      "name": "Anarchisme",
+      "type": "concept",
+      "era": "XIXe-XXe",
+      "domain": "Anarchisme",
+      "concepts": [
+        "Anti-étatisme",
+        "Autogestion",
+        "Fédéralisme libertaire"
+      ],
+      "x": 5150,
+      "y": 490
+    },
+    {
+      "id": "proudhon",
+      "name": "Proudhon",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "Anarchisme",
+      "concepts": [
+        "Mutuellisme",
+        "Fédéralisme",
+        "La propriété c'est le vol"
+      ],
+      "x": 4850,
+      "y": 710
+    },
+    {
+      "id": "stirner",
+      "name": "Stirner",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "Anarchisme",
+      "concepts": [
+        "L'Unique",
+        "Anarchisme individualiste",
+        "Critique des idéaux"
+      ],
+      "x": 4850,
+      "y": 1150
+    },
+    {
+      "id": "bakounine",
+      "name": "Bakounine",
+      "type": "author",
+      "era": "XIXe",
+      "domain": "Anarchisme",
+      "concepts": [
+        "Anarchisme collectiviste",
+        "Anti-autoritarisme",
+        "Révolution immédiate"
+      ],
+      "x": 5150,
+      "y": 710
+    },
+    {
+      "id": "kropotkine",
+      "name": "Kropotkine",
+      "type": "author",
+      "era": "XIXe-XXe",
+      "domain": "Anarchisme",
+      "concepts": [
+        "Anarchisme communiste",
+        "Entraide",
+        "Fédération de communes"
+      ],
+      "x": 5450,
+      "y": 710
+    }
   ],
   "links": [
-    ["socrate","platon","filiation"],["platon","aristote","filiation"],["aristote","stoiciens","influence"],["platon","epicure","opposition"],["platon","neoplatonisme","continuité"],
-    ["neoplatonisme","augustin","influence"],["aristote","aquin","influence"],["augustin","scolastique","appartenance"],["aquin","scolastique","appartenance"],
-    ["scolastique","nominalisme","rupture"],["nominalisme","humanisme","influence"],
-    ["humanisme","machiavel","appartenance"],["humanisme","grotius","appartenance"],["humanisme","bacon","appartenance"],["humanisme","galilee","appartenance"],
-    ["galilee","descartes","influence"],["descartes","newton","influence"],["newton","lumieres","influence"],
-    ["descartes","spinoza","rupture"],["descartes","leibniz","dialogue"],["bacon","empirisme","continuité"],["empirisme","locke","appartenance"],["empirisme","hume","appartenance"],
-    ["grotius","hobbes","influence"],["hobbes","locke","opposition"],["locke","montesquieu","influence"],["locke","rousseau","dialogue"],
-    ["hume","kant","rupture"],["leibniz","kant","influence"],["rousseau","kant","influence"],["lumieres","voltaire","appartenance"],["lumieres","diderot","appartenance"],
-    ["kant","hegel","rupture"],["kant","schopenhauer","rupture"],["hegel","marx","rupture"],["hegel","kierkegaard","opposition"],
-    ["kierkegaard","nietzsche","influence"],["schopenhauer","nietzsche","influence"],["schopenhauer","freud","influence"],["nietzsche","freud","influence"],
-    ["hume","bentham","influence"],["bentham","mill","continuité"],["mill","tocqueville","dialogue"],
-    ["adam_smith","ricardo","continuité"],["ricardo","marx","rupture"],["darwin","spencer","rupture"],
-    ["comte","durkheim","continuité"],["durkheim","mauss","filiation"],["mauss","levi_strauss","influence"],
-    ["hegel","weber","dialogue"],["durkheim","weber","dialogue"],["marx","weber","dialogue"],["weber","parsons","influence"],["weber","elias","influence"],
-    ["durkheim","bourdieu","influence"],["weber","bourdieu","influence"],["marx","bourdieu","influence"],
-    ["mead","blumer","filiation"],["blumer","goffman","influence"],["bourdieu","latour","rupture"],
-    ["adam_smith","eco_classique","continuité"],["eco_classique","marx","rupture"],["walras","neoclassique","continuité"],
-    ["menger","autrichienne","continuité"],["autrichienne","hayek","appartenance"],
-    ["eco_classique","marshall","continuité"],["marshall","keynes","rupture"],["keynes","minsky","continuité"],
-    ["neoclassique","chicago","appartenance"],["chicago","neoliberalisme","continuité"],["keynes","sen","rupture"],["rawls","sen","dialogue"],
-    ["kant","husserl","influence"],["husserl","heidegger","rupture"],["heidegger","sartre","rupture"],["heidegger","arendt","rupture"],
-    ["husserl","merleau_ponty","continuité"],["nietzsche","heidegger","influence"],
-    ["marx","francfort","influence"],["kant","francfort","influence"],["francfort","habermas","rupture"],
-    ["sartre","beauvoir","dialogue"],
-    ["saussure","structuralisme","continuité"],["levi_strauss","structuralisme","continuité"],
-    ["structuralisme","lacan","rupture"],["structuralisme","barthes","influence"],["freud","lacan","rupture"],
-    ["nietzsche","foucault","influence"],["heidegger","foucault","influence"],["marx","foucault","rupture"],["structuralisme","foucault","rupture"],["freud","foucault","rupture"],
-    ["foucault","derrida","dialogue"],["foucault","deleuze","dialogue"],["deleuze","guattari","synthèse"],["foucault","butler","influence"],
-    ["frege","russell","filiation"],["russell","wittgenstein","filiation"],["wittgenstein","positivisme","influence"],["positivisme","quine","opposition"],
-    ["quine","putnam","dialogue"],["putnam","kripke","dialogue"],["wittgenstein","austin","influence"],["austin","searle","continuité"],
-    ["hume","popper","dialogue"],["kant","popper","influence"],["popper","kuhn","opposition"],["kuhn","lakatos","dialogue"],["wittgenstein","habermas","influence"],
-    ["peirce","james","filiation"],["james","dewey","continuité"],["dewey","rorty","continuité"],
-    ["locke","lib_tradition","continuité"],["lib_tradition","rawls","influence"],["rawls","nozick","opposition"],["habermas","deliberatif","continuité"],
-    ["marx","fanon","influence"],["foucault","said","influence"],["derrida","spivak","influence"],["fanon","mbembe","influence"],["said","mbembe","influence"],["foucault","decolonial","influence"],
-    ["proudhon","anarchisme","appartenance"],["bakounine","anarchisme","appartenance"],["kropotkine","anarchisme","appartenance"],["stirner","anarchisme","appartenance"],
-    ["hegel","proudhon","influence"],["hegel","stirner","influence"],
-    ["marx","proudhon","opposition"],["marx","bakounine","opposition"],
-    ["proudhon","bakounine","influence"],["proudhon","kropotkine","influence"],
-    ["bakounine","kropotkine","influence"],
-    ["darwin","kropotkine","dialogue"],
-    ["nietzsche","stirner","dialogue"]
+    [
+      "socrate",
+      "platon",
+      "filiation"
+    ],
+    [
+      "platon",
+      "aristote",
+      "filiation"
+    ],
+    [
+      "aristote",
+      "stoiciens",
+      "influence"
+    ],
+    [
+      "platon",
+      "epicure",
+      "opposition"
+    ],
+    [
+      "platon",
+      "neoplatonisme",
+      "continuité"
+    ],
+    [
+      "neoplatonisme",
+      "augustin",
+      "influence"
+    ],
+    [
+      "aristote",
+      "aquin",
+      "influence"
+    ],
+    [
+      "augustin",
+      "scolastique",
+      "appartenance"
+    ],
+    [
+      "aquin",
+      "scolastique",
+      "appartenance"
+    ],
+    [
+      "scolastique",
+      "nominalisme",
+      "rupture"
+    ],
+    [
+      "nominalisme",
+      "humanisme",
+      "influence"
+    ],
+    [
+      "humanisme",
+      "machiavel",
+      "appartenance"
+    ],
+    [
+      "humanisme",
+      "grotius",
+      "appartenance"
+    ],
+    [
+      "humanisme",
+      "bacon",
+      "appartenance"
+    ],
+    [
+      "humanisme",
+      "galilee",
+      "appartenance"
+    ],
+    [
+      "galilee",
+      "descartes",
+      "influence"
+    ],
+    [
+      "descartes",
+      "newton",
+      "influence"
+    ],
+    [
+      "newton",
+      "lumieres",
+      "influence"
+    ],
+    [
+      "descartes",
+      "spinoza",
+      "rupture"
+    ],
+    [
+      "descartes",
+      "leibniz",
+      "dialogue"
+    ],
+    [
+      "bacon",
+      "empirisme",
+      "continuité"
+    ],
+    [
+      "empirisme",
+      "locke",
+      "appartenance"
+    ],
+    [
+      "empirisme",
+      "hume",
+      "appartenance"
+    ],
+    [
+      "grotius",
+      "hobbes",
+      "influence"
+    ],
+    [
+      "hobbes",
+      "locke",
+      "opposition"
+    ],
+    [
+      "locke",
+      "montesquieu",
+      "influence"
+    ],
+    [
+      "locke",
+      "rousseau",
+      "dialogue"
+    ],
+    [
+      "hume",
+      "kant",
+      "rupture"
+    ],
+    [
+      "leibniz",
+      "kant",
+      "influence"
+    ],
+    [
+      "rousseau",
+      "kant",
+      "influence"
+    ],
+    [
+      "lumieres",
+      "voltaire",
+      "appartenance"
+    ],
+    [
+      "lumieres",
+      "diderot",
+      "appartenance"
+    ],
+    [
+      "kant",
+      "hegel",
+      "rupture"
+    ],
+    [
+      "kant",
+      "schopenhauer",
+      "rupture"
+    ],
+    [
+      "hegel",
+      "marx",
+      "rupture"
+    ],
+    [
+      "hegel",
+      "kierkegaard",
+      "opposition"
+    ],
+    [
+      "kierkegaard",
+      "nietzsche",
+      "influence"
+    ],
+    [
+      "schopenhauer",
+      "nietzsche",
+      "influence"
+    ],
+    [
+      "schopenhauer",
+      "freud",
+      "influence"
+    ],
+    [
+      "nietzsche",
+      "freud",
+      "influence"
+    ],
+    [
+      "hume",
+      "bentham",
+      "influence"
+    ],
+    [
+      "bentham",
+      "mill",
+      "continuité"
+    ],
+    [
+      "mill",
+      "tocqueville",
+      "dialogue"
+    ],
+    [
+      "adam_smith",
+      "ricardo",
+      "continuité"
+    ],
+    [
+      "ricardo",
+      "marx",
+      "rupture"
+    ],
+    [
+      "darwin",
+      "spencer",
+      "rupture"
+    ],
+    [
+      "comte",
+      "durkheim",
+      "continuité"
+    ],
+    [
+      "durkheim",
+      "mauss",
+      "filiation"
+    ],
+    [
+      "mauss",
+      "levi_strauss",
+      "influence"
+    ],
+    [
+      "hegel",
+      "weber",
+      "dialogue"
+    ],
+    [
+      "durkheim",
+      "weber",
+      "dialogue"
+    ],
+    [
+      "marx",
+      "weber",
+      "dialogue"
+    ],
+    [
+      "weber",
+      "parsons",
+      "influence"
+    ],
+    [
+      "weber",
+      "elias",
+      "influence"
+    ],
+    [
+      "durkheim",
+      "bourdieu",
+      "influence"
+    ],
+    [
+      "weber",
+      "bourdieu",
+      "influence"
+    ],
+    [
+      "marx",
+      "bourdieu",
+      "influence"
+    ],
+    [
+      "mead",
+      "blumer",
+      "filiation"
+    ],
+    [
+      "blumer",
+      "goffman",
+      "influence"
+    ],
+    [
+      "bourdieu",
+      "latour",
+      "rupture"
+    ],
+    [
+      "adam_smith",
+      "eco_classique",
+      "continuité"
+    ],
+    [
+      "eco_classique",
+      "marx",
+      "rupture"
+    ],
+    [
+      "walras",
+      "neoclassique",
+      "continuité"
+    ],
+    [
+      "menger",
+      "autrichienne",
+      "continuité"
+    ],
+    [
+      "autrichienne",
+      "hayek",
+      "appartenance"
+    ],
+    [
+      "eco_classique",
+      "marshall",
+      "continuité"
+    ],
+    [
+      "marshall",
+      "keynes",
+      "rupture"
+    ],
+    [
+      "keynes",
+      "minsky",
+      "continuité"
+    ],
+    [
+      "neoclassique",
+      "chicago",
+      "appartenance"
+    ],
+    [
+      "chicago",
+      "neoliberalisme",
+      "continuité"
+    ],
+    [
+      "keynes",
+      "sen",
+      "rupture"
+    ],
+    [
+      "rawls",
+      "sen",
+      "dialogue"
+    ],
+    [
+      "kant",
+      "husserl",
+      "influence"
+    ],
+    [
+      "husserl",
+      "heidegger",
+      "rupture"
+    ],
+    [
+      "heidegger",
+      "sartre",
+      "rupture"
+    ],
+    [
+      "heidegger",
+      "arendt",
+      "rupture"
+    ],
+    [
+      "husserl",
+      "merleau_ponty",
+      "continuité"
+    ],
+    [
+      "nietzsche",
+      "heidegger",
+      "influence"
+    ],
+    [
+      "marx",
+      "francfort",
+      "influence"
+    ],
+    [
+      "kant",
+      "francfort",
+      "influence"
+    ],
+    [
+      "francfort",
+      "habermas",
+      "rupture"
+    ],
+    [
+      "sartre",
+      "beauvoir",
+      "dialogue"
+    ],
+    [
+      "saussure",
+      "structuralisme",
+      "continuité"
+    ],
+    [
+      "levi_strauss",
+      "structuralisme",
+      "continuité"
+    ],
+    [
+      "structuralisme",
+      "lacan",
+      "rupture"
+    ],
+    [
+      "structuralisme",
+      "barthes",
+      "influence"
+    ],
+    [
+      "freud",
+      "lacan",
+      "rupture"
+    ],
+    [
+      "nietzsche",
+      "foucault",
+      "influence"
+    ],
+    [
+      "heidegger",
+      "foucault",
+      "influence"
+    ],
+    [
+      "marx",
+      "foucault",
+      "rupture"
+    ],
+    [
+      "structuralisme",
+      "foucault",
+      "rupture"
+    ],
+    [
+      "freud",
+      "foucault",
+      "rupture"
+    ],
+    [
+      "foucault",
+      "derrida",
+      "dialogue"
+    ],
+    [
+      "foucault",
+      "deleuze",
+      "dialogue"
+    ],
+    [
+      "deleuze",
+      "guattari",
+      "synthèse"
+    ],
+    [
+      "foucault",
+      "butler",
+      "influence"
+    ],
+    [
+      "frege",
+      "russell",
+      "filiation"
+    ],
+    [
+      "russell",
+      "wittgenstein",
+      "filiation"
+    ],
+    [
+      "wittgenstein",
+      "positivisme",
+      "influence"
+    ],
+    [
+      "positivisme",
+      "quine",
+      "opposition"
+    ],
+    [
+      "quine",
+      "putnam",
+      "dialogue"
+    ],
+    [
+      "putnam",
+      "kripke",
+      "dialogue"
+    ],
+    [
+      "wittgenstein",
+      "austin",
+      "influence"
+    ],
+    [
+      "austin",
+      "searle",
+      "continuité"
+    ],
+    [
+      "hume",
+      "popper",
+      "dialogue"
+    ],
+    [
+      "kant",
+      "popper",
+      "influence"
+    ],
+    [
+      "popper",
+      "kuhn",
+      "opposition"
+    ],
+    [
+      "kuhn",
+      "lakatos",
+      "dialogue"
+    ],
+    [
+      "wittgenstein",
+      "habermas",
+      "influence"
+    ],
+    [
+      "peirce",
+      "james",
+      "filiation"
+    ],
+    [
+      "james",
+      "dewey",
+      "continuité"
+    ],
+    [
+      "dewey",
+      "rorty",
+      "continuité"
+    ],
+    [
+      "locke",
+      "lib_tradition",
+      "continuité"
+    ],
+    [
+      "lib_tradition",
+      "rawls",
+      "influence"
+    ],
+    [
+      "rawls",
+      "nozick",
+      "opposition"
+    ],
+    [
+      "habermas",
+      "deliberatif",
+      "continuité"
+    ],
+    [
+      "marx",
+      "fanon",
+      "influence"
+    ],
+    [
+      "foucault",
+      "said",
+      "influence"
+    ],
+    [
+      "derrida",
+      "spivak",
+      "influence"
+    ],
+    [
+      "fanon",
+      "mbembe",
+      "influence"
+    ],
+    [
+      "said",
+      "mbembe",
+      "influence"
+    ],
+    [
+      "foucault",
+      "decolonial",
+      "influence"
+    ],
+    [
+      "adorno",
+      "francfort",
+      "filiation"
+    ],
+    [
+      "adorno",
+      "marx",
+      "influence"
+    ],
+    [
+      "adorno",
+      "hegel",
+      "influence"
+    ],
+    [
+      "adorno",
+      "benjamin",
+      "collaboration"
+    ],
+    [
+      "horkheimer",
+      "adorno",
+      "collaboration"
+    ],
+    [
+      "horkheimer",
+      "francfort",
+      "filiation"
+    ],
+    [
+      "horkheimer",
+      "marx",
+      "influence"
+    ],
+    [
+      "horkheimer",
+      "marcuse",
+      "collaboration"
+    ],
+    [
+      "marcuse",
+      "francfort",
+      "filiation"
+    ],
+    [
+      "marcuse",
+      "hegel",
+      "influence"
+    ],
+    [
+      "marcuse",
+      "marx",
+      "influence"
+    ],
+    [
+      "marcuse",
+      "freud",
+      "influence"
+    ],
+    [
+      "benjamin",
+      "francfort",
+      "affinité"
+    ],
+    [
+      "benjamin",
+      "marx",
+      "influence"
+    ],
+    [
+      "benjamin",
+      "adorno",
+      "influence"
+    ],
+    [
+      "carnap",
+      "positivisme",
+      "filiation"
+    ],
+    [
+      "carnap",
+      "schlick",
+      "collaboration"
+    ],
+    [
+      "carnap",
+      "neurath",
+      "collaboration"
+    ],
+    [
+      "carnap",
+      "frege",
+      "influence"
+    ],
+    [
+      "carnap",
+      "russell",
+      "influence"
+    ],
+    [
+      "carnap",
+      "wittgenstein",
+      "influence"
+    ],
+    [
+      "schlick",
+      "positivisme",
+      "filiation"
+    ],
+    [
+      "schlick",
+      "neurath",
+      "collaboration"
+    ],
+    [
+      "schlick",
+      "wittgenstein",
+      "influence"
+    ],
+    [
+      "schlick",
+      "hume",
+      "influence"
+    ],
+    [
+      "neurath",
+      "positivisme",
+      "filiation"
+    ],
+    [
+      "neurath",
+      "carnap",
+      "collaboration"
+    ],
+    [
+      "neurath",
+      "schlick",
+      "collaboration"
+    ],
+    [
+      "ayer",
+      "positivisme",
+      "filiation"
+    ],
+    [
+      "ayer",
+      "carnap",
+      "influence"
+    ],
+    [
+      "ayer",
+      "russell",
+      "influence"
+    ],
+    [
+      "ayer",
+      "wittgenstein",
+      "influence"
+    ],
+    [
+      "waismann",
+      "positivisme",
+      "filiation"
+    ],
+    [
+      "waismann",
+      "schlick",
+      "collaboration"
+    ],
+    [
+      "waismann",
+      "wittgenstein",
+      "influence"
+    ],
+    [
+      "gadamer",
+      "heidegger",
+      "filiation"
+    ],
+    [
+      "gadamer",
+      "husserl",
+      "influence"
+    ],
+    [
+      "gadamer",
+      "hegel",
+      "influence"
+    ],
+    [
+      "jaspers",
+      "kierkegaard",
+      "influence"
+    ],
+    [
+      "jaspers",
+      "nietzsche",
+      "influence"
+    ],
+    [
+      "jaspers",
+      "kant",
+      "influence"
+    ],
+    [
+      "jaspers",
+      "heidegger",
+      "opposition"
+    ],
+    [
+      "kojeve",
+      "hegel",
+      "filiation"
+    ],
+    [
+      "kojeve",
+      "marx",
+      "influence"
+    ],
+    [
+      "kojeve",
+      "sartre",
+      "influence"
+    ],
+    [
+      "malebranche",
+      "descartes",
+      "filiation"
+    ],
+    [
+      "malebranche",
+      "augustin",
+      "influence"
+    ],
+    [
+      "malebranche",
+      "leibniz",
+      "contemporain"
+    ],
+    [
+      "hegel",
+      "feuerbach",
+      "filiation"
+    ],
+    [
+      "feuerbach",
+      "marx",
+      "influence"
+    ],
+    [
+      "whitehead",
+      "russell",
+      "collaboration"
+    ],
+    [
+      "whitehead",
+      "james",
+      "influence"
+    ],
+    [
+      "whitehead",
+      "dewey",
+      "affinité"
+    ],
+    [
+      "passeron",
+      "bourdieu",
+      "collaboration"
+    ],
+    [
+      "passeron",
+      "durkheim",
+      "influence"
+    ],
+    [
+      "passeron",
+      "weber",
+      "influence"
+    ],
+    [
+      "dalembert",
+      "lumieres",
+      "filiation"
+    ],
+    [
+      "dalembert",
+      "diderot",
+      "collaboration"
+    ],
+    [
+      "dalembert",
+      "newton",
+      "influence"
+    ],
+    [
+      "jakobson",
+      "saussure",
+      "influence"
+    ],
+    [
+      "jakobson",
+      "levi_strauss",
+      "influence"
+    ],
+    [
+      "jakobson",
+      "structuralisme",
+      "filiation"
+    ],
+    [
+      "mignolo",
+      "decolonial",
+      "filiation"
+    ],
+    [
+      "mignolo",
+      "fanon",
+      "influence"
+    ],
+    [
+      "mignolo",
+      "said",
+      "influence"
+    ],
+    [
+      "mignolo",
+      "spivak",
+      "affinite"
+    ],
+    [
+      "proudhon",
+      "anarchisme",
+      "appartenance"
+    ],
+    [
+      "bakounine",
+      "anarchisme",
+      "appartenance"
+    ],
+    [
+      "kropotkine",
+      "anarchisme",
+      "appartenance"
+    ],
+    [
+      "stirner",
+      "anarchisme",
+      "appartenance"
+    ],
+    [
+      "hegel",
+      "proudhon",
+      "influence"
+    ],
+    [
+      "hegel",
+      "stirner",
+      "influence"
+    ],
+    [
+      "marx",
+      "proudhon",
+      "opposition"
+    ],
+    [
+      "marx",
+      "bakounine",
+      "opposition"
+    ],
+    [
+      "proudhon",
+      "bakounine",
+      "influence"
+    ],
+    [
+      "proudhon",
+      "kropotkine",
+      "influence"
+    ],
+    [
+      "bakounine",
+      "kropotkine",
+      "influence"
+    ],
+    [
+      "darwin",
+      "kropotkine",
+      "dialogue"
+    ],
+    [
+      "nietzsche",
+      "stirner",
+      "dialogue"
+    ]
   ],
   "domains": {
-    "Antique":           "#7c3aed",
-    "Médiéval":          "#2563eb",
-    "Renaissance":       "#0891b2",
-    "Moderne":           "#d97706",
-    "Critique":          "#f59e0b",
-    "Idéalisme":         "#ef4444",
-    "Critique sociale":  "#ec4899",
-    "XIXe":              "#dc2626",
+    "Antique": "#7c3aed",
+    "Médiéval": "#2563eb",
+    "Renaissance": "#0891b2",
+    "Moderne": "#d97706",
+    "Critique": "#f59e0b",
+    "Idéalisme": "#ef4444",
+    "Critique sociale": "#ec4899",
+    "XIXe": "#dc2626",
     "Sciences sociales": "#14b8a6",
-    "Économie":          "#16a34a",
-    "Continental":       "#9333ea",
-    "Analytique":        "#6366f1",
-    "Épistémologie":     "#0ea5e9",
-    "Pragmatisme":       "#f97316",
-    "Politique":         "#ea580c",
-    "Postcolonial":      "#be123c",
-    "Anarchisme":        "#b45309"
+    "Économie": "#16a34a",
+    "Continental": "#9333ea",
+    "Analytique": "#6366f1",
+    "Épistémologie": "#0ea5e9",
+    "Pragmatisme": "#f97316",
+    "Politique": "#ea580c",
+    "Postcolonial": "#be123c",
+    "Anarchisme": "#b45309"
   }
 }

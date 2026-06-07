@@ -1,0 +1,5 @@
+Roman Jakobson est l'un des linguistes les plus influents du XXe siècle, fondateur du Cercle linguistique de Prague et figure centrale du structuralisme. Sa théorie des fonctions du langage distingue six dimensions de tout acte de communication : référentielle, expressive, conative, phatique, métalinguistique et poétique. Cette grille analytique a profondément marqué la linguistique, la poétique et la sémiotique.
+
+Son analyse de la métaphore et de la métonymie comme deux pôles fondamentaux du langage — le premier fondé sur la similarité, le second sur la contiguïté — a traversé les disciplines, influençant la psychanalyse lacanienne, la critique littéraire et l'anthropologie structurale de Lévi-Strauss. Jakobson établit ainsi des ponts entre linguistique, poétique et sciences humaines.
+
+En phonologie, il développe avec Troubetzkoy la notion de trait distinctif, montrant que les sons d'une langue fonctionnent par oppositions binaires. Cette approche structurale de la langue inspire directement Lévi-Strauss dans son analyse des mythes et des systèmes de parenté, faisant de Jakobson l'un des artisans du programme structuraliste en sciences humaines.

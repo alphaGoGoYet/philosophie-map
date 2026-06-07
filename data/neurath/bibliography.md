@@ -1,0 +1,7 @@
+- *Wissenschaftliche Weltauffassung : Der Wiener Kreis* (1929, avec Rudolf Carnap et Hans Hahn)
+- *Empirische Soziologie* (1931)
+- *Einheitswissenschaft und Psychologie* (1933)
+- *Foundations of the Social Sciences* (1944)
+- *International Picture Language* (1936)
+- *Modern Man in the Making* (1939)
+- *Philosophical Papers 1913–1946* (posth., 1983, éd. R. S. Cohen et M. Neurath)
