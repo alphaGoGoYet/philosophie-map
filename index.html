@@ -24,6 +24,7 @@
       color: var(--text);
       overflow: hidden;
       height: 100vh;
+      height: 100dvh; /* barre d'outils dynamique des navigateurs mobiles */
     }
 
     header {
@@ -36,6 +37,8 @@
       border-bottom: 1px solid var(--border);
       display: flex;
       flex-direction: column;
+      /* Firefox Android ignore user-scalable=no : bloquer pinch/double-tap natifs ici aussi */
+      touch-action: pan-x pan-y;
     }
 
     .header-top {
@@ -184,6 +187,7 @@
       right: 14px;
       width: 340px;
       max-height: calc(100vh - var(--header-h) - 28px);
+      max-height: calc(100dvh - var(--header-h) - 28px);
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 18px;
@@ -191,6 +195,7 @@
       z-index: 200;
       overflow-y: auto;
       display: none;
+      touch-action: pan-y;
       scrollbar-width: thin;
       box-shadow: 0 4px 24px rgba(0,0,0,0.1);
     }
@@ -535,6 +540,7 @@ let searchQuery  = '';
 let activeDomain = null;
 let touchedLink  = null;
 let touchedNode  = null;
+let pinch        = null;
 
 let nodeMap;
 
@@ -556,8 +562,11 @@ function currentScale() {
   return mode === 'overview' ? overviewScale() : detailScale;
 }
 
+let _lastStrokeScale = null;
 function updateLinkStrokes() {
   const s = currentScale();
+  if (s === _lastStrokeScale) return; // le pan ne change pas l'échelle : éviter de reparcourir tous les liens
+  _lastStrokeScale = s;
   document.querySelectorAll('#links-svg path.link-vis').forEach(p => {
     const style = (p.dataset.type && LINK_STYLES[p.dataset.type]) || LINK_DEFAULT;
     p.setAttribute('stroke-width', style.width / s);
@@ -1120,7 +1129,35 @@ window.addEventListener('resize', () => { updateHeaderH(); applyTransform(false)
 // ─── Touch support ────────────────────────────────────────────────────────────
 let lastTapTime = 0;
 
+function pinchDist(e) {
+  const [a, b] = e.touches;
+  return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+}
+function pinchMid(e) {
+  const [a, b] = e.touches;
+  return { x: (a.clientX + b.clientX) / 2, y: (a.clientY + b.clientY) / 2 - headerH() };
+}
+
 viewport.addEventListener('touchstart', e => {
+  // Pincement à deux doigts : zoom de la carte
+  if (e.touches.length === 2) {
+    e.preventDefault();
+    if (mode === 'overview') {
+      // Continuité : entrer en vue détail à l'échelle actuelle de la vue d'ensemble
+      const s = overviewScale();
+      const o = overviewOffset(s);
+      mode = 'detail';
+      detailScale  = s;
+      detailOffset = { x: o.x, y: o.y };
+      document.getElementById('hover-rect').style.display = 'none';
+      applyTransform(false);
+    }
+    pinch = { dist: pinchDist(e), mid: pinchMid(e), scale: detailScale, offset: { ...detailOffset } };
+    isDragging = true; // neutralise le tap au touchend
+    lastTapTime = 0;
+    return;
+  }
+  if (pinch) return;
   if (mode === 'overview') e.preventDefault();
   const touch = e.touches[0];
   if (mode === 'overview') {
@@ -1135,6 +1172,22 @@ viewport.addEventListener('touchstart', e => {
 
 viewport.addEventListener('touchmove', e => {
   e.preventDefault();
+  if (pinch && e.touches.length === 2) {
+    const d = pinchDist(e);
+    const m = pinchMid(e);
+    // Autoriser le dézoom jusqu'à l'échelle de la vue d'ensemble (retour naturel)
+    const floor = Math.min(overviewScale(), SCALE_MIN);
+    const newScale = clamp(pinch.scale * d / pinch.dist, floor, SCALE_MAX);
+    const k = newScale / pinch.scale;
+    detailOffset = {
+      x: m.x - (pinch.mid.x - pinch.offset.x) * k,
+      y: m.y - (pinch.mid.y - pinch.offset.y) * k,
+    };
+    detailScale = newScale;
+    applyTransform(false);
+    return;
+  }
+  if (pinch) return;
   const touch = e.touches[0];
   if (mode === 'overview') {
     updateHoverRect(touch.clientX, touch.clientY - headerH());
@@ -1154,6 +1207,26 @@ viewport.addEventListener('touchmove', e => {
 
 viewport.addEventListener('touchend', e => {
   document.getElementById('hover-rect').style.display = 'none';
+
+  // Fin (partielle ou totale) d'un pincement
+  if (pinch) {
+    if (e.touches.length === 1) {
+      // Un doigt reste : continuer en glissement sans à-coup
+      pinch = null;
+      isDragging = true;
+      dragStart  = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      dragOrigin = { ...detailOffset };
+    } else if (e.touches.length === 0) {
+      pinch = null;
+      // Dézoom quasi complet : revenir à la vue d'ensemble
+      if (mode === 'detail' && detailScale <= overviewScale() * 1.15) zoomOut();
+      setTimeout(() => { isDragging = false; viewport.classList.remove('dragging'); }, 0);
+    }
+    touchedLink = null;
+    touchedNode = null;
+    lastTapTime = 0;
+    return;
+  }
 
   // Tap sur un lien SVG (mémorisé au touchstart) — uniquement en vue détail
   if (!isDragging && touchedLink && mode === 'detail') {
@@ -1189,6 +1262,15 @@ viewport.addEventListener('touchend', e => {
   }
   setTimeout(() => { isDragging = false; viewport.classList.remove('dragging'); }, 0);
 }, { passive: false });
+
+// Geste interrompu par le système (appel, notifications…) : réinitialiser l'état tactile
+viewport.addEventListener('touchcancel', () => {
+  pinch = null;
+  touchedLink = null;
+  touchedNode = null;
+  document.getElementById('hover-rect').style.display = 'none';
+  setTimeout(() => { isDragging = false; viewport.classList.remove('dragging'); }, 0);
+});
 
 // Start
 (async () => {
